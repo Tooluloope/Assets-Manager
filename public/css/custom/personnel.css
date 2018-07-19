@@ -1,6 +1,7 @@
 td {
     vertical-align: middle !important;
     text-align: center !important;
+    padding: .375rem .75rem;
  }
  .btn-circle {
     width: 50px;
@@ -64,4 +65,17 @@ td {
 @keyframes fadeout {
     from {top: 70px; opacity: 1;}
     to {top: 0; opacity: 0;}
+}
+.mdc-checkbox .mdc-checkbox__background::before {
+    background-color: #28a745;
+}
+.mdc-checkbox .mdc-checkbox__background::before {
+    background-color: #28a745;
+}
+.mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background, .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
+    border-color: #28a745;
+    background-color: #28a745;
+}
+.mdc-checkbox::before, .mdc-checkbox::after {
+    background-color: #28a745;
 }
