@@ -17,4 +17,13 @@ Route::get('sign-in', function () {
 Route::get('/', ['as' => 'home', function () {
     return view('home');
 }]);
+Route::get('users', ['as' => 'users', function () {
+    return view('users');
+}]);
+Route::get('personnel', ['as' => 'personnel', function () {
+    return view('personnel');
+}]);
+Route::get('projects', ['as' => 'projects', function () {
+    return view('projects');
+}]);
 

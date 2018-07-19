@@ -13,6 +13,8 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom/home.css">
+
   <!-- Font-awesome -->
   <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.css"/>
   <!-- Bootstrap 4 -->
@@ -34,21 +36,21 @@
         </div>
         <div style="height: 100%;" class="mdc-list-group">
           <nav style="height: 100%;" class="mdc-list mdc-drawer-menu">
-            <div class="mdc-list-item mdc-drawer-item @yield('workorder_active')">
-              <a class="mdc-drawer-link" href="#">
-              <i class="fa fa-list  pr-4 pl-1 fa-lg" aria-hidden="true"></i>Work Order
+            <div class="mdc-list-item mdc-drawer-item @yield('users_active')">
+              <a class="mdc-drawer-link" href="{{ route('users') }}">
+              <i class="fa fa-users pr-4 pl-1 fa-lg" aria-hidden="true"></i>
+Users
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item @yield('dashboard_active')">
-              <a class="mdc-drawer-link" href="#">
-                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">desktop_mac</i>
-                Dashboard
+              <a class="mdc-drawer-link" href="{{ route('personnel') }}">
+                  <img width="19.13" height="17" src="images/engineer.svg" class="mr-4 ml-1">                Personnel
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="#">
-              <i class="fa fa-database pr-4 pl-1 fa-lg" aria-hidden="true"></i>
-                Assets
+              <a class="mdc-drawer-link" href="{{ route('projects') }}">
+                <img width="19.13" height="17" src="images/project.svg" class="mr-4 ml-1"> 
+                Projects
               </a>
             </div>
             <!-- <div class="mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="ui-sub-menu">
@@ -72,7 +74,7 @@
                 </nav>
               </div>
             </div> -->
-            <div class="mdc-list-item mdc-drawer-item">
+            <!-- <div class="mdc-list-item mdc-drawer-item">
               <a class="mdc-drawer-link" href="#">
               <i class="fa fa-thumb-tack pr-4 pl-1 fa-lg" aria-hidden="true"></i>
                 Locations
@@ -83,7 +85,7 @@
               <i class="fa fa-question-circle-o pr-4 pl-1 fa-lg" aria-hidden="true"></i>
                 Requests
               </a>
-            </div>
+            </div> -->
             
            
           </nav>
@@ -129,8 +131,7 @@
   <script src="js/jquery/dist/jquery.min.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
-  <script src="js/chart.js.1/dist/Chart.min.js"></script>
-  <script src="js/progressbar.js/dist/progressbar.min.js"></script>
+  
   <!-- bootstrap 4 and Popper.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
@@ -138,9 +139,11 @@
   <!-- inject:js -->
   <script src="js/misc.js"></script>
   <script src="js/material.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+
+  @yield('page_scripts')
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="js/dashboard.js"></script>
   <!-- End custom js for this page-->
 </body>
 
