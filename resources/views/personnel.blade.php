@@ -6,6 +6,7 @@
 @section('content')
 <main class="content-wrapper">
     <div class="container">
+            <div id="snackbar">Email Sent Successfully</div>
         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
             <div class="mdc-card table-responsive">
                 <div class="table-heading px-2 px-1 border-bottom">
@@ -121,7 +122,7 @@
                             </div>
                         </td> -->
                         <td style="color:white;">
-                            <a class="btn btn-primary btn-sm">Send Mail</a>
+                            <a onclick="myFunction()" class="btn btn-primary btn-sm">Send Mail</a>
                         </td>
                     </tr>
                     <tr>
@@ -219,7 +220,7 @@
                             </div>
                         </td> -->
                         <td style="color:white;">
-                            <a class="btn btn-primary btn-sm">Send Mail</a>
+                            <a onclick="myFunction()" class="btn btn-primary btn-sm">Send Mail</a>
                         </td>
                     </tr>
                     <tr >
@@ -317,7 +318,7 @@
                                 </div>
                             </td> -->
                             <td style="color:white;">
-                                <a class="btn btn-primary btn-sm">Send Mail</a>
+                                <a onclick="myFunction()" class="btn btn-primary btn-sm">Send Mail</a>
                             </td>
                     </tr>
                     <tr >
@@ -415,7 +416,7 @@
                                 </div>
                             </td> -->
                             <td style="color:white;">
-                                <a class="btn btn-primary btn-sm">Send Mail</a>
+                                <a onclick="myFunction()" class="btn btn-primary btn-sm">Send Mail</a>
                             </td>
                     </tr>
                     <tr >
@@ -513,7 +514,7 @@
                                 </div>
                             </td> -->
                             <td style="color:white;">
-                                <a class="btn btn-primary btn-sm">Send Mail</a>
+                                <a onclick="myFunction()" class="btn btn-primary btn-sm">Send Mail</a>
                             </td>
                     </tr>
         
@@ -534,18 +535,53 @@
                     </div>
                 <form id="userForm">
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="First Name" required> 
+                            </div>
+                            <div class="col">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                            </div>
+                            <div class="col">
+                                <label for="lastName">Employment Status</label>
+                                <select name="Status" id="single" class="form-control form-control-chosen" data-placeholder="Please select..." required> 
+                                    <option value=""></option>
+                                    <option value="Contract Staff">Contract Staff</option>
+                                    <option value="Full Staff">Full Staff</option>
+                                    <option value="Yet to be employed">Yet to be employed</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="category">Category</label>
+                                <select name="category" id="single" class="form-control form-control-chosen" data-placeholder="Please select..."> 
+                                    <option value=""></option>
+                                    <option value="Engineering">Engineering</option>
+                                    <option value="Construction">Construction</option>
+                                    <option value="PMT">PMT</option>
+                                    <option value="Quality">Quality</option>
+                                    <option value="Safety">Safety</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="designation">Designation</label>
+                                <input type="text" class="form-control" id="designation" aria-describedby="emailHelp" placeholder="Designation" required>
+                            </div>
+                            <div class="col">
+                                <label for="company">Company</label>
+                                <input type="text" class="form-control" id="company" aria-describedby="emailHelp" placeholder="Company" required>
+                            </div>
                         </div>
+                        
                         <div class="pt-2">
                                 <label>Certifications</label>
                         </div>
@@ -608,6 +644,18 @@
 @section('page_scripts')
 <script src="js/custom/row.js"></script>
 <!-- <script src="js/custom/home.js"></script> -->
+<script>
+    function myFunction() {
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar")
+
+    // Add the "show" class to DIV
+    x.className = "shows";
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("shows", ""); }, 3000);
+}
+</script>
 
 
 @endsection
