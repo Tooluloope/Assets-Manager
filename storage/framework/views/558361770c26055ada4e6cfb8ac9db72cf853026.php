@@ -1,8 +1,7 @@
-@extends('layout')
-@section('styles')
+<?php $__env->startSection('styles'); ?>
 <link rel="stylesheet" href="css/custom/users.css"/>
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 <main class="content-wrapper">
     <div class="container">
         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
@@ -20,16 +19,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($users as $user)
+                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr >
-                    <td style="vertical-align: middle;" class="text-left">{{$user->name}} </td>
-                    <td>{{$user->email}}</td>
-                    <td>{{$user->user_role->role->display_name}}</td>
+                    <td style="vertical-align: middle;" class="text-left"><?php echo e($user->name); ?> </td>
+                    <td><?php echo e($user->email); ?></td>
+                    <td><?php echo e($user->user_role->role->display_name); ?></td>
                     <td style="color:white;"><a class="btn btn-danger btn-sm">Delete</a>
                         <a class="btn btn-primary btn-sm">Edit User</a>
                     </td>
                 </tr>
-               @endforeach
+               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
             </div>
@@ -45,8 +44,8 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="userForm" action="{{url('walk')}}" method="post" enctype="multipart/form-data">
-                    @csrf
+                <form id="userForm" action="<?php echo e(url('walk')); ?>" method="post" enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
 
                     <input type="file" name="csv">
                  <!--   <div class="modal-body">
@@ -77,9 +76,10 @@
         </div>
     </div>
 </main>
-@endsection
-@section('page_scripts')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('page_scripts'); ?>
 <script>
     $('userForm').validate();
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

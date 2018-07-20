@@ -1,9 +1,8 @@
-@extends('layout')
-@section('styles')
+<?php $__env->startSection('styles'); ?>
 <link rel="stylesheet" href="css/custom/projects.css"/>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <main class="content-wrapper">
         <div class="container">
@@ -31,7 +30,7 @@
                         <td>Singapore</td>
                         <td>Olumide Olugbemiro</td>
                         <td style="color:white;">
-                            <a class="btn btn-primary btn-sm" href="{{ route('personnels') }}">View Personnel</a>
+                            <a class="btn btn-primary btn-sm" href="<?php echo e(route('personnels')); ?>">View Personnel</a>
                         </td>
                     </tr>
                     <tr >
@@ -41,7 +40,7 @@
                         <td>Singapore</td>
                         <td>Olumide Olugbemiro</td>
                         <td style="color:white;">
-                            <a class="btn btn-primary btn-sm" href="{{ route('personnels') }}">View Personnel</a>
+                            <a class="btn btn-primary btn-sm" href="<?php echo e(route('personnels')); ?>">View Personnel</a>
                         </td>
                     </tr>
                     <tr >
@@ -51,7 +50,7 @@
                         <td>Singapore</td>
                         <td>Olumide Olugbemiro</td>
                         <td style="color:white;">
-                            <a class="btn btn-primary btn-sm" href="{{ route('personnels') }}">View Personnel</a>
+                            <a class="btn btn-primary btn-sm" href="<?php echo e(route('personnels')); ?>">View Personnel</a>
                         </td>
                     </tr>
                     <tr >
@@ -61,7 +60,7 @@
                         <td>Singapore</td>
                         <td>Olumide Olugbemiro</td>
                         <td style="color:white;">
-                            <a class="btn btn-primary btn-sm" href="{{ route('personnels') }}">View Personnel</a>
+                            <a class="btn btn-primary btn-sm" href="<?php echo e(route('personnels')); ?>">View Personnel</a>
                         </td>
                     </tr>
                     <tr >
@@ -71,7 +70,7 @@
                         <td>Singapore</td>
                         <td>Olumide Olugbemiro</td>
                         <td style="color:white;">
-                            <a class="btn btn-primary btn-sm" href="{{ route('personnels') }}">View Personnel</a>
+                            <a class="btn btn-primary btn-sm" href="<?php echo e(route('personnels')); ?>">View Personnel</a>
                         </td>
                     </tr>
                         </tbody>
@@ -126,9 +125,10 @@
             </div>
         </div>
     </main>
-                @endsection
-                @section('page_scripts')
+                <?php $__env->stopSection(); ?>
+                <?php $__env->startSection('page_scripts'); ?>
                 <script>
                     $('projectForm').validate();
                 </script>
-                @endsection
+                <?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

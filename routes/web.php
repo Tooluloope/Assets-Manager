@@ -14,16 +14,17 @@
 Route::get('sign-in', function () {
     return view('auth.signin');
 });
-Route::get('/', ['as' => 'home', function () {
-    return view('home');
-}]);
-Route::get('users', ['as' => 'users', function () {
-    return view('users');
-}]);
-Route::get('personnel', ['as' => 'personnel', function () {
-    return view('personnel');
-}]);
+
+
+Route::get('/users', 'UserController@index')->name('users');
+Route::get('/personnel', 'PersonnelController@index')->name('personnels');
+
 Route::get('projects', ['as' => 'projects', function () {
     return view('projects');
 }]);
 
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
+Route::post('/walk', 'HomeController@walk');

@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
   <!-- plugins:css -->
   <link rel="stylesheet" href="css/mdi/css/materialdesignicons.min.css">
   <!-- endinject -->
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
-  @yield('styles')
+  <?php echo $__env->yieldContent('styles'); ?>
 </head>
 
 <body>
@@ -30,25 +30,25 @@
     <aside style="height: 100%;" class="mdc-persistent-drawer mdc-persistent-drawer--open">
       <nav class="mdc-persistent-drawer__drawer">
         <div class="mdc-persistent-drawer__toolbar-spacer">
-          <a href="{{url('/')}}" class="brand-logo">
+          <a href="<?php echo e(url('/')); ?>" class="brand-logo">
 						<img src="http://www.ariosh.com/images/ariosh_logo.png" alt="logo">
 					</a>
         </div>
         <div style="height: 100%;" class="mdc-list-group">
           <nav style="height: 100%;" class="mdc-list mdc-drawer-menu">
-            <div class="mdc-list-item mdc-drawer-item @yield('users_active')">
-              <a class="mdc-drawer-link" href="{{ route('users') }}">
+            <div class="mdc-list-item mdc-drawer-item <?php echo $__env->yieldContent('users_active'); ?>">
+              <a class="mdc-drawer-link" href="<?php echo e(route('users')); ?>">
               <i class="fa fa-users pr-4 pl-1 fa-lg" aria-hidden="true"></i>
 Users
               </a>
             </div>
-            <div class="mdc-list-item mdc-drawer-item @yield('dashboard_active')">
-              <a class="mdc-drawer-link" href="{{ route('personnels') }}">
+            <div class="mdc-list-item mdc-drawer-item <?php echo $__env->yieldContent('dashboard_active'); ?>">
+              <a class="mdc-drawer-link" href="<?php echo e(route('personnels')); ?>">
                   <img width="19.13" height="17" src="images/engineer.svg" class="mr-4 ml-1">                Personnel
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="{{ route('projects') }}">
+              <a class="mdc-drawer-link" href="<?php echo e(route('projects')); ?>">
                 <img width="19.13" height="17" src="images/project.svg" class="mr-4 ml-1"> 
                 Projects
               </a>
@@ -102,13 +102,13 @@ Users
         </section>
         <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
           <div class="mr-4 " style="color:white">
-            <a class="btn btn-danger " href="{{ route('logout') }}"
+            <a class="btn btn-danger " href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="fa fa-power-off" aria-hidden="true" ></i>
               Logout</a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
+                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                        <?php echo csrf_field(); ?>
                                     </form>
           </div>
         </section>
@@ -117,7 +117,7 @@ Users
     <!-- partial -->
     
     <div class="page-wrapper mdc-toolbar-fixed-adjust">
-      @yield('content')
+      <?php echo $__env->yieldContent('content'); ?>
       <!-- partial:partials/_footer.html -->
       <footer>
         <div class="mdc-layout-grid">
@@ -147,7 +147,7 @@ Users
   <script src="js/material.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 
-  @yield('page_scripts')
+  <?php echo $__env->yieldContent('page_scripts'); ?>
   <!-- endinject -->
   <!-- Custom js for this page-->
   <!-- End custom js for this page-->
