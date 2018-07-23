@@ -17,7 +17,8 @@ Route::get('sign-in', function () {
 
 
 Route::get('/users', 'UserController@index')->name('users');
-Route::get('/personnel', 'PersonnelController@index')->name('personnels');
+Route::get('/personnels', 'PersonnelController@index')->name('personnels');
+Route::post('/personnel', 'PersonnelController@create')->name('personnel');
 
 Route::get('projects', ['as' => 'projects', function () {
     return view('projects');

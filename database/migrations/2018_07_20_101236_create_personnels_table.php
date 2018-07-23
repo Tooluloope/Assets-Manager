@@ -25,6 +25,7 @@ class CreatePersonnelsTable extends Migration
             $table->string('t_bosiet_validity_date');
             $table->string('osp')->nullable();
             $table->string('osp_validity_date');
+            $table->string('accomodation')->nullable();
             $table->string('general_medicals')->nullable();
             $table->string('general_medicals_validity_date');
             $table->string('tuberculosis')->nullable();

@@ -64,29 +64,31 @@
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                <form id="userForm">
+                <form id="userForm" action="<?php echo e(url('personnel')); ?>" method="post" enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
                     <div class="modal-body">
                         <div class="form-row">
                             <div class="col">
                                 <label for="firstName">First Name</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="First Name" required> 
+                                <input type="text" class="form-control" id="firstName" name="firstname" placeholder="First Name" required> 
                             </div>
                             <div class="col">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                                <input type="text" class="form-control" name="lastname" id="lastName" placeholder="Last Name" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
                             </div>
                             <div class="col">
                                 <label for="lastName">Employment Status</label>
-                                <select name="Status" id="single" class="form-control form-control-chosen" data-placeholder="Please select..." required> 
+                                <select name="employment_status" id="single" class="form-control form-control-chosen" data-placeholder="Please select..." required> 
                                     <option value=""></option>
                                     <option value="Contract Staff">Contract Staff</option>
                                     <option value="Full Staff">Full Staff</option>
+                                      <option value="Expatriate">Expatriate</option>
                                     <option value="Yet to be employed">Yet to be employed</option>
                                 </select>
                             </div>
@@ -105,11 +107,11 @@
                             </div>
                             <div class="col">
                                 <label for="designation">Designation</label>
-                                <input type="text" class="form-control" id="designation" aria-describedby="emailHelp" placeholder="Designation" required>
+                                <input type="text" class="form-control" id="designation" name="designation" aria-describedby="emailHelp" placeholder="Designation" required>
                             </div>
                             <div class="col">
                                 <label for="company">Company</label>
-                                <input type="text" class="form-control" id="company" aria-describedby="emailHelp" placeholder="Company" required>
+                                <input type="text" class="form-control" id="company"  name="company" aria-describedby="emailHelp" placeholder="Company" required>
                             </div>
                         </div>
                         
@@ -128,18 +130,19 @@
                                 <tbody>
                                     <tr>
                                         <td scope="col">
-                                                <select required="required" name="position" id="single" class="form-control form-control-chosen" data-placeholder="Please select..." required> 
+                                                <select required="required" name="certificate_name[]" id="single" class="form-control form-control-chosen" data-placeholder="Please select..." required> 
                                                     <option value=""></option>
                                                     <option value="Alcohol and Drug Test">Alcohol and Drug Test</option>
                                                     <option value="Offshore Safety Permit">Offshore Safety Permit</option>
                                                     <option value="Medical Test">Medical Test</option>
-                                                    <option value="Bosiet">Bosiet</option>
+                                                    <option value="t_bosiet">T-Bosiet</option>
                                                     <option value="Tuberculosis Test">Tuberculosis Test</option>
                                                     <option value="Curriculum vitae">Curriculum vitae</option>
+                                                    <option value="Trade Certificate">Trade Certificate</option>
                                                 </select>
                                         </td>
                                         <td scope="col">
-                                             <input required="required" class="form-control" type="file" name="image" id="image" required>                  
+                                             <input required="required" class="form-control" type="file" name="certificate[]" id="image" required>                  
                                         </td>
                                         <td scope="col">
                                             <input type="date" name="expiry_date[]"  class="form-control"/>

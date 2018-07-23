@@ -22,4 +22,10 @@ class PersonnelController extends Controller
     	$personnels = Personnel::paginate(10);
     	return view('personnels',compact('personnels'));
     }
+
+
+    public function create(Request $request)
+    {
+       return var_dump($request->all());
+    }
 }

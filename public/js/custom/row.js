@@ -34,9 +34,9 @@ $(document).ready(function () {
         var newRow1 = $("<tr>");
         var cols1 = "";
 
-        cols += '<td scope="col"><select required="required" name="position" id="single" class="form-control form-control-chosen" data-placeholder="Please select..." required><option value=""></option><option value="Alcohol and Drug Test">Alcohol and Drug Test</option><option value="Offshore Safety Permit">Offshore Safety Permit</option><option value="Medical Test">Medical Test</option><option value="Bosiet">Bosiet</option><option value="Tuberculosis Test">Tuberculosis Test</option><option value="Curriculum vitae">Curriculum vitae</option></select></td>';
-        cols += '<td scope="col"><input required="required" class="form-control" type="file" name="image" id="image" required></td>';
-        cols += '<td scope="col"><input type="date" class="form-control" name="expiryDate' + counter + '" required/></td>';
+        cols += '<td scope="col"><select required="required" name="certificate_name[]" id="single" class="form-control form-control-chosen" data-placeholder="Please select..." required><option value=""></option><option value="Alcohol and Drug Test">Alcohol and Drug Test</option><option value="Offshore Safety Permit">Offshore Safety Permit</option><option value="Medical Test">Medical Test</option><option value="t_bosiet">T-Bosiet</option><option value="Tuberculosis Test">Tuberculosis Test</option><option value="Curriculum vitae">Curriculum vitae</option><option value="Trade Certificate">Trade Certificate</option></select></td>';
+        cols += '<td scope="col"><input required="required" class="form-control" type="file" name="certificate[]" id="image" required></td>';
+        cols += '<td scope="col"><input type="date" class="form-control" name="expiry_date[]" required/></td>';
         cols += '<td scope="col"><input type="button" class="ibtnDel1 btn btn-md btn-danger "  value="Delete"></td>';
         newRow.append(cols);
         $("table.order-list1").append(newRow);
