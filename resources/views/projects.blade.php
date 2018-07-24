@@ -33,8 +33,10 @@
                         <td>{{$project->location}}</td>
                         <td>{{$project->project_manager}}</td>
                         <td style="color:white;">
+                             <button data-toggle="modal" data-p_id="{{$project->id}}" data-name="{{$project->name}}" data-start="{{$project->start_date}}" data-end="{{$project->end_date}}" data-location="{{$project->location}}" data-manager="{{$project->project_manager}}" class="update btn btn-primary btn-sm" >Update Project</button>
                              <a class="btn btn-success btn-sm" href="{{ url('projects/'.$project->name.'/add-personnel') }}?id={{$project->id}}">Add Personnel</a>
                             <a class="btn btn-primary btn-sm" href="{{ url('/projects/'.$project->name.'/personnel') }}?id={{$project->id}}">View Personnel</a>
+
                         </td>
                     </tr>
                @endforeach
@@ -55,6 +57,7 @@
                     </div>
                     <form id="projectForm" action="{{url('project')}}" method="post">
                         @csrf
+                      
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="projectName">Project Name</label>
@@ -89,11 +92,75 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+              <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Update Project</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="projectForm" action="{{url('project/update')}}" method="post">
+                        @csrf
+                          <input type="hidden" id="project_id" name="project_id" value=""/>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="projectName">Project Name</label>
+                                <input type="text" class="form-control" name="name" id="name_update" placeholder="Project Name" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="startDate">Start Date</label>
+                                    <input type="date" id="sdate_update" name="start_date" class="form-control" placeholder="start date" required>
+                                </div>
+                                <div class="col">
+                                    <label for="endDate">End Date</label>
+                                    <input type="date" id="edate_update" name="end_date" class="form-control" placeholder="Last name" required>
+                                </div>
+                            </div>
+                            <div class="form-row mt-3">
+                                <div class="col">
+                                    <label for="location">Location</label>
+                                    <input type="text" id="location_update" name="location" class="form-control" placeholder="Location" required>
+                                </div>
+                                <div class="col">
+                                    <label for="projectManager">Project Manager</label>
+                                    <input type="text" id="manager_update"  name="project_manager" class="form-control" placeholder="Project Manager" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
-                @endsection
+   @endsection
                 @section('page_scripts')
                 <script>
                     $('projectForm').validate();
+                </script>
+                <script type="text/javascript">
+        $(document).ready(function () {
+            $(".update").click(function () {
+                $('#project_id').val($(this).data('p_id'));
+                $('#name_update').val($(this).data('name'));
+                $('#sdate_update').val($(this).data('start'));
+                $('#edate_update').val($(this).data('end'));
+                $('#location_update').val($(this).data('location'));
+                $('#manager_update').val($(this).data('manager'));
+                $('#update').modal('show');
+            });
+        });
+
                 </script>
                 @endsection
