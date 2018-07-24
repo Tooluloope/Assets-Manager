@@ -1,6 +1,4 @@
-@extends('layout')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <main class="content-wrapper">
         <div class="container">
             <div class="row">
@@ -10,7 +8,7 @@
                         <div class="icon"><i class="entypo-users"></i></div>
                         <div class="num" data-start="0" data-end="" data-postfix="" data-duration="1500" data-delay="0">0</div>
             
-                        <h3>Number of User</h3>
+                        <h3>Number of Users</h3>
                         
                     </div>
             
@@ -43,4 +41,5 @@
             </div>
         </div>
     </main>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

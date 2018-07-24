@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('sign-in', function () {
-    return view('auth.signin');
-});
+
 
 
 Route::get('/users', 'UserController@index')->name('users');
