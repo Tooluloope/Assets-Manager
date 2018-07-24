@@ -45,28 +45,37 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="userForm" action="{{url('walk')}}" method="post" enctype="multipart/form-data">
+                <form id="userForm" action="{{url('users')}}" method="post" enctype="multipart/form-data">
                     @csrf
 
-                    <input type="file" name="csv">
-                 <!--   <div class="modal-body">
+                   <!--  <input type="file" name="csv">-->
+                   <div class="modal-body">
                         <div class="form-group">
                             <label for="firstName">First Name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                            <input type="text" class="form-control" name="firstname" id="firstName" placeholder="First Name" required>
                         </div>
                         <div class="form-group">
                             <label for="lastName">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                            <input type="text" class="form-control" name="lastname" id="lastName" placeholder="Last Name" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                            <input type="email" class="form-control" name="email" required=" " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password" required>
                         </div>
-                    </div>-->
+
+                         <div class="form-group">
+                            <label for="category">Role</label>
+                                <select name="role" id="single" class="form-control form-control-chosen" data-placeholder="Please select..."> 
+                                    <option value="">Please select...</option>
+                                    <option value="1">Administraor</option>
+                                    <option value="2">Manager</option>
+                                </select>
+                        </div>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -82,4 +91,12 @@
 <script>
     $('userForm').validate();
 </script>
+
+@if(session('message') != NULL)
+<script type="text/javascript">
+    
+toastr.success('{{session('message')}}')
+</script>
+
+@endif
 @endsection

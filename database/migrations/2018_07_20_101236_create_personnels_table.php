@@ -16,21 +16,23 @@ class CreatePersonnelsTable extends Migration
         Schema::create('personnels', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('phone_number')->nullable();
             $table->string('email')->nullable();
             $table->string('company');
             $table->string('designation');
             $table->string('category');
             $table->string('employment_status');
+            $table->string('accomodation')->nullable();
             $table->string('t_bosiet')->nullable();
             $table->string('t_bosiet_validity_date');
-            $table->string('osp')->nullable();
-            $table->string('osp_validity_date');
-            $table->string('accomodation')->nullable();
             $table->string('general_medicals')->nullable();
             $table->string('general_medicals_validity_date');
+            $table->string('malaria')->nullable();
+            $table->string('malaria_validity_date')->nullable();
+            $table->string('alcohol_and_drug')->nullable();
+            $table->string('alcohol_and_drug_validity_date')->nullable();
             $table->string('tuberculosis')->nullable();
             $table->string('tuberculosis_validity_date');
-            $table->string('cv')->nullable();
             $table->timestamps();
         });
     }

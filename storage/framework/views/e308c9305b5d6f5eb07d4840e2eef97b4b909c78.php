@@ -23,56 +23,20 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        <?php $__currentLoopData = $projects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $project): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr >
-                        <td style="vertical-align: middle;" class="text-left">Makaraba</td>
-                        <td>11/12/2012</td>
-                        <td>11/12/2017</td>
-                        <td>Singapore</td>
-                        <td>Olumide Olugbemiro</td>
+                        <td style="vertical-align: middle;" class="text-left"><?php echo e($project->name); ?></td>
+                        <td><?php echo e($project->start_date); ?></td>
+                        <td><?php echo e($project->end_date); ?></td>
+                        <td><?php echo e($project->location); ?></td>
+                        <td><?php echo e($project->project_manager); ?></td>
                         <td style="color:white;">
-                            <a class="btn btn-primary btn-sm" href="<?php echo e(route('personnels')); ?>">View Personnel</a>
+                             <a class="btn btn-success btn-sm" href="<?php echo e(url('projects/'.$project->name.'/add-personnel')); ?>?id=<?php echo e($project->id); ?>">Add Personnel</a>
+                            <a class="btn btn-primary btn-sm" href="<?php echo e(url('/projects/'.$project->name.'/personnel')); ?>?id=<?php echo e($project->id); ?>">View Personnel</a>
                         </td>
                     </tr>
-                    <tr >
-                        <td style="vertical-align: middle;" class="text-left">Makaraba</td>
-                        <td>11/12/2012</td>
-                        <td>11/12/2017</td>
-                        <td>Singapore</td>
-                        <td>Olumide Olugbemiro</td>
-                        <td style="color:white;">
-                            <a class="btn btn-primary btn-sm" href="<?php echo e(route('personnels')); ?>">View Personnel</a>
-                        </td>
-                    </tr>
-                    <tr >
-                        <td style="vertical-align: middle;" class="text-left">Makaraba</td>
-                        <td>11/12/2012</td>
-                        <td>11/12/2017</td>
-                        <td>Singapore</td>
-                        <td>Olumide Olugbemiro</td>
-                        <td style="color:white;">
-                            <a class="btn btn-primary btn-sm" href="<?php echo e(route('personnels')); ?>">View Personnel</a>
-                        </td>
-                    </tr>
-                    <tr >
-                        <td style="vertical-align: middle;" class="text-left">Makaraba</td>
-                        <td>11/12/2012</td>
-                        <td>11/12/2017</td>
-                        <td>Singapore</td>
-                        <td>Olumide Olugbemiro</td>
-                        <td style="color:white;">
-                            <a class="btn btn-primary btn-sm" href="<?php echo e(route('personnels')); ?>">View Personnel</a>
-                        </td>
-                    </tr>
-                    <tr >
-                        <td style="vertical-align: middle;" class="text-left">Makaraba</td>
-                        <td>11/12/2012</td>
-                        <td>11/12/2017</td>
-                        <td>Singapore</td>
-                        <td>Olumide Olugbemiro</td>
-                        <td style="color:white;">
-                            <a class="btn btn-primary btn-sm" href="<?php echo e(route('personnels')); ?>">View Personnel</a>
-                        </td>
-                    </tr>
+               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
                 </div>
@@ -88,30 +52,31 @@
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form id="projectForm">
+                    <form id="projectForm" action="<?php echo e(url('project')); ?>" method="post">
+                        <?php echo csrf_field(); ?>
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="projectName">Project Name</label>
-                                <input type="text" class="form-control" id="projectName" placeholder="Project Name" required>
+                                <input type="text" class="form-control" name="name" id="projectName" placeholder="Project Name" required>
                             </div>
                             <div class="form-row">
                                 <div class="col">
                                     <label for="startDate">Start Date</label>
-                                    <input type="date" id="startDate" class="form-control" placeholder="First name" required>
+                                    <input type="date" id="startDate" name="start_date" class="form-control" placeholder="start date" required>
                                 </div>
                                 <div class="col">
                                     <label for="endDate">End Date</label>
-                                    <input type="date" id="endDate" class="form-control" placeholder="Last name" required>
+                                    <input type="date" id="endDate" name="end_date" class="form-control" placeholder="Last name" required>
                                 </div>
                             </div>
                             <div class="form-row mt-3">
                                 <div class="col">
                                     <label for="location">Location</label>
-                                    <input type="text" id="location" class="form-control" placeholder="Location" required>
+                                    <input type="text" id="location" name="location" class="form-control" placeholder="Location" required>
                                 </div>
                                 <div class="col">
                                     <label for="projectManager">Project Manager</label>
-                                    <input type="text" id="projectManager" class="form-control" placeholder="Project Manager" required>
+                                    <input type="text" id="projectManager"  name="project_manager" class="form-control" placeholder="Project Manager" required>
                                 </div>
                             </div>
                         </div>

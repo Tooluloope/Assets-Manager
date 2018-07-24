@@ -15,9 +15,9 @@ class ProjectsPersonnelsTableSeeder extends Seeder
     {
 
 
-        //  return 1;
-         $csv = array_map('str_getcsv', file_get_contents('personnels.csv'));
-          //return var_dump($csv);
+        
+         $csv = array_map('str_getcsv', file('personnels.csv'));
+         
 
         array_walk($csv, function(&$a) use ($csv) {
            
@@ -25,13 +25,33 @@ class ProjectsPersonnelsTableSeeder extends Seeder
         });
 
        (array_shift($csv)); # remove column header
-        //return var_dump($csv);
+        
        if ($csv == NULL) {
           return "CSV file isn't well Formatted";
        }
-      
+
+       $personnel = new Personnel();
+       $project = new Project();
+       $fillable = $personnel->getFillable();
+
        foreach ($csv as $key => $value) {
-           Personnel::create($value);
+          $projects = explode(' & ',  $value['project']);
+          foreach ($projects as $project) {
+          if($project != '')
+          $project  = Project::firstOrCreate(['name' => $project]);
+          }
+         
+       }
+
+       foreach ($csv as $key => $value) {
+      
+         $personnel = Personnel::create(array_intersect_key($value, array_flip($fillable)));
+           $projects = explode(' & ',  $value['project']);
+          foreach ($projects as $project) {
+          if($project != '')
+         $project_personnel = ProjectPersonnel::create(['personnel_id' => $personnel->id,'project_id' => Project::where('name',$project)->first()->id]);
+          }
+          
        }
     }
 }

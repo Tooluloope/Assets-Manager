@@ -17,13 +17,16 @@ Route::get('sign-in', function () {
 
 
 Route::get('/users', 'UserController@index')->name('users');
-Route::get('/personnels', 'PersonnelController@index')->name('personnels');
-Route::post('/personnel', 'PersonnelController@create')->name('personnel');
+Route::post('/users', 'UserController@create')->name('create-user');
+Route::get('/personnel', 'PersonnelController@index')->name('all-personnel');
+Route::post('/personnel', 'PersonnelController@create')->name('create-personnel');
 
-Route::get('projects', ['as' => 'projects', function () {
-    return view('projects');
-}]);
 
+Route::get('/projects', 'ProjectController@index')->name('projects');
+Route::post('/project', 'ProjectController@create')->name('project');
+Route::any('/projects/{name}/add-personnel', 'ProjectController@add_personnel')->name('add-personnel');
+Route::any('/projects/{name}/remove-personnel', 'ProjectController@remove_personnel')->name('remove-personnel');
+Route::get('/projects/{name}/personnel', 'ProjectController@view_personnel')->name('view-personnel');
 
 Auth::routes();
 
