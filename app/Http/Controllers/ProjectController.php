@@ -54,6 +54,32 @@ class ProjectController extends Controller
 
     }
 
+    public function update(Request $request)
+    {
+       
+        $validator = Validator::make($request->all(), [
+                'name' => 'required',
+                'start_date' => 'required',
+                'end_date' => 'required',
+                'location' => 'required',
+                'project_manager' => 'required',
+               
+
+            ]);
+            if ($validator->fails()) {
+                return redirect()->back()
+                            ->withErrors($validator)
+                            ->withInput();
+            }
+
+
+           $project = Project::where('id',$request->project_id)->update($request->except('_token','project_id'));
+
+           if ($project) {
+           return redirect()->back()->with('message','Project updated succesfully');
+           }
+    }
+
     public function add_personnel(Request $request)
     {
     	  if ($request->isMethod('post')) {
