@@ -346,11 +346,11 @@ table.dataTable>tbody>tr.child{
                            
                             <div class="col">
                                   <label for="t_bosiet">T-Bosiet</label>
-                               <input required="required" class="form-control" type="file" name="t_bosiet" id="image" required>  
+                               <input  class="form-control" type="file" name="t_bosiet" id="image" >  
                             </div>
                             <div class="col">
                                 <label for="t_bosiet"><br></label>
-                                <input type="date" name="t_bosiet_validity_date"  class="form-control" required/> 
+                                <input type="date" name="t_bosiet_validity_date"  class="form-control" /> 
                             </div>
                      </div>
 
@@ -359,11 +359,11 @@ table.dataTable>tbody>tr.child{
                            
                             <div class="col">
                                   <label for="general_medicals">Medical Test</label>
-                               <input required="required" class="form-control" type="file" name="general_medicals" id="image" required>  
+                               <input ="" class="form-control" type="file" name="general_medicals" id="image" >  
                             </div>
                             <div class="col">
                                 <label for="general_medicals"><br></label>
-                                <input type="date" name="general_medicals_validity_date"  class="form-control" required/> 
+                                <input type="date" name="general_medicals_validity_date"  class="form-control" /> 
                             </div>
                      </div>
 
@@ -373,11 +373,11 @@ table.dataTable>tbody>tr.child{
                            
                             <div class="col">
                                   <label for="tuberculosis">Tuberculosis Test</label>
-                               <input required="required" class="form-control" type="file" name="tuberculosis" id="image" required>  
+                               <input ="" class="form-control" type="file" name="tuberculosis" id="image" >  
                             </div>
                             <div class="col">
                                 <label for="tuberculosis"><br></label>
-                                <input type="date" name="tuberculosis_validity_date"  class="form-control" required/> 
+                                <input type="date" name="tuberculosis_validity_date"  class="form-control" /> 
                             </div>
                      </div>
 
@@ -385,11 +385,11 @@ table.dataTable>tbody>tr.child{
                            
                             <div class="col">
                                   <label for="alcohol_and_drug">Alcohol and Drug Test</label>
-                               <input required="required" class="form-control" type="file" name="alcohol_and_drug" id="image" required>  
+                               <input ="" class="form-control" type="file" name="alcohol_and_drug" id="image" >  
                             </div>
                             <div class="col">
                                 <label for="alcohol_and_drug"><br></label>
-                                <input type="date" name="alcohol_and_drug_validity_date"  class="form-control" required/> 
+                                <input type="date" name="alcohol_and_drug_validity_date"  class="form-control" /> 
                             </div>
                      </div>
 
