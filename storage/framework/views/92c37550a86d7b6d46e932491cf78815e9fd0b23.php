@@ -474,8 +474,6 @@ table.dataTable>tbody>tr.child{
 } );
 
  $(".personnels").click(function () {
-            var [firstName, lastName] = $(this).data('name').split(" ")
-            console.log(firstName)
            
             $('#personnel_id').val($(this).data('p_id'));
             $('#p_firstName').val(firstName);
