@@ -22,8 +22,8 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="{{url('images/favicon.png')}}" />
   <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" rel="stylesheet">
-   <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css" rel="stylesheet">
+   <link href="{{url('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+<link href="{{url('css/responsive.bootstrap4.min.css')}}" rel="stylesheet">
   @yield('styles')
 </head>
 
@@ -148,13 +148,13 @@ Users
   <!-- inject:js -->
   <script src="{{url('js//misc.js')}}"></script>
   <script src="{{url('js//material.js')}}"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+  <script src="{{url('js/jquery.validate.min.js')}}"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+<script src="{{url('js/toastr.min.js')}}"></script>
+<script src="{{url('js/jquery.dataTables.min.js')}}"></script>
+<script src="{{url('js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{url('js/dataTables.responsive.min.js')}}"></script>
+<script src="{{url('js/responsive.bootstrap4.min.js')}}"></script>
   @yield('page_scripts')
   <!-- endinject -->
   <!-- Custom js for this page-->
