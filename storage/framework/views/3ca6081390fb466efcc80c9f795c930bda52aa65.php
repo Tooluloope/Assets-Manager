@@ -70,9 +70,9 @@ table.dataTable>tbody>tr.child{
 
                               <?php endif; ?>
                         <!--  -->
-                        <td style="color:white;">
+                        <td style="color:white; padding-right: 10px;">
                                 <button data-toggle="modal"  data-phone="<?php echo e($personnel->phone_number); ?>" data-p_id="<?php echo e($personnel->id); ?>" data-name="<?php echo e($personnel->name); ?>"  data-number="<?php echo e($personnel->phone_number); ?>" data-company="<?php echo e($personnel->company); ?>" data-designation="<?php echo e($personnel->designation); ?>" data-employment_status="<?php echo e($personnel->employment_status); ?>" data-email="<?php echo e($personnel->email); ?>" data-category="<?php echo e($personnel->category); ?>" class="personnels btn btn-primary btn-sm" >Update personnel</button>
-                                <a onclick="myFunction()" class="btn btn-primary btn-sm">Send Mail</a>
+                                <!-- <a onclick="myFunction()" class="btn btn-primary btn-sm">Send Mail</a> -->
                         </td>
                          
                     </tr>
@@ -239,7 +239,7 @@ table.dataTable>tbody>tr.child{
                                                 </select>
                                         </td>
                                         <td scope="col">
-                                              <input required="required" class="form-control" type="file" name="certificate[]" id="image" required>                  
+                                              <input  class="form-control" type="file" name="certificate[]" id="image">                  
                                         </td>
                                         <td scope="col">
                                             <input type="date" name="expiry_date[]"  class="form-control"/>
@@ -346,11 +346,11 @@ table.dataTable>tbody>tr.child{
                            
                             <div class="col">
                                   <label for="t_bosiet">T-Bosiet</label>
-                               <input required="required" class="form-control" type="file" name="t_bosiet" id="image" required>  
+                               <input  class="form-control" type="file" name="t_bosiet" id="image" >  
                             </div>
                             <div class="col">
                                 <label for="t_bosiet"><br></label>
-                                <input type="date" name="t_bosiet_validity_date"  class="form-control" required/> 
+                                <input type="date" name="t_bosiet_validity_date"  class="form-control" /> 
                             </div>
                      </div>
 
@@ -359,11 +359,11 @@ table.dataTable>tbody>tr.child{
                            
                             <div class="col">
                                   <label for="general_medicals">Medical Test</label>
-                               <input required="required" class="form-control" type="file" name="general_medicals" id="image" required>  
+                               <input ="" class="form-control" type="file" name="general_medicals" id="image" >  
                             </div>
                             <div class="col">
                                 <label for="general_medicals"><br></label>
-                                <input type="date" name="general_medicals_validity_date"  class="form-control" required/> 
+                                <input type="date" name="general_medicals_validity_date"  class="form-control" /> 
                             </div>
                      </div>
 
@@ -373,11 +373,11 @@ table.dataTable>tbody>tr.child{
                            
                             <div class="col">
                                   <label for="tuberculosis">Tuberculosis Test</label>
-                               <input required="required" class="form-control" type="file" name="tuberculosis" id="image" required>  
+                               <input ="" class="form-control" type="file" name="tuberculosis" id="image" >  
                             </div>
                             <div class="col">
                                 <label for="tuberculosis"><br></label>
-                                <input type="date" name="tuberculosis_validity_date"  class="form-control" required/> 
+                                <input type="date" name="tuberculosis_validity_date"  class="form-control" /> 
                             </div>
                      </div>
 
@@ -385,11 +385,11 @@ table.dataTable>tbody>tr.child{
                            
                             <div class="col">
                                   <label for="alcohol_and_drug">Alcohol and Drug Test</label>
-                               <input required="required" class="form-control" type="file" name="alcohol_and_drug" id="image" required>  
+                               <input ="" class="form-control" type="file" name="alcohol_and_drug" id="image" >  
                             </div>
                             <div class="col">
                                 <label for="alcohol_and_drug"><br></label>
-                                <input type="date" name="alcohol_and_drug_validity_date"  class="form-control" required/> 
+                                <input type="date" name="alcohol_and_drug_validity_date"  class="form-control" /> 
                             </div>
                      </div>
 
@@ -427,7 +427,7 @@ table.dataTable>tbody>tr.child{
                                                 </select>
                                         </td>
                                         <td scope="col">
-                                              <input required="required" class="form-control" type="file" name="certificate[]" id="image" required>                  
+                                              <input class="form-control" type="file" name="certificate[]" id="image" >                  
                                         </td>
                                         <td scope="col">
                                             <input type="date" name="expiry_date[]"  class="form-control"/>
@@ -441,7 +441,7 @@ table.dataTable>tbody>tr.child{
                                 <tfoot>
                                     <tr>
                                         <td colspan="5" style="text-align: center;">
-                                            <a type="button" class="btn btn-info " id="addrow1" value="Add Row">Add Row</a>
+                                            <a type="button" class="btn btn-info " id="addrow2" value="Add Row">Add Row</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -474,20 +474,31 @@ table.dataTable>tbody>tr.child{
 } );
 
  $(".personnels").click(function () {
-            var [firstName, lastName] = $(this).data('name').split(" ")
-            
-           
-            $('#personnel_id').val($(this).data('p_id'));
-            $('#p_firstName').val(firstName);
-            $('#p_lastName').val(lastName);
-            $('#p_phone_number').val($(this).data('phone'));
-            $('#p_exampleInputEmail1').val($(this).data('email'));
-            $('#p_employment').val($(this).data('employment_status'));
-            $('#p_category').val($(this).data('category'));
-            $('#p_designation').val($(this).data('designation'));
-            $('#p_company').val($(this).data('company'));
-            $('#personnel').modal('show');
-        });
+    var [firstName, lastName] = $(this).data('name').split(" ")
+    
+    
+    $('#personnel_id').val($(this).data('p_id'));
+    $('#p_firstName').val(firstName);
+    $('#p_lastName').val(lastName);
+    $('#p_phone_number').val($(this).data('phone'));
+    $('#p_exampleInputEmail1').val($(this).data('email'));
+    $('#p_employment').val($(this).data('employment_status'));
+    $('#p_category').val($(this).data('category'));
+    $('#p_designation').val($(this).data('designation'));
+    $('#p_company').val($(this).data('company'));
+    $('#personnel').modal('show');
+});
+
+    function myFunction() {
+    // url the snackbar DIV
+    var x = document.urlElementById("snackbar")
+
+    // Add the "show" class to DIV
+    x.className = "shows";
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("shows", ""); }, 3000);
+}
 </script>
 <?php if(session('message') != NULL): ?>
 <script type="text/javascript">

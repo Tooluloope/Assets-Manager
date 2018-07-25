@@ -102,7 +102,7 @@ class PersonnelController extends Controller
                  }
               
             }
-        }
+        
        return redirect()->back()->with('message','Personnel Added succesfully');
     }
 
