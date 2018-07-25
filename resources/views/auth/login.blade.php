@@ -52,11 +52,11 @@
                         <div class="row mb-2">
                             <div class="col-sm-5">
                                
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a style="color: #212529" class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             </div>
-                            <div class="col-sm-7">
+                            <div class="col-sm-7" style="padding-top: 0.4rem">
                                 <div class="checkbox mb-3">
                                     <label>
                                     <input type="checkbox" value="remember-me"> Remember me

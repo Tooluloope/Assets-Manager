@@ -17805,7 +17805,7 @@ address p {
       .table tbody tr td:first-child {
         padding-left: 30px; }
       .table tbody tr td:last-child {
-        padding-right: 30px; }
+        padding-right: 10px; }
       .table tbody tr td .mdc-button {
         min-width: 0;
         height: 24px;
