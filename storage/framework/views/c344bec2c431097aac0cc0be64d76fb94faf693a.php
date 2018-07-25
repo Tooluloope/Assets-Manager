@@ -67,10 +67,9 @@ table.dataTable>tbody>tr.child{
                             <td style="vertical-align: middle;" class="text-left"><?php echo e($project_personnel->personnel->designation); ?> </td>
                               <td style="vertical-align: middle;" class="text-left"><?php echo e($project_personnel->personnel->employment_status); ?> </td>
                               <?php if(isset($project_personnel->personnel->certificate)): ?>
-                              <td style="vertical-align: middle;" class="text-left"><a href="<?php echo e(url('storage/app')); ?>/<?php echo e($project_personnel->personnel->certificate->osp()->certificate); ?>" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> </td>
-                              <td style="vertical-align: middle;" class="text-left"><a href="<?php echo e(url('storage/app')); ?>/<?php echo e($project_personnel->personnel->certificate->trade()->certificate); ?>" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> </td>
-                              <td style="vertical-align: middle;" class="text-left"><a href="<?php echo e(url('storage/app')); ?>/<?php echo e($project_personnel->personnel->certificate->cv()->certificate); ?>" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> </td>
-
+                              <td style="vertical-align: middle;" class="text-left"><?php if($project_personnel->personnel->certificate->osp() !=''): ?><a href="<?php echo e(url('storage/app')); ?>/<?php echo e($personnel->certificate->osp()->certificate); ?>" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> <?php else: ?> N/A <?php endif; ?></td>
+                              <td style="vertical-align: middle;" class="text-left"><?php if($project_personnel->personnel->certificate->trade() !=''): ?><a href="<?php echo e(url('storage/app')); ?>/<?php echo e($personnel->certificate->trade()->certificate); ?>" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> <?php else: ?> N/A <?php endif; ?></td>
+                              <td style="vertical-align: middle;" class="text-left"><?php if($project_personnel->personnel->certificate->cv() !=''): ?><a href="<?php echo e(url('storage/app')); ?>/<?php echo e($personnel->certificate->cv()->certificate); ?>" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> <?php else: ?> N/A <?php endif; ?></td>
 
                               <?php else: ?>
                               <td style="vertical-align: middle;" class="text-left">N/A </td>

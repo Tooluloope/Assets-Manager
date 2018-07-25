@@ -68,10 +68,9 @@ table.dataTable>tbody>tr.child{
                             <td style="vertical-align: middle;" class="text-left">{{$project_personnel->personnel->designation}} </td>
                               <td style="vertical-align: middle;" class="text-left">{{$project_personnel->personnel->employment_status}} </td>
                               @if(isset($project_personnel->personnel->certificate))
-                              <td style="vertical-align: middle;" class="text-left"><a href="{{url('storage/app')}}/{{$project_personnel->personnel->certificate->osp()->certificate}}" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> </td>
-                              <td style="vertical-align: middle;" class="text-left"><a href="{{url('storage/app')}}/{{$project_personnel->personnel->certificate->trade()->certificate}}" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> </td>
-                              <td style="vertical-align: middle;" class="text-left"><a href="{{url('storage/app')}}/{{$project_personnel->personnel->certificate->cv()->certificate}}" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> </td>
-
+                              <td style="vertical-align: middle;" class="text-left">@if($project_personnel->personnel->certificate->osp() !='')<a href="{{url('storage/app')}}/{{$personnel->certificate->osp()->certificate}}" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> @else N/A @endif</td>
+                              <td style="vertical-align: middle;" class="text-left">@if($project_personnel->personnel->certificate->trade() !='')<a href="{{url('storage/app')}}/{{$personnel->certificate->trade()->certificate}}" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> @else N/A @endif</td>
+                              <td style="vertical-align: middle;" class="text-left">@if($project_personnel->personnel->certificate->cv() !='')<a href="{{url('storage/app')}}/{{$personnel->certificate->cv()->certificate}}" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> @else N/A @endif</td>
 
                               @else
                               <td style="vertical-align: middle;" class="text-left">N/A </td>

@@ -280,7 +280,7 @@ table.dataTable>tbody>tr.child{
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                <form id="userForm" action="{{url('personnel')}}" method="post" enctype="multipart/form-data">
+                <form id="userForm" action="{{url('personnel/update')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" id="personnel_id" name="personnel_id" value=""/>
                     <div class="modal-body">
