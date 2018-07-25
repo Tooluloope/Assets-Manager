@@ -93,8 +93,11 @@ class PersonnelController extends Controller
                 if ($request->file('certificate')[$key] != NULL){
                 $certificate_file = $request->file('certificate')[$key]->store('Other Certificates');
                $data['certificate'][$key] = $certificate_file;
-               
-                Certificate::create(['name'=> $certificate,'certificate'=>$data['certificate'][$key],'personnel_id'=> $personnel->id]);
+
+               Certificate::create(['name'=> $certificate,'certificate'=>$data['certificate'][$key],'personnel_id'=> $personnel->id]);
+
+                 }
+
 
                  }
               
