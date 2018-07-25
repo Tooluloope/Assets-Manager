@@ -126,7 +126,7 @@ Users
         <div class="mdc-layout-grid">
           <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
-              <span class="text-muted">Copyright © 2018 <a class="text-green" href="https://www.ariosh.com" target="_blank">Ariosh Ltd</a>. All rights reserved.</span>
+              <span class="text-muted">Copyright © 2018 <a style="color:#002545 !important;" href="https://www.ariosh.com" target="_blank">Ariosh Ltd</a>. All rights reserved.</span>
             </div>
           </div>
         </div>
