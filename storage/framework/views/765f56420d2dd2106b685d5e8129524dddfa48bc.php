@@ -8,7 +8,7 @@
                         <div class="icon"><i class="entypo-users"></i></div>
                         <div class="num" data-start="0" data-end="" data-postfix="" data-duration="1500" data-delay="0">0</div>
             
-                        <h3>Number of Users</h3>
+                        <h3>Number of User</h3>
                         
                     </div>
             

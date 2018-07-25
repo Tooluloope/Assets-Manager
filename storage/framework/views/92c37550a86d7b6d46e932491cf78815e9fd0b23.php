@@ -1,6 +1,5 @@
-@extends('layout')
-@section('styles')
-<link rel="stylesheet" href="{{url('css/custom/personnel.css')}}"/>
+<?php $__env->startSection('styles'); ?>
+<link rel="stylesheet" href="<?php echo e(url('css/custom/personnel.css')); ?>"/>
 <style type="text/css"> input[type="date"]:before {
     content: attr(placeholder) !important;
     color: #aaa;
@@ -16,8 +15,8 @@ table.dataTable>tbody>tr.child{
     left: 0px !important;
 }
 </style>
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 <main class="content-wrapper">
     <div class="container">
             <div id="snackbar">Email Sent Successfully</div>
@@ -47,37 +46,37 @@ table.dataTable>tbody>tr.child{
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($personnels as $personnel)
+                    <?php $__currentLoopData = $personnels; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $personnel): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr >
-                        <td style="vertical-align: middle;" class="text-left">{{$personnel->name}} </td>
-                         <td style="vertical-align: middle;" class="text-left">{{$personnel->phone_number}} </td>
+                        <td style="vertical-align: middle;" class="text-left"><?php echo e($personnel->name); ?> </td>
+                         <td style="vertical-align: middle;" class="text-left"><?php echo e($personnel->phone_number); ?> </td>
                        
-                        <td>@if(isset($personnel->t_bosiet))<a href="{{url('storage/app')}}/{{$personnel->t_bosiet}}" target="_blank"> <button type="button" class="btn {{$personnel->color_class($personnel->t_bosiet_validity_date)}} btn-sm">view</button></a> <small>{{$personnel->exp($personnel->t_bosiet_validity_date)}}</small> @else N/A @endif</td> 
-                        <td>@if(isset($personnel->general_medicals))<a href="{{url('storage/app')}}/{{$personnel->general_medicals}}" target="_blank"> <button type="button" class="btn {{$personnel->color_class($personnel->general_medicals_validity_date)}} btn-sm">view</button></a>  <small>{{$personnel->exp($personnel->general_medicals_validity_date)}}</small> @else N/A @endif</td> 
-                        <td>@if(isset($personnel->tuberculosis))<a href="{{url('storage/app')}}/{{$personnel->tuberculosis}}" target="_blank"> <button type="button" class="btn {{$personnel->color_class($personnel->tuberculosis_validity_date)}} btn-sm">view</button></a>  <small>{{$personnel->exp($personnel->tuberculosis_validity_date)}}</small> @else N/A @endif</td>   
-                         <td>@if(isset($personnel->alcohol_and_drug))<a href="{{url('storage/app')}}/{{$personnel->alcohol_and_drug}}" target="_blank"> <button type="button" class="btn {{$personnel->color_class($personnel->alcohol_and_drug_validity_date)}} btn-sm">view</button></a>  <small>{{$personnel->exp($personnel->alcohol_and_drug_validity_date)}}</small> @else N/A @endif</td>  
-                          <td>@if(isset($personnel->malaria))<a href="{{url('storage/app')}}/{{$personnel->malaria}}" target="_blank"> <button type="button" class="btn {{$personnel->color_class($personnel->malaria_validity_date)}} btn-sm">view</button></a>  <small>{{$personnel->exp($personnel->malaria_validity_date)}}</small> @else N/A @endif</td> 
-                              <td style="vertical-align: middle;" class="text-left">{{$personnel->company}} </td>
-                            <td style="vertical-align: middle;" class="text-left">{{$personnel->designation}} </td>
-                              <td style="vertical-align: middle;" class="text-left">{{$personnel->employment_status}} </td>
-                              @if(isset($personnel->certificate))
-                              <td style="vertical-align: middle;" class="text-left">@if($personnel->certificate->osp() !='')<a href="{{url('storage/app')}}/{{$personnel->certificate->osp()->certificate}}" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> @else N/A @endif</td>
-                              <td style="vertical-align: middle;" class="text-left">@if($personnel->certificate->trade() !='')<a href="{{url('storage/app')}}/{{$personnel->certificate->trade()->certificate}}" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> @else N/A @endif</td>
-                              <td style="vertical-align: middle;" class="text-left">@if($personnel->certificate->cv() !='')<a href="{{url('storage/app')}}/{{$personnel->certificate->cv()->certificate}}" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> @else N/A @endif</td>
-                              @else
+                        <td><?php if(isset($personnel->t_bosiet)): ?><a href="<?php echo e(url('storage/app')); ?>/<?php echo e($personnel->t_bosiet); ?>" target="_blank"> <button type="button" class="btn <?php echo e($personnel->color_class($personnel->t_bosiet_validity_date)); ?> btn-sm">view</button></a> <small><?php echo e($personnel->exp($personnel->t_bosiet_validity_date)); ?></small> <?php else: ?> N/A <?php endif; ?></td> 
+                        <td><?php if(isset($personnel->general_medicals)): ?><a href="<?php echo e(url('storage/app')); ?>/<?php echo e($personnel->general_medicals); ?>" target="_blank"> <button type="button" class="btn <?php echo e($personnel->color_class($personnel->general_medicals_validity_date)); ?> btn-sm">view</button></a>  <small><?php echo e($personnel->exp($personnel->general_medicals_validity_date)); ?></small> <?php else: ?> N/A <?php endif; ?></td> 
+                        <td><?php if(isset($personnel->tuberculosis)): ?><a href="<?php echo e(url('storage/app')); ?>/<?php echo e($personnel->tuberculosis); ?>" target="_blank"> <button type="button" class="btn <?php echo e($personnel->color_class($personnel->tuberculosis_validity_date)); ?> btn-sm">view</button></a>  <small><?php echo e($personnel->exp($personnel->tuberculosis_validity_date)); ?></small> <?php else: ?> N/A <?php endif; ?></td>   
+                         <td><?php if(isset($personnel->alcohol_and_drug)): ?><a href="<?php echo e(url('storage/app')); ?>/<?php echo e($personnel->alcohol_and_drug); ?>" target="_blank"> <button type="button" class="btn <?php echo e($personnel->color_class($personnel->alcohol_and_drug_validity_date)); ?> btn-sm">view</button></a>  <small><?php echo e($personnel->exp($personnel->alcohol_and_drug_validity_date)); ?></small> <?php else: ?> N/A <?php endif; ?></td>  
+                          <td><?php if(isset($personnel->malaria)): ?><a href="<?php echo e(url('storage/app')); ?>/<?php echo e($personnel->malaria); ?>" target="_blank"> <button type="button" class="btn <?php echo e($personnel->color_class($personnel->malaria_validity_date)); ?> btn-sm">view</button></a>  <small><?php echo e($personnel->exp($personnel->malaria_validity_date)); ?></small> <?php else: ?> N/A <?php endif; ?></td> 
+                              <td style="vertical-align: middle;" class="text-left"><?php echo e($personnel->company); ?> </td>
+                            <td style="vertical-align: middle;" class="text-left"><?php echo e($personnel->designation); ?> </td>
+                              <td style="vertical-align: middle;" class="text-left"><?php echo e($personnel->employment_status); ?> </td>
+                              <?php if(isset($personnel->certificate)): ?>
+                              <td style="vertical-align: middle;" class="text-left"><?php if($personnel->certificate->osp() !=''): ?><a href="<?php echo e(url('storage/app')); ?>/<?php echo e($personnel->certificate->osp()->certificate); ?>" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> <?php else: ?> N/A <?php endif; ?></td>
+                              <td style="vertical-align: middle;" class="text-left"><?php if($personnel->certificate->trade() !=''): ?><a href="<?php echo e(url('storage/app')); ?>/<?php echo e($personnel->certificate->trade()->certificate); ?>" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> <?php else: ?> N/A <?php endif; ?></td>
+                              <td style="vertical-align: middle;" class="text-left"><?php if($personnel->certificate->cv() !=''): ?><a href="<?php echo e(url('storage/app')); ?>/<?php echo e($personnel->certificate->cv()->certificate); ?>" target="_blank"> <button type="button" class="btn btn-success btn-sm">view</button></a> <?php else: ?> N/A <?php endif; ?></td>
+                              <?php else: ?>
                               <td style="vertical-align: middle;" class="text-left">N/A </td>
                               <td style="vertical-align: middle;" class="text-left">N/A</td>
                               <td style="vertical-align: middle;" class="text-left">N/A</td>
 
-                              @endif
+                              <?php endif; ?>
                         <!--  -->
                         <td style="color:white;">
-                                <button data-toggle="modal"  data-phone="{{$personnel->phone_number}}" data-p_id="{{$personnel->id}}" data-name="{{$personnel->name}}"  data-number="{{$personnel->phone_number}}" data-company="{{$personnel->company}}" data-designation="{{$personnel->designation}}" data-employment_status="{{$personnel->employment_status}}" data-email="{{$personnel->email}}" data-category="{{$personnel->category}}" class="personnels btn btn-primary btn-sm" >Update personnel</button>
+                                <button data-toggle="modal"  data-phone="<?php echo e($personnel->phone_number); ?>" data-p_id="<?php echo e($personnel->id); ?>" data-name="<?php echo e($personnel->name); ?>"  data-number="<?php echo e($personnel->phone_number); ?>" data-company="<?php echo e($personnel->company); ?>" data-designation="<?php echo e($personnel->designation); ?>" data-employment_status="<?php echo e($personnel->employment_status); ?>" data-email="<?php echo e($personnel->email); ?>" data-category="<?php echo e($personnel->category); ?>" class="personnels btn btn-primary btn-sm" >Update personnel</button>
                                 <a onclick="myFunction()" class="btn btn-primary btn-sm">Send Mail</a>
                         </td>
                          
                     </tr>
-                   @endforeach
+                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         
                 </tbody>
                 </table>
@@ -93,8 +92,8 @@ table.dataTable>tbody>tr.child{
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                <form id="userForm" action="{{url('personnel')}}" method="post" enctype="multipart/form-data">
-                    @csrf
+                <form id="userForm" action="<?php echo e(url('personnel')); ?>" method="post" enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
                     <div class="modal-body">
                              <div class="pt-2">
                                 <h4><b>Personal Information*</b></h4>
@@ -280,8 +279,8 @@ table.dataTable>tbody>tr.child{
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                <form id="userForm" action="{{url('personnel')}}" method="post" enctype="multipart/form-data">
-                    @csrf
+                <form id="userForm" action="<?php echo e(url('personnel')); ?>" method="post" enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
                     <input type="hidden" id="personnel_id" name="personnel_id" value=""/>
                     <div class="modal-body">
                              <div class="pt-2">
@@ -460,9 +459,9 @@ table.dataTable>tbody>tr.child{
         </div>
     </div>
 </main>
-@endsection
-@section('page_scripts')
-<script src="{{url('js/custom/row.js')}}"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('page_scripts'); ?>
+<script src="<?php echo e(url('js/custom/row.js')); ?>"></script>
 <!-- <script src="js/custom/home.js"></script> -->
 <script>
     $(document).ready(function() {
@@ -475,6 +474,8 @@ table.dataTable>tbody>tr.child{
 } );
 
  $(".personnels").click(function () {
+            var [firstName, lastName] = $(this).data('name').split(" ")
+            console.log(firstName)
            
             $('#personnel_id').val($(this).data('p_id'));
             $('#p_firstName').val(firstName);
@@ -488,14 +489,15 @@ table.dataTable>tbody>tr.child{
             $('#personnel').modal('show');
         });
 </script>
-@if(session('message') != NULL)
+<?php if(session('message') != NULL): ?>
 <script type="text/javascript">
     
-toastr.success('{{session('message')}}')
+toastr.success('<?php echo e(session('message')); ?>')
 
 </script>
 
 
-@endif
+<?php endif; ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

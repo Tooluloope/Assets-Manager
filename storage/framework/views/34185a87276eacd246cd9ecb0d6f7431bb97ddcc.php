@@ -13,13 +13,14 @@
     <link rel="shortcut icon" href="/images/ariosh_fav.ico">
 
     <!-- Font Awesome CSS -->
-    <link href="/fonts/web-fonts-with-css/css/fontawesome-all.css" rel="stylesheet">
-   <!-- Styles -->
-    <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+<!-- Styles -->
+    <link href="<?php echo e(url('css/app.css')); ?>" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/css/custom/sticky-footer.css" rel="stylesheet">
-    <link href="/css/custom/signin.css" rel="stylesheet">
+    <link href="<?php echo e(url('css/custom/sticky-footer.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(url('css/custom/signin.css')); ?>" rel="stylesheet">
 
 
   
@@ -31,7 +32,7 @@
             <div style="position: absolute;top: 50%; left: 50%;transform: translate(-50%,-50%);padding-bottom: 50px;" class="col-lg-4 col-md-6 text-center back style-1" style="padding-bottom: 50px;"> 
                 <form method="POST" action="<?php echo e(route('login')); ?>" aria-label="<?php echo e(__('Login')); ?>" class="form-signin mb-0 ml-auto mr-auto">
                         <?php echo csrf_field(); ?>
-                        <img class="mb-4" src="/images/uploadedwebclientlogo.jpg" alt="" width="130" height="72">
+                        <img class="mb-4" src="<?php echo e(url('images/uploadedwebclientlogo.jpg')); ?>" alt="" width="130" height="72">
                         <h1 class="h3 mb-3 font-weight-normal text-left">Sign in</h1>
                         <label for="inputEmail" class="sr-only"> <i class="far fa-envelope"></i>
                             Email address</label>
