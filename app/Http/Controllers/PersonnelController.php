@@ -110,26 +110,6 @@ class PersonnelController extends Controller
     public function update(Request $request)
     {
 
-       
-         $validator = Validator::make($request->all(), [
-                'firstname' => 'required',
-                'lastname' => 'required',
-                'phone_number' => 'required',
-                't_bosiet' => 'required',
-                'general_medicals' => 'required',
-                'tuberculosis' => 'required',
-                'alcohol_and_drug' => 'required',
-                'malaria' => 'required',
-               
-
-            ]);
-            if ($validator->fails()) {
-                return redirect()->back()
-                            ->withErrors($validator)
-                            ->withInput();
-            }
-
-  
         $data = $request->all();
      
          $personnel = Personnel::find($request->personnel_id);
@@ -141,49 +121,52 @@ class PersonnelController extends Controller
         if ($request->hasFile('t_bosiet')) {
             $t_bosiet = $request->file('t_bosiet')->store('T-Bosiet');
                $data['t_bosiet'] = $t_bosiet;
-            if (isset($personnel->t_bosiet)) {
-                  Storage::delete('T-Bosiet/'.$personnel->t_bosiet);
-                }
+         
               
+        }else{
+
+            unset($data['t_bosiet_validity_date']); 
         }
 
         if ($request->hasFile('general_medicals')) {
             $general_medicals = $request->file('general_medicals')->store('General Medicals');
                $data['general_medicals'] = $general_medicals;
 
-               if (isset($personnel->general_medicals)) {
-                  Storage::delete('General Medicals/'.$personnel->general_medicals);
-                }
+             
               
+        }else{
+
+            unset($data['general_medicals_validity_date']); 
         }
 
         if ($request->hasFile('tuberculosis')) {
             $tuberculosis = $request->file('tuberculosis')->store('Tuberculosis');
                $data['tuberculosis'] = $tuberculosis;
-               if (isset($personnel->tuberculosis)) {
-                  Storage::delete('Tuberculosis/'.$personnel->tuberculosis);
-                }
+            
               
+        }else{
+
+            unset($data['tuberculosis_validity_date']); 
         }
 
         if ($request->hasFile('alcohol_and_drug')) {
             $alcohol_and_drug = $request->file('alcohol_and_drug')->store('Alcohol & Drug');
                $data['alcohol_and_drug'] = $alcohol_and_drug;
-              if (isset($personnel->alcohol_and_drug)) {
-                  Storage::delete('Alcohol & Drug/'.$personnel->alcohol_and_drug);
-                }
+             
                 
+        }else{
+
+            unset($data['alcohol_and_drug_validity_date']); 
         }
 
         if ($request->hasFile('malaria')) {
             $malaria = $request->file('malaria')->store('Malaria');
                $data['malaria'] = $malaria;
-
-                if (isset($personnel->malaria)) {
-                  Storage::delete('Malaria/'.$personnel->malaria);
-                }
-                
+      
               
+        }else{
+
+            unset($data['malaria_validity_date']); 
         }
 
         $data['name'] = $data['firstname'].' '.$data['lastname']; 
@@ -203,10 +186,7 @@ class PersonnelController extends Controller
                  $old_certificate = Certificate::where('name',$certificate)->where('personnel_id',$personnel_id)->first();
                  if (isset($old_certificate->id)) {
 
-                    if (isset($old_certificate->certificate)) {
-                      Storage::delete('Other Certificates/'.$old_certificate->certificate);
-                    }
-                    
+                  
                     $old_certificate->update(['name'=> $certificate,'certificate'=>$data['certificate'][$key],'personnel_id'=> $personnel_id]);
                  }else{
                    Certificate::create(['name'=> $certificate,'certificate'=>$data['certificate'][$key],'personnel_id'=> $personnel_id]); 

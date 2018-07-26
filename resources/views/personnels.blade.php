@@ -290,25 +290,25 @@ table.dataTable>tbody>tr.child{
                         <div class="form-row">
                             <div class="col">
                                 <label for="firstName">First Name</label>
-                                <input type="text" class="form-control" id="p_firstName" name="firstname" placeholder="First Name" required> 
+                                <input type="text" class="form-control" id="p_firstName" name="firstname" placeholder="First Name" > 
                             </div>
                             <div class="col">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" class="form-control" name="lastname" id="p_lastName" placeholder="Last Name" required>
+                                <input type="text" class="form-control" name="lastname" id="p_lastName" placeholder="Last Name" >
                             </div>
                         </div>
                         <div class="form-row">
                              <div class="col">
                                 <label for="phone_number">Phone Number</label>
-                                <input type="text" class="form-control" name="phone_number" id="p_phone_number" placeholder="Phone Number" required>
+                                <input type="text" class="form-control" name="phone_number" id="p_phone_number" placeholder="Phone Number" >
                             </div>
                             <div class="col">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" name="email" class="form-control" id="p_exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                                <input type="email" name="email" class="form-control" id="p_exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" >
                             </div>
                             <div class="col">
                                 <label for="lastName">Employment Status</label>
-                                <select name="employment_status" id="p_employment" class="form-control form-control-chosen" data-placeholder="Please select..." required> 
+                                <select name="employment_status" id="p_employment" class="form-control form-control-chosen" data-placeholder="Please select..." > 
                                     <option value="">Please select...</option>
                                     <option value="Contract Staff">Contract Staff</option>
                                     <option value="Full Staff">Full Staff</option>
@@ -331,11 +331,11 @@ table.dataTable>tbody>tr.child{
                             </div>
                             <div class="col">
                                 <label for="designation">Designation</label>
-                                <input type="text" class="form-control" id="p_designation" name="designation" aria-describedby="emailHelp" placeholder="Designation" required>
+                                <input type="text" class="form-control" id="p_designation" name="designation" aria-describedby="emailHelp" placeholder="Designation" >
                             </div>
                             <div class="col">
                                 <label for="company">Company</label>
-                                <input type="text" class="form-control" id="p_company"  name="company" aria-describedby="emailHelp" placeholder="Company" required>
+                                <input type="text" class="form-control" id="p_company"  name="company" aria-describedby="emailHelp" placeholder="Company" >
                             </div>
                         </div>
 
