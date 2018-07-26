@@ -24,6 +24,8 @@
   <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" rel="stylesheet">
    <link href="{{url('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 <link href="{{url('css/responsive.bootstrap4.min.css')}}" rel="stylesheet">
+<!-- <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet"> -->
+
   @yield('styles')
 </head>
 
