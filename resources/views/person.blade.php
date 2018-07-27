@@ -25,12 +25,12 @@
                     <div class="card">
                         <div class="card-body row">
                             <div class="col">
-                                    <img class="img-thumbnail" width="250" src="https://res.cloudinary.com/dn1b66xo5/image/upload/v1517578587/20180127_140429_uqwdam.jpg" alt="Card image cap">
+                                    <img class="img-thumbnail" width="250" src="{{url('images/engineer.png')}}" alt="Card image cap">
                             </div>
                             <div class="col">
-                                    <h5 class="card-text">Tolulope Adetula</h5>
-                                    <p class="mb-1">tolulope.adetula@ariosh.com</p>
-                                    <p class="mt-0">08188175286</p>
+                                    <h5 class="card-text">{{$personnel->name}}</h5>
+                                    <p class="mb-1">{{$personnel->email}}</p>
+                                    <p class="mt-0">{{$personnel->phone_number}}</p>
                             </div>      
                         </div>
                     </div>
@@ -40,12 +40,10 @@
                     <div class="card">
                         <div class="card-body row pt-5">
                             <div class="col">
-                                <p class="mb-1 mt-0">Company: Ariosh</p>
-                                <p class="mb-1 mt-0">Designation: Engineer</p>
-                                <p class="mb-1 mt-0">Employment Status: Expatriate(Local)</p>
-                                <p class="mb-1 mt-0">Company: Ariosh</p>
-                                <p class="mb-1 mt-0">Designation: Engineer</p>
-                                <p class="mb-1 mt-0">Employment Status: Expatriate(Local)</p>
+                                <p class="mb-1 mt-0">Company: {{$personnel->company}}</p>
+                                <p class="mb-1 mt-0">Designation: {{$personnel->designation}}</p>
+                                <p class="mb-1 mt-0">Employment Status: {{$personnel->employment_status}}</p>
+                                <p class="mb-1 mt-0">Category: {{$personnel->category}}</p>
                             </div>      
                         </div>
                     </div>
@@ -64,46 +62,50 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                  @if(isset($personnel->t_bosiet))      <tr>
+                                            <td><a href="{{url('storage/app')}}/{{$personnel->t_bosiet}}" target="_blank">T-Bosiet</a></td>
+                                            <td>{{$personnel->t_bosiet_issue_date}}</td>
+                                            <td>{{$personnel->t_bosiet_validity_date}}</td>
+                                        </tr>@endif
+                                   @if(isset($personnel->general_medicals))     <tr>
+                                            <td><a href="{{url('storage/app')}}/{{$personnel->general_medicals}}" target="_blank">General Medicals</a></td>
+                                             <td>{{$personnel->general_medicals_issue_date}}</td>
+                                            <td>{{$personnel->general_medicals_validity_date}}</td>
+                                        </tr>@endif
+                                  @if(isset($personnel->tuberculosis))      <tr>
+                                            <td><a href="{{url('storage/app')}}/{{$personnel->tuberculosis}}" target="_blank">Tuberculosis</a></td>
+                                            <td>{{$personnel->tuberculosis_issue_date}}</td>
+                                            <td>{{$personnel->tuberculosis_validity_date}}</td>
+                                        </tr>@endif
+                                  @if(isset($personnel->alcohol_and_drug))      <tr>
+                                            <td><a href="{{url('storage/app')}}/{{$personnel->alcohol_and_drug}}" target="_blank">Alcohol &amp; Drug</a></td>
+                                             <td>{{$personnel->alcohol_and_drug_issue_date}}</td>
+                                            <td>{{$personnel->alcohol_and_drug_validity_date}}</td>
+                                        </tr>@endif
+                                   @if(isset($personnel->malaria))     <tr>
+                                            <td><a href="{{url('storage/app')}}/{{$personnel->malaria}}" target="_blank">Malaria Test</a></td>
+                                             <td>{{$personnel->malaria_issue_date}}</td>
+                                            <td>{{$personnel->malaria_validity_date}}</td>
+                                        </tr>@endif
+                                        @if(isset($personnel->certificate))
                                         <tr>
-                                            <td>T-Bosiet</td>
-                                            <td>26/09/2017</td>
-                                            <td>26/09/2017</td>
+                                  @if($personnel->certificate->trade() !='')             <td><a href="{{url('storage/app')}}/{{$personnel->certificate->trade()->certificate}}" target="_blank"> Trade Certificate</a></td>
+                                             <td>{{$personnel->certificate->trade()->issue_date}}</td>
+                                            <td>{{$personnel->certificate->trade()->validity_date}}</td>
+                                        </tr> @endif
+                              @if($personnel->certificate->osp() !='')          <tr>
+                                            <td><a href="{{url('storage/app')}}/{{$personnel->certificate->osp()->certificate}}" target="_blank"> OSP</a></td>
+                                            <td>{{$personnel->certificate->osp()->issue_date}}</td>
+                                            <td>{{$personnel->certificate->osp()->validity_date}}</td>
+                                        </tr> 
+                            @endif
+                             @if($personnel->certificate->cv() !='')           <tr>
+                                            <td><a href="{{url('storage/app')}}/{{$personnel->certificate->cv()->certificate}}" target="_blank">Curriculum Vitae</a></td>
+                                            <td>{{$personnel->certificate->cv()->issue_date}}</td>
+                                            <td>{{$personnel->certificate->cv()->validity_date}}</td>
                                         </tr>
-                                        <tr>
-                                            <td>General Medicals</td>
-                                            <td>26/09/2017</td>
-                                            <td>26/09/2017</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tuberculosis</td>
-                                            <td>26/09/2017</td>
-                                            <td>26/09/2017</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Alcohol &amp; Drug</td>
-                                            <td>26/09/2017</td>
-                                            <td>26/09/2017</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Malaria Test</td>
-                                            <td>26/09/2017</td>
-                                            <td>26/09/2017</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Trade Certificate</td>
-                                            <td>26/09/2017</td>
-                                            <td>26/09/2017</td>
-                                        </tr>
-                                        <tr>
-                                            <td>OSP</td>
-                                            <td>26/09/2017</td>
-                                            <td>26/09/2017</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Curriculum Vitae</td>
-                                            <td>26/09/2017</td>
-                                            <td>26/09/2017</td>
-                                        </tr>
+                             @endif
+                             @endif
                                     </tbody>
                                 </table>
                                 <!-- <p class="mb-1 mt-0">T-Bosiet: Ariosh</p>

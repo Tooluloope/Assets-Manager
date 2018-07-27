@@ -49,7 +49,11 @@ table.dataTable>tbody>tr.child{
                     <tbody>
                         @foreach($personnels as $personnel)
                         <tr >
+<<<<<<< HEAD
                             <td style="vertical-align: middle;" class="text-left"> <a href="{{ url('/personnel/'.$personnel->name) }}">{{$personnel->name}}</a></td>
+=======
+                            <td style="vertical-align: middle;" class="text-left"> <a href="{{ url('/personnel/'.$personnel->name) }}?id={{$personnel->id}}">{{$personnel->name}}</a></td>
+>>>>>>> f5352fc9803a98fce6785e76c9688a4d9843bc96
                             <td style="vertical-align: middle;" class="text-left">{{$personnel->phone_number}} </td>
                         
                             <td>@if(isset($personnel->t_bosiet))<a href="{{url('storage/app')}}/{{$personnel->t_bosiet}}" target="_blank"> <button type="button" class="btn {{$personnel->color_class($personnel->t_bosiet_validity_date)}} btn-sm">view</button></a> <small>{{$personnel->exp($personnel->t_bosiet_validity_date)}}</small> @else N/A @endif</td> 
@@ -470,57 +474,53 @@ table.dataTable>tbody>tr.child{
 <!-- <script src="js/custom/home.js"></script> -->
 <script>
     $(document).ready(function() {
-        $('#personnels').DataTable({
-
-
-            "fixedHeader": {
-                header: true,
-                footer: true
+        $('#personnels').DataTable(  {
+        "columnDefs": [
+            // { responsivePriority: 1, targets: 0 },
+            // { responsivePriority: 2, targets: -1 }
+            {
+                "targets": [ 1 ],
+                "visible": false,
             },
-            "columnDefs": [
-                {
-                    "targets": [ 1 ],
-                    "visible": false,
-                },
-                {
-                    "targets": [ 8 ],
-                    "visible": false,
-                },
-                {
-                    "targets": [ 9 ],
-                    "visible": false
-                },
-                {
-                    "targets": [ 10 ],
-                    "visible": false,
-                },
-                {
-                    "targets": [ 11 ],
-                    "visible": false
-                },
-                {
-                    "targets": [ 12 ],
-                    "visible": false
-                }
-            ]
-        } );
+            {
+                "targets": [ 8 ],
+                "visible": false,
+            },
+            {
+                "targets": [ 9 ],
+                "visible": false
+            },
+            {
+                "targets": [ 10 ],
+                "visible": false,
+            },
+            {
+                "targets": [ 11 ],
+                "visible": false
+            },
+            {
+                "targets": [ 12 ],
+                "visible": false
+            }
+        ]
     } );
+} );
 
-    $(".personnels").click(function () {
-        var [firstName, lastName] = $(this).data('name').split(" ")
-        
-        
-        $('#personnel_id').val($(this).data('p_id'));
-        $('#p_firstName').val(firstName);
-        $('#p_lastName').val(lastName);
-        $('#p_phone_number').val($(this).data('phone'));
-        $('#p_exampleInputEmail1').val($(this).data('email'));
-        $('#p_employment').val($(this).data('employment_status'));
-        $('#p_category').val($(this).data('category'));
-        $('#p_designation').val($(this).data('designation'));
-        $('#p_company').val($(this).data('company'));
-        $('#personnel').modal('show');
-    });
+ $(".personnels").click(function () {
+    var [firstName, lastName] = $(this).data('name').split(" ")
+    
+    
+    $('#personnel_id').val($(this).data('p_id'));
+    $('#p_firstName').val(firstName);
+    $('#p_lastName').val(lastName);
+    $('#p_phone_number').val($(this).data('phone'));
+    $('#p_exampleInputEmail1').val($(this).data('email'));
+    $('#p_employment').val($(this).data('employment_status'));
+    $('#p_category').val($(this).data('category'));
+    $('#p_designation').val($(this).data('designation'));
+    $('#p_company').val($(this).data('company'));
+    $('#personnel').modal('show');
+});
 
     function myFunction() {
     // url the snackbar DIV

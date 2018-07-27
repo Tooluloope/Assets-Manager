@@ -49,7 +49,7 @@ table.dataTable>tbody>tr.child{
                 <tbody>
                     @foreach($personnels as $personnel)
                     <tr >
-                        <td style="vertical-align: middle;" class="text-left">{{$personnel->name}} </td>
+                        <td style="vertical-align: middle;" class="text-left"><a href="{{ url('/personnel/'.$personnel->name) }}?id={{$personnel->id}}">{{$personnel->name}}</a></td>
                          <td style="vertical-align: middle;" class="text-left">{{$personnel->phone_number}} </td>
                        
                         <td>

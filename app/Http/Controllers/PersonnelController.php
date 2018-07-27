@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class PersonnelController extends Controller
 {
 
-	/**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -21,8 +21,8 @@ class PersonnelController extends Controller
 
     public function index()
     {
-    	$personnels = Personnel::get();
-    	return view('personnels',compact('personnels'));
+        $personnels = Personnel::get();
+        return view('personnels',compact('personnels'));
     }
 
 
@@ -199,9 +199,12 @@ class PersonnelController extends Controller
        return redirect()->back()->with('message','Personnel Updated succesfully');
     }
 
-    public function person()
+    public function person(Request $request)
     {
-    	$personnels = Personnel::get();
-    	return view('person',compact('person'));
+        $personnel = Personnel::find($request->id);
+        if (!isset($personnel->id)) {
+           abort(404);
+        }
+        return view('person',compact('personnel'));
     }
 }
