@@ -17,6 +17,8 @@
 
   <!-- Font-awesome -->
   <link rel="stylesheet" href="{{url('fonts/font-awesome/css/font-awesome.css')}}"/>
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css"/>
+
   <!-- Bootstrap 4 -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
   <!-- endinject -->
@@ -157,6 +159,8 @@ Users
 <script src="{{url('js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{url('js/dataTables.responsive.min.js')}}"></script>
 <script src="{{url('js/responsive.bootstrap4.min.js')}}"></script>
+<script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
+
   @yield('page_scripts')
   <!-- endinject -->
   <!-- Custom js for this page-->

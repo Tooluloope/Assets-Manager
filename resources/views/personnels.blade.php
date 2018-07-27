@@ -1,6 +1,9 @@
 @extends('layout')
 @section('styles')
 <link rel="stylesheet" href="{{url('css/custom/personnel.css')}}"/>
+<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+<link href="https://cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css">
+
 <style type="text/css"> input[type="date"]:before {
     content: attr(placeholder) !important;
     color: #aaa;
@@ -460,56 +463,64 @@ table.dataTable>tbody>tr.child{
 @endsection
 @section('page_scripts')
 <script src="{{url('js/custom/row.js')}}"></script>
+<!-- <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script> -->
+
+<script src="https://cdn.datatables.net/fixedheader/3.1.2/js/dataTables.fixedHeader.min.js"></script>
+
 <!-- <script src="js/custom/home.js"></script> -->
 <script>
     $(document).ready(function() {
-        $('#personnels').DataTable(  {
-        "columnDefs": [
-            // { responsivePriority: 1, targets: 0 },
-            // { responsivePriority: 2, targets: -1 }
-            {
-                "targets": [ 1 ],
-                "visible": false,
-            },
-            {
-                "targets": [ 8 ],
-                "visible": false,
-            },
-            {
-                "targets": [ 9 ],
-                "visible": false
-            },
-            {
-                "targets": [ 10 ],
-                "visible": false,
-            },
-            {
-                "targets": [ 11 ],
-                "visible": false
-            },
-            {
-                "targets": [ 12 ],
-                "visible": false
-            }
-        ]
-    } );
-} );
+        $('#personnels').DataTable({
 
- $(".personnels").click(function () {
-    var [firstName, lastName] = $(this).data('name').split(" ")
-    
-    
-    $('#personnel_id').val($(this).data('p_id'));
-    $('#p_firstName').val(firstName);
-    $('#p_lastName').val(lastName);
-    $('#p_phone_number').val($(this).data('phone'));
-    $('#p_exampleInputEmail1').val($(this).data('email'));
-    $('#p_employment').val($(this).data('employment_status'));
-    $('#p_category').val($(this).data('category'));
-    $('#p_designation').val($(this).data('designation'));
-    $('#p_company').val($(this).data('company'));
-    $('#personnel').modal('show');
-});
+
+            "fixedHeader": {
+                header: true,
+                footer: true
+            },
+            "columnDefs": [
+                {
+                    "targets": [ 1 ],
+                    "visible": false,
+                },
+                {
+                    "targets": [ 8 ],
+                    "visible": false,
+                },
+                {
+                    "targets": [ 9 ],
+                    "visible": false
+                },
+                {
+                    "targets": [ 10 ],
+                    "visible": false,
+                },
+                {
+                    "targets": [ 11 ],
+                    "visible": false
+                },
+                {
+                    "targets": [ 12 ],
+                    "visible": false
+                }
+            ]
+        } );
+    } );
+
+    $(".personnels").click(function () {
+        var [firstName, lastName] = $(this).data('name').split(" ")
+        
+        
+        $('#personnel_id').val($(this).data('p_id'));
+        $('#p_firstName').val(firstName);
+        $('#p_lastName').val(lastName);
+        $('#p_phone_number').val($(this).data('phone'));
+        $('#p_exampleInputEmail1').val($(this).data('email'));
+        $('#p_employment').val($(this).data('employment_status'));
+        $('#p_category').val($(this).data('category'));
+        $('#p_designation').val($(this).data('designation'));
+        $('#p_company').val($(this).data('company'));
+        $('#personnel').modal('show');
+    });
 
     function myFunction() {
     // url the snackbar DIV
@@ -520,8 +531,9 @@ table.dataTable>tbody>tr.child{
 
     // After 3 seconds, remove the show class from DIV
     setTimeout(function(){ x.className = x.className.replace("shows", ""); }, 3000);
-}
+    }
 </script>
+
 @if(session('message') != NULL)
 <script type="text/javascript">
     
