@@ -27,6 +27,10 @@ Route::any('/projects/{name}/add-personnel', 'ProjectController@add_personnel')-
 Route::any('/projects/{name}/remove-personnel', 'ProjectController@remove_personnel')->name('remove-personnel');
 Route::get('/projects/{name}/personnel', 'ProjectController@view_personnel')->name('view-personnel');
 
+
+Route::get('/personnel/{name}', 'PersonnelController@person')->name('person');
+
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
