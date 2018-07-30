@@ -17,6 +17,8 @@
 
   <!-- Font-awesome -->
   <link rel="stylesheet" href="{{url('fonts/font-awesome/css/font-awesome.css')}}"/>
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css"/>
+
   <!-- Bootstrap 4 -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
   <!-- endinject -->
@@ -25,6 +27,8 @@
    <link href="{{url('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
     <link href="{{url('css/fixedHeader.bootstrap4.min.css')}}" rel="stylesheet">
 <link href="{{url('css/responsive.bootstrap4.min.css')}}" rel="stylesheet">
+<!-- <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet"> -->
+
   @yield('styles')
 
   <style type="text/css">

@@ -1,6 +1,9 @@
 @extends('layout')
 @section('styles')
 <link rel="stylesheet" href="{{url('css/custom/personnel.css')}}"/>
+<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+<link href="https://cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css">
+
 <style type="text/css"> input[type="date"]:before {
     content: attr(placeholder) !important;
     color: #aaa;
@@ -460,6 +463,10 @@ table.dataTable>tbody>tr.child{
 @endsection
 @section('page_scripts')
 <script src="{{url('js/custom/row.js')}}"></script>
+<!-- <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script> -->
+
+<script src="https://cdn.datatables.net/fixedheader/3.1.2/js/dataTables.fixedHeader.min.js"></script>
+
 <!-- <script src="js/custom/home.js"></script> -->
 <script>
     $(document).ready(function() {
@@ -521,8 +528,9 @@ table.dataTable>tbody>tr.child{
 
     // After 3 seconds, remove the show class from DIV
     setTimeout(function(){ x.className = x.className.replace("shows", ""); }, 3000);
-}
+    }
 </script>
+
 @if(session('message') != NULL)
 <script type="text/javascript">
     
