@@ -464,6 +464,7 @@ table.dataTable>tbody>tr.child{
 <script>
     $(document).ready(function() {
         $('#personnels').DataTable(  {
+         "fixedHeader": true ,
         "columnDefs": [
             // { responsivePriority: 1, targets: 0 },
             // { responsivePriority: 2, targets: -1 }

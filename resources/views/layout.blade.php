@@ -23,8 +23,16 @@
   <link rel="shortcut icon" href="{{url('images/favicon.png')}}" />
   <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" rel="stylesheet">
    <link href="{{url('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <link href="{{url('css/fixedHeader.bootstrap4.min.css')}}" rel="stylesheet">
 <link href="{{url('css/responsive.bootstrap4.min.css')}}" rel="stylesheet">
   @yield('styles')
+
+  <style type="text/css">
+    
+    .mdc-toolbar--fixed {
+  z-index: -10 !important;
+}
+  </style>
 </head>
 
 <body>
@@ -155,6 +163,7 @@ Users
 <script src="{{url('js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{url('js/dataTables.responsive.min.js')}}"></script>
 <script src="{{url('js/responsive.bootstrap4.min.js')}}"></script>
+<script src="{{url('js/dataTables.fixedHeader.min.js')}}"></script>
   @yield('page_scripts')
   <!-- endinject -->
   <!-- Custom js for this page-->
