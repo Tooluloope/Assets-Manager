@@ -36,6 +36,13 @@
     .mdc-toolbar--fixed {
   z-index: -10 !important;
 }
+
+.table thead tr th {
+color: white;
+background-color:#002545 ;
+}
+
+
   </style>
 </head>
 

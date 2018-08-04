@@ -29,7 +29,7 @@ table.dataTable>tbody>tr.child{
                     <tr>
                     <th class="text-left">Name</th>
                     
-                    <th class="text-center">Tel</th>
+                 
                     <th class="text-center">T-BOSIET</th>
                     <th class="text-center">General Medicals</th>
                     <th class="text-center">Tuberculosis</th>
@@ -49,8 +49,8 @@ table.dataTable>tbody>tr.child{
                 <tbody>
                     @foreach($project_personnels as $project_personnel)
                     <tr >
-                        <td style="vertical-align: middle;" class="text-left">{{$project_personnel->personnel->name}} </td>
-                         <td style="vertical-align: middle;" class="text-left">{{$project_personnel->personnel->phone_number}} </td>
+                        <td style="vertical-align: middle;" class="text-left"> <a href="{{ url('/personnel/'.$project_personnel->personnel->name) }}?id={{$project_personnel->personnel->id}}">{{$project_personnel->personnel->name}}</a></td>
+                         
                        
                         <td>
                             @if(isset($project_personnel->personnel->t_bosiet))
