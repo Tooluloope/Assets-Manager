@@ -1,4 +1,7 @@
 @extends('layout')
+@section('pageTitle')
+ Personnel | Ariosh-Offshore
+@endsection
 @section('styles')
 <link rel="stylesheet" href="{{url('css/custom/personnel.css')}}"/>
 <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
@@ -118,6 +121,9 @@ table.dataTable>tbody>tr.child{
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
                             </div>
+                            
+                        </div>
+                        <div class="form-row">
                             <div class="col">
                                 <label for="lastName">Employment Status</label>
                                 <select name="employment_status" id="single" class="form-control form-control-chosen" data-placeholder="Please select..." required> 
@@ -128,8 +134,6 @@ table.dataTable>tbody>tr.child{
                                     <option value="Yet to be employed">Yet to be employed</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="form-row">
                             <div class="col">
                                 <label for="category">Category</label>
                                 <select name="category" id="single" class="form-control form-control-chosen" data-placeholder="Please select..."> 
@@ -141,6 +145,9 @@ table.dataTable>tbody>tr.child{
                                     <option value="Safety">Safety</option>
                                 </select>
                             </div>
+                            
+                        </div>
+                        <div class="form-row">
                             <div class="col">
                                 <label for="designation">Designation</label>
                                 <input type="text" class="form-control" id="designation" name="designation" aria-describedby="emailHelp" placeholder="Designation" required>
@@ -149,6 +156,10 @@ table.dataTable>tbody>tr.child{
                                 <label for="company">Company</label>
                                 <input type="text" class="form-control" id="company"  name="company" aria-describedby="emailHelp" placeholder="Company" required>
                             </div>
+                            
+                        </div>
+                        <div class="form-row">
+                            
                             <div class="col">
                                 <label for="nationality">Nationality</label>
                                 <select name="nationality" id="nationality" class="form-control form-control-chosen" data-placeholder="Please select..."> 
@@ -314,6 +325,10 @@ table.dataTable>tbody>tr.child{
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input type="email" name="email" class="form-control" id="p_exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" >
                             </div>
+                            
+                        </div>
+                        <div class="form-row">
+                             
                             <div class="col">
                                 <label for="lastName">Employment Status</label>
                                 <select name="employment_status" id="p_employment" class="form-control form-control-chosen" data-placeholder="Please select..." > 
@@ -324,8 +339,6 @@ table.dataTable>tbody>tr.child{
                                     <option value="Yet to be employed">Yet to be employed</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="form-row">
                             <div class="col">
                                 <label for="category">Category</label>
                                 <select name="category" id="p_category" class="form-control form-control-chosen" data-placeholder="Please select..."> 
@@ -337,6 +350,9 @@ table.dataTable>tbody>tr.child{
                                     <option value="Safety">Safety</option>
                                 </select>
                             </div>
+                        </div>
+                        <div class="form-row">
+                            
                             <div class="col">
                                 <label for="designation">Designation</label>
                                 <input type="text" class="form-control" id="p_designation" name="designation" aria-describedby="emailHelp" placeholder="Designation" >
@@ -345,6 +361,11 @@ table.dataTable>tbody>tr.child{
                                 <label for="company">Company</label>
                                 <input type="text" class="form-control" id="p_company"  name="company" aria-describedby="emailHelp" placeholder="Company" >
                             </div>
+                              
+                        </div>
+                        <div class="form-row">
+                            
+                            
                               <div class="col">
                                 <label for="nationality">Nationality</label>
                                 <select name="nationality" id="nationality" class="form-control form-control-chosen" data-placeholder="Please select..."> 

@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+  <title>@yield('pageTitle')</title> 
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,7 +16,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{{url('css/style.css')}}">
   <link rel="stylesheet" href="{{url('css/custom/home.css')}}">
-
+  <link rel="shortcut icon" href="http://www.ariosh.com/images/ariosh_fav.ico">
   <!-- Font-awesome -->
   <link rel="stylesheet" href="{{url('fonts/font-awesome/css/font-awesome.css')}}"/>
   <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css"/>
@@ -33,9 +35,9 @@
 
   <style type="text/css">
     
-    .mdc-toolbar--fixed {
+    /* .mdc-toolbar--fixed {
   z-index: -10 !important;
-}
+} */
 
 .table thead tr th {
 color: white;

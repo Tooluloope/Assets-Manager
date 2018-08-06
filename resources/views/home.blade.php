@@ -1,4 +1,8 @@
 @extends('layout')
+@section('pageTitle')
+ Home | Ariosh-Offshore
+@endsection
+
 
 @section('content')
     <main class="content-wrapper">

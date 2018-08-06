@@ -1,4 +1,7 @@
 @extends('layout')
+@section('pageTitle')
+ Projects | Ariosh-Offshore
+@endsection
 @section('styles')
 <link rel="stylesheet" href="css/custom/projects.css"/>
 @endsection

@@ -1,4 +1,7 @@
 @extends('layout')
+@section('pageTitle')
+ Users | Ariosh-Offshore
+@endsection
 @section('styles')
 <link rel="stylesheet" href="css/custom/users.css"/>
 @endsection

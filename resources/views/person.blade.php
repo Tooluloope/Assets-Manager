@@ -1,4 +1,7 @@
 @extends('layout')
+@section('pageTitle')
+ Personnel |Ariosh-Offshore
+@endsection
 @section('styles')
     <style>
         th {
