@@ -19,6 +19,7 @@ class CreatePersonnelsTable extends Migration
             $table->string('phone_number')->nullable();
             $table->string('email')->nullable();
             $table->string('company');
+            $table->string('nationality')->nullable();
             $table->string('designation');
             $table->string('category');
             $table->string('employment_status');

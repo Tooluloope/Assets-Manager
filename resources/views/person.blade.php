@@ -28,7 +28,7 @@
                                     <img class="img-thumbnail" width="250" src="{{url('images/engineer.png')}}" alt="Card image cap">
                             </div>
                             <div class="col">
-                                    <h5 class="card-text">{{$personnel->name}}</h5>
+                                    <h5 class="card-text">{{$personnel->name}} <small>{{$personnel->nationality}}</small> </h5>
                                     <p class="mb-1">{{$personnel->email}}</p>
                                     <p class="mt-0">{{$personnel->phone_number}}</p>
                             </div>      

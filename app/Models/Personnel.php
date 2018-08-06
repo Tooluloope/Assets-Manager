@@ -11,7 +11,7 @@ class Personnel extends Model
      *
      * @var array
      */
-    protected $fillable = [ 'name','email','company','designation','category','employment_status','t_bosiet','t_bosiet_validity_date','malaria_validity_date','malaria','general_medicals','general_medicals_validity_date','tuberculosis','tuberculosis_validity_date','alcohol_and_drug_validity_date','alcohol_and_drug','phone_number'];
+    protected $fillable = [ 'name','email','company','designation','category','employment_status','t_bosiet','t_bosiet_validity_date','malaria_validity_date','malaria','general_medicals','general_medicals_validity_date','tuberculosis','tuberculosis_validity_date','alcohol_and_drug_validity_date','alcohol_and_drug','phone_number','nationality'];
 
 
 

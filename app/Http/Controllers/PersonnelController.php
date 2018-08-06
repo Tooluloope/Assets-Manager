@@ -37,10 +37,10 @@ class PersonnelController extends Controller
                 'general_medicals' => 'required',
                 'tuberculosis' => 'required',
                 'alcohol_and_drug' => 'required',
-                'malaria' => 'required',
                
-
             ]);
+
+         
             if ($validator->fails()) {
                 return redirect()->back()
                             ->withErrors($validator)

@@ -148,6 +148,14 @@ table.dataTable>tbody>tr.child{
                                 <label for="company">Company</label>
                                 <input type="text" class="form-control" id="company"  name="company" aria-describedby="emailHelp" placeholder="Company" required>
                             </div>
+                            <div class="col">
+                                <label for="nationality">Nationality</label>
+                                <select name="nationality" id="nationality" class="form-control form-control-chosen" data-placeholder="Please select..."> 
+                                    <option value="">Please select...</option>
+                                    <option value="Local">Local</option>
+                                    <option value="Expatriate">Expatriate</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="pt-2">
@@ -335,6 +343,14 @@ table.dataTable>tbody>tr.child{
                             <div class="col">
                                 <label for="company">Company</label>
                                 <input type="text" class="form-control" id="p_company"  name="company" aria-describedby="emailHelp" placeholder="Company" >
+                            </div>
+                              <div class="col">
+                                <label for="nationality">Nationality</label>
+                                <select name="nationality" id="nationality" class="form-control form-control-chosen" data-placeholder="Please select..."> 
+                                    <option value="">Please select...</option>
+                                    <option value="Local">Local</option>
+                                    <option value="Expatriate">Expatriate</option>
+                                </select>
                             </div>
                         </div>
 
