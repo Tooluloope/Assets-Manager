@@ -162,7 +162,7 @@ table.dataTable>tbody>tr.child{
                             
                             <div class="col">
                                 <label for="nationality">Nationality</label>
-                                <select name="nationality" id="nationality" class="form-control form-control-chosen" data-placeholder="Please select..."> 
+                                <select onchange="change()"  name="nationality" id="nationality" class="form-control form-control-chosen" data-placeholder="Please select..."> 
                                     <option value="">Please select...</option>
                                     <option value="Local">Local</option>
                                     <option value="Expatriate">Expatriate</option>
@@ -229,11 +229,11 @@ table.dataTable>tbody>tr.child{
                            
                             <div class="col">
                                   <label for="malaria">Malaria (Required for Expartrites))</label>
-                                <input class="form-control" type="file" name="malaria" id="image" >  
+                                <input class="form-control expatriate" type="file" name="malaria" id="image" >  
                             </div>
                             <div class="col">
                                 <label for="malaria"><br></label>
-                                <input type="date" name="malaria_validity_date"  class="form-control" />
+                                <input type="date" name="malaria_validity_date"  class="form-control expatriate" />
                             </div>
                      </div>
                      <br>
@@ -368,7 +368,7 @@ table.dataTable>tbody>tr.child{
                             
                               <div class="col">
                                 <label for="nationality">Nationality</label>
-                                <select name="nationality" id="nationality" class="form-control form-control-chosen" data-placeholder="Please select..."> 
+                                <select onchange="change1()"  name="nationality" id="nationality" class="form-control form-control-chosen" data-placeholder="Please select..."> 
                                     <option value="">Please select...</option>
                                     <option value="Local">Local</option>
                                     <option value="Expatriate">Expatriate</option>
@@ -435,11 +435,11 @@ table.dataTable>tbody>tr.child{
                            
                             <div class="col">
                                   <label for="malaria">Malaria (Required for Expartrites))</label>
-                                <input class="form-control" type="file" name="malaria" id="image" >  
+                                <input class="form-control expatriates" type="file" name="malaria" id="image" >  
                             </div>
                             <div class="col">
                                 <label for="malaria"><br></label>
-                                <input type="date" name="malaria_validity_date"  class="form-control" />
+                                <input type="date" name="malaria_validity_date"  class="form-control expatriates" />
                             </div>
                      </div>
                      <br>
@@ -565,6 +565,21 @@ table.dataTable>tbody>tr.child{
 
     // After 3 seconds, remove the show class from DIV
     setTimeout(function(){ x.className = x.className.replace("shows", ""); }, 3000);
+    }
+
+    function change() {
+       var values = event.srcElement.value
+       if (values === 'Expatriate' ){
+        $(".expatriate").attr('required', 'required');
+        
+       }
+    }
+    function change1() {
+       var values = event.srcElement.value
+       if (values === 'Expatriate' ){
+        $(".expatriates").attr('required', 'required');
+        
+       }
     }
 </script>
 
