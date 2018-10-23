@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="font-size: 18px !important">
 
 <head>
   <title>@yield('pageTitle')</title> 
@@ -9,36 +9,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- plugins:css -->
-  <link rel="stylesheet" href="{{url('css/mdi/css/materialdesignicons.min.css')}}">
+  <link rel="stylesheet"  href="{{url('css/mdi/css/materialdesignicons.min.css')}}">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="{{url('css/style.css')}}">
-  <link rel="stylesheet" href="{{url('css/custom/home.css')}}">
+  <link rel="stylesheet"  href="{{url('css/style.css')}}">
+  <link rel="stylesheet"  href="{{url('css/custom/home.css')}}">
+  <link rel="stylesheet"  href="{{url('css/custom/sidebar.css')}}">
   <link rel="shortcut icon" href="http://www.ariosh.com/images/ariosh_fav.ico">
   <!-- Font-awesome -->
-  <link rel="stylesheet" href="{{url('fonts/font-awesome/css/font-awesome.css')}}"/>
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css"/>
+  <link rel="stylesheet"  href="{{url('fonts/font-awesome/css/font-awesome.css')}}"/>
+  <link rel="stylesheet"  href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css"/>
 
   <!-- Bootstrap 4 -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{url('images/favicon.png')}}" />
-  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" rel="stylesheet">
-   <link href="{{url('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-    <link href="{{url('css/fixedHeader.bootstrap4.min.css')}}" rel="stylesheet">
-<link href="{{url('css/responsive.bootstrap4.min.css')}}" rel="stylesheet">
-<!-- <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet"> -->
+  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" rel="stylesheet" >
+   <link href="{{url('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" >
+    <link href="{{url('css/fixedHeader.bootstrap4.min.css')}}" rel="stylesheet" >
+<link href="{{url('css/responsive.bootstrap4.min.css')}}" rel="stylesheet" >
+<!-- <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" > -->
+<link href="{{url('css/datepicker.min.css')}}" rel="stylesheet">
 
   @yield('styles')
 
   <style type="text/css">
-    
-    /* .mdc-toolbar--fixed {
-  z-index: -10 !important;
-} */
-
+  th{
+        font-size: 17px !important;
+  }
+   td {
+        font-size: 16px !important;
+   }
 .table thead tr th {
 color: white;
 background-color:#002545 ;
@@ -46,6 +49,7 @@ background-color:#002545 ;
 
 
   </style>
+
 </head>
 
 <body>
@@ -60,57 +64,72 @@ background-color:#002545 ;
         </div>
         <div style="height: 100%;" class="mdc-list-group">
           <nav style="height: 100%;" class="mdc-list mdc-drawer-menu">
-            <div class="mdc-list-item mdc-drawer-item @yield('users_active')">
+
+                      <!-- users -->
+            <div class="side-list mdc-list-item mdc-drawer-item @yield('users_active')">
               <a class="mdc-drawer-link" href="{{ route('users') }}">
               <i class="fa fa-users pr-4 pl-1 fa-lg" aria-hidden="true"></i>
-Users
+                  Users
               </a>
             </div>
-            <div class="mdc-list-item mdc-drawer-item @yield('dashboard_active')">
+            <div class="side-list mdc-list-item mdc-drawer-item @yield('dashboard_active')">
               <a class="mdc-drawer-link" href="{{ route('all-personnel') }}">
                   <img width="19.13" height="17" src="{{url('images/engineer.svg')}}" class="mr-4 ml-1">                Personnel
               </a>
             </div>
-            <div class="mdc-list-item mdc-drawer-item">
+            <!-- Projects -->
+
+            <div class="side-list mdc-list-item mdc-drawer-item">
               <a class="mdc-drawer-link" href="{{ route('projects') }}">
                 <img width="19.13" height="17" src="{{url('images/project.svg')}}" class="mr-4 ml-1"> 
                 Projects
               </a>
             </div>
-            <!-- <div class="mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="ui-sub-menu">
+
+            <!-- Equipments -->
+            <div class="side-list mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="equipments">
               <a class="mdc-drawer-link" href="#">
-                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">dashboard</i>
-                UI Features
+                <img width="19.13" height="17" src="{{url('images/hammer.svg')}}" class="mr-4 ml-1"> 
+                Equipments
                 <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>
               </a>
-              <div class="mdc-expansion-panel" id="ui-sub-menu">
+              <div class="mdc-expansion-panel" id="equipments">
                 <nav class="mdc-list mdc-drawer-submenu">
                   <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="pages/ui-features/buttons.html">
-                      Buttons
+                    <a class="mdc-drawer-link" href="{{ url('add-equipments') }}">
+                      Add Equipments
                     </a>
                   </div>
                   <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="pages/ui-features/typography.html">
-                      Typography
+                    <a class="mdc-drawer-link" href="{{ url('edit-equipments') }}">
+                      Edit Equipments
                     </a>
                   </div>
                 </nav>
               </div>
-            </div> -->
-            <!-- <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="#">
-              <i class="fa fa-thumb-tack pr-4 pl-1 fa-lg" aria-hidden="true"></i>
-                Locations
-              </a>
             </div>
-            <div class="mdc-list-item mdc-drawer-item">
+            <!-- Consumables -->
+            <div class="side-list mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="consumables">
               <a class="mdc-drawer-link" href="#">
-              <i class="fa fa-question-circle-o pr-4 pl-1 fa-lg" aria-hidden="true"></i>
-                Requests
+                <img width="19.13" height="17" src="{{url('images/repair.svg')}}" class="mr-4 ml-1"> 
+                Consumables
+                <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>
               </a>
-            </div> -->
-            
+              <div class="mdc-expansion-panel" id="consumables">
+                <nav class="mdc-list mdc-drawer-submenu">
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="{{ url('add-consumables') }}">
+                      Add Consumables
+                    </a>
+                  </div>
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="{{ url('edit-consumables') }}">
+                      Edit Consumables
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </div>
            
           </nav>
         </div>
@@ -177,6 +196,7 @@ Users
 <script src="{{url('js/dataTables.responsive.min.js')}}"></script>
 <script src="{{url('js/responsive.bootstrap4.min.js')}}"></script>
 <script src="{{url('js/dataTables.fixedHeader.min.js')}}"></script>
+ <script src="{{url('js/bootstrap-datepicker.min.js')}}"></script>
   @yield('page_scripts')
   <!-- endinject -->
   <!-- Custom js for this page-->

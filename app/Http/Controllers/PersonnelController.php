@@ -6,6 +6,10 @@ use App\Models\Certificate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+
+use App\Models\ProjectPersonnel;
+use App\Models\Manifest;
+use File;
 class PersonnelController extends Controller
 {
 
@@ -34,6 +38,13 @@ class PersonnelController extends Controller
                 'lastname' => 'required',
                 'phone_number' => 'required',
                 't_bosiet' => 'required',
+                't_bosiet_validity_date' => 'required|date',
+                'general_medicals_validity_date' => 'required|date',
+                'tuberculosis_validity_date' => 'required|date',
+                'alcohol_and_drug_validity_date' => 'required|date',
+                'malaria_validity_date' => 'required|date',
+                'osp' => 'required',
+                'osp_validity_date' => 'required|date',
                 'general_medicals' => 'required',
                 'tuberculosis' => 'required',
                 'alcohol_and_drug' => 'required',
@@ -55,6 +66,29 @@ class PersonnelController extends Controller
         if ($request->hasFile('t_bosiet')) {
             $t_bosiet = $request->file('t_bosiet')->store('T-Bosiet');
                $data['t_bosiet'] = $t_bosiet;
+            
+              
+        }
+
+        if ($request->hasFile('osp')) {
+            $osp = $request->file('osp')->store('OSP');
+               $data['osp'] = $osp;
+            
+              
+        }
+
+
+        if ($request->hasFile('trade_certificate')) {
+            $osp = $request->file('trade_certificate')->store('Trade Certificate');
+               $data['trade_certificate'] = $osp;
+            
+              
+        }
+
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image')->store('image');
+               $data['image'] = $image;
             
               
         }
@@ -85,23 +119,6 @@ class PersonnelController extends Controller
 
         $data['name'] = $data['firstname'].' '.$data['lastname']; 
         $personnel = Personnel::Create($data);
-        if (isset($data['certificate_name'])){
-
-                
-            foreach ($data['certificate_name'] as $key => $certificate) {
-                
-                if ($request->file('certificate')[$key] != NULL){
-                $certificate_file = $request->file('certificate')[$key]->store('Other Certificates');
-               $data['certificate'][$key] = $certificate_file;
-
-               Certificate::create(['name'=> $certificate,'certificate'=>$data['certificate'][$key],'personnel_id'=> $personnel->id]);
-
-                 }
-
-
-                 }
-              
-            }
         
        return redirect()->back()->with('message','Personnel Added succesfully');
     }
@@ -128,6 +145,29 @@ class PersonnelController extends Controller
             unset($data['t_bosiet_validity_date']); 
         }
 
+        if ($request->hasFile('osp')) {
+            $osp = $request->file('osp')->store('OSP');
+               $data['osp'] = $osp;
+         
+              
+        }else{
+            unset($data['osp']); 
+            unset($data['osp_validity_date']); 
+        }
+
+        if ($request->hasFile('trade_certificate')) {
+            $osp = $request->file('trade_certificate')->store('Trade Certificate');
+               $data['trade_certificate'] = $osp;
+            
+              
+        }else{
+            unset($data['trade_certificate']); 
+            unset($data['trade_certificate_validity_date']); 
+        }
+
+
+
+
         if ($request->hasFile('general_medicals')) {
             $general_medicals = $request->file('general_medicals')->store('General Medicals');
                $data['general_medicals'] = $general_medicals;
@@ -135,8 +175,16 @@ class PersonnelController extends Controller
              
               
         }else{
-
+            unset($data['general_medicals']); 
             unset($data['general_medicals_validity_date']); 
+        }
+
+         if ($request->hasFile('image')) {
+            $image = $request->file('image')->store('image');
+               $data['image'] = $image; 
+              
+        }else {
+            unset($data['image']); 
         }
 
         if ($request->hasFile('tuberculosis')) {
@@ -145,7 +193,7 @@ class PersonnelController extends Controller
             
               
         }else{
-
+            unset($data['tuberculosis']);
             unset($data['tuberculosis_validity_date']); 
         }
 
@@ -155,7 +203,7 @@ class PersonnelController extends Controller
              
                 
         }else{
-
+            unset($data['alcohol_and_drug']);
             unset($data['alcohol_and_drug_validity_date']); 
         }
 
@@ -165,7 +213,7 @@ class PersonnelController extends Controller
       
               
         }else{
-
+            unset($data['malaria']);
             unset($data['malaria_validity_date']); 
         }
 
@@ -173,29 +221,7 @@ class PersonnelController extends Controller
 
         $personnel_id = $personnel->id;
         $personnel = $personnel->update($data);
-        if (isset($data['certificate_name'])){
-
-                
-            foreach ($data['certificate_name'] as $key => $certificate) {
-                
-                if ($request->file('certificate')[$key] != NULL){
-               $certificate_file = $request->file('certificate')[$key]->store('Other Certificates');
-               $data['certificate'][$key] = $certificate_file;
-                
-
-                 $old_certificate = Certificate::where('name',$certificate)->where('personnel_id',$personnel_id)->first();
-                 if (isset($old_certificate->id)) {
-
-                  
-                    $old_certificate->update(['name'=> $certificate,'certificate'=>$data['certificate'][$key],'personnel_id'=> $personnel_id]);
-                 }else{
-                   Certificate::create(['name'=> $certificate,'certificate'=>$data['certificate'][$key],'personnel_id'=> $personnel_id]); 
-                 }
-
-                 }
-
-            }
-        }
+       
        return redirect()->back()->with('message','Personnel Updated succesfully');
     }
 
@@ -207,4 +233,93 @@ class PersonnelController extends Controller
         }
         return view('person',compact('personnel'));
     }
+
+  
+
+    public function delete($id,Request $request)
+    {
+        $personnel = Personnel::find($id);
+        if (!isset($personnel->id)) {
+           abort(404);
+        }
+
+        $projects = ProjectPersonnel::where('personnel_id',$personnel->id)->get();
+         if ($projects != '[]') {
+            foreach ($projects as $project) {
+                $project->delete();
+            }
+            
+        }
+
+        $mainfests = Manifest::where('personnel_id',$personnel->id)->get();
+        if ($mainfests != '[]') {
+
+            foreach ($mainfests as $mainfest) {
+                $mainfest->delete();
+            }
+             
+        }
+     
+        
+
+        if (isset($personnel->t_bosiet)) {
+           
+             Storage::delete($personnel->t_bosiet);
+              
+        }
+
+        if (isset($personnel->osp)) {
+           
+              Storage::delete($personnel->osp);
+        }
+
+
+        if (isset($personnel->trade_certificate)) {
+            
+              Storage::delete($personnel->trade_certificate);
+        }
+
+
+        if (isset($personnel->image)) {
+            
+            Storage::delete($personnel->image);
+              
+        }
+
+        if (isset($personnel->general_medicals)) {
+            
+              Storage::delete($personnel->general_medicals);
+        }
+
+        if (isset($personnel->tuberculosis)) {
+           Storage::delete($personnel->tuberculosis);
+        }
+
+        if (isset($personnel->alcohol_and_drug)) {
+             Storage::delete($personnel->alcohol_and_drug);
+              
+        }
+
+        if (isset($personnel->malaria)) {
+          
+               Storage::delete($personnel->malaria);
+        }
+        $personnel->delete();
+        return redirect()->back()->with('message','Personnel Deleted succesfully');
+    }
+
+    public function delete_certificate($type,Request $request)
+    {
+
+        $certs = ['1' => 't_bosiet','2' => 'general_medicals','3' =>'tuberculosis','4'=>'alcohol_and_drug','5'=>'osp','6' => 'malaria','7' => 'trade_certificate'];
+
+         
+        $personnel = Personnel::find($request->id);
+       
+        Storage::delete($personnel[$certs[$type]]);
+        $personnel->update([$certs[$type] =>NULL,$certs[$type].'_validity_date' => NULL]);
+        return redirect()->back()->with('message',$certs[$request->type].' Certificate Deleted succesfully');
+    }
+
+
 }

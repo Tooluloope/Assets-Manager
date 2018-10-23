@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => 'olugbemiro.olumide@gmail.com',
+        'name' =>  'PAYDRAFT',
     ],
 
     /*
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => 'olugbemiro.olumide@gmail.com',
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => '0v3rl0rd1321',
 
     /*
     |--------------------------------------------------------------------------
@@ -119,5 +119,13 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+
+    'stream' => [
+   'ssl' => [
+      'allow_self_signed' => true,
+      'verify_peer' => false,
+      'verify_peer_name' => false,
+   ],
+],
 
 ];

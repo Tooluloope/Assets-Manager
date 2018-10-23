@@ -41,43 +41,45 @@ class CertificateNotificationCommand extends Command
     public function handle()
     {    
             //get personnels with expired T-bosiet t_bosiet_validity_date
-         $personnels = Personnel::where('t_bosiet_validity_date','>=',date('d-m-y'))->where('t_bosiet_validity_date','<=',date('d-m-y', strtotime("+10 days")))->get();
+         $personnels = Personnel::where('t_bosiet_validity_date','>=',date('Y-m-d'))->where('t_bosiet_validity_date','<=',date('Y-m-d', strtotime("+10 days")))->get();
          foreach ($personnels as $personnel)
  
             {
-
-        Mail::to($personnel->email)->send(new MailCertificateNotification($personnel,'T-bosiet'));
+                if ($personnel->email != NULL) {
+                       Mail::to($personnel->email)->send(new MailCertificateNotification($personnel,'T-bosiet'));
+                }
+     
          
            }
 
            //get personnels with expired Malaria malaria_validity_date
-         $personnels = Personnel::where('malaria_validity_date','>=',date('d-m-y'))->where('malaria_validity_date','<=',date('d-m-y', strtotime("+10 days")))->get();
+         $personnels = Personnel::where('malaria_validity_date','>=',date('Y-m-d'))->where('malaria_validity_date','<=',date('Y-m-d', strtotime("+10 days")))->get();
          foreach ($personnels as $personnel)
  
             {
-
+if ($personnel->email != NULL) {
         Mail::to($personnel->email)->send(new MailCertificateNotification($personnel,'Malaria'));
-         
+         }
            }
 
             //get personnels with expired alcohol_and_drug alcohol_and_drug_validity_date
-         $personnels = Personnel::where('alcohol_and_drug_validity_date','>=',date('d-m-y'))->where('alcohol_and_drug_validity_date','<=',date('d-m-y', strtotime("+10 days")))->get();
+         $personnels = Personnel::where('alcohol_and_drug_validity_date','>=',date('Y-m-d'))->where('alcohol_and_drug_validity_date','<=',date('Y-m-d', strtotime("+10 days")))->get();
          foreach ($personnels as $personnel)
  
             {
-
+if ($personnel->email != NULL) {
         Mail::to($personnel->email)->send(new MailCertificateNotification($personnel,'Alcohol And Drug'));
-         
+         }
            }
 
             //get personnels with expired Tuberculosis 
-         $personnels = Personnel::where('tuberculosis_validity_date','>=',date('d-m-y'))->where('tuberculosis_validity_date','<=',date('d-m-y', strtotime("+10 days")))->get();
+         $personnels = Personnel::where('tuberculosis_validity_date','>=',date('Y-m-d'))->where('tuberculosis_validity_date','<=',date('Y-m-d', strtotime("+10 days")))->get();
          foreach ($personnels as $personnel)
  
             {
-
+if ($personnel->email != NULL) {
         Mail::to($personnel->email)->send(new MailCertificateNotification($personnel,'Tuberculosis'));
-         
+         }
            } 
     
     }

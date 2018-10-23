@@ -11,7 +11,7 @@ class Personnel extends Model
      *
      * @var array
      */
-    protected $fillable = [ 'name','email','company','designation','category','employment_status','t_bosiet','t_bosiet_validity_date','malaria_validity_date','malaria','general_medicals','general_medicals_validity_date','tuberculosis','tuberculosis_validity_date','alcohol_and_drug_validity_date','alcohol_and_drug','phone_number','nationality'];
+    protected $fillable = [ 'name','email','company','designation','category','employment_status','t_bosiet','t_bosiet_validity_date','malaria_validity_date','malaria','general_medicals','general_medicals_validity_date','tuberculosis','tuberculosis_validity_date','alcohol_and_drug_validity_date','alcohol_and_drug','phone_number','nationality','image','osp','osp_validity_date','country'];
 
 
 
@@ -35,11 +35,11 @@ class Personnel extends Model
         }
 
  
-         elseif ($date > date('Y-m-d') && $date <= date("Y-m-d", strtotime("+1 month", strtotime(date("Y-m-d"))))) {
+         elseif ($date > date('Y-m-d') && $date <= date("Y-m-d", strtotime("+2 week", strtotime(date("Y-m-d"))))) {
            return 'btn-warning';
         }
 
-        elseif ($date >= date("Y-m-d", strtotime("+1 month", strtotime(date("Y-m-d"))))) {
+        elseif ($date >= date("Y-m-d", strtotime("+2 week", strtotime(date("Y-m-d"))))) {
            return 'btn-success';
         }
     }
@@ -47,10 +47,14 @@ class Personnel extends Model
 
     public function exp($date)
     {
-       
-        $date2=date_create($date);
+        if (false === strtotime($date)) {
+            echo 'invalid date';}
+        else {
+           $date2=date_create($date);
         $diff=date_diff(date_create(date('Y-m-d')),$date2);
         return $diff->format("%R%a days");
+        }
+        
     }
 
 

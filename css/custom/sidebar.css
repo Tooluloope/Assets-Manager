@@ -1,0 +1,9 @@
+.side-list:hover {
+    background: #002545 !important;
+    color: white !important;
+}
+.side-list a:hover {
+    color: white !important;
+
+
+}

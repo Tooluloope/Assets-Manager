@@ -26,6 +26,7 @@ class ProjectsPersonnelsTableSeeder extends Seeder
 
        (array_shift($csv)); # remove column header
         
+        
        if ($csv == NULL) {
           return "CSV file isn't well Formatted";
        }

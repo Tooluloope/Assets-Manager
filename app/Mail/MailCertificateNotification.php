@@ -32,6 +32,6 @@ class MailCertificateNotification extends Mailable
      */
     public function build()
     {
-        return $this->subject('Your '.$this->certificate.' will expire soon')->view('email.certificate')->with(['personnel' => $this->personnel,'certificate' => $certificate]);
+        return $this->subject('Your '.$this->certificate.' Certificate will expire soon')->view('email.certificate')->with(['personnel' => $this->personnel,'certificate' => $this->certificate]);
     }
 }

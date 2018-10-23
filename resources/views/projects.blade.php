@@ -10,18 +10,19 @@
 
     <main class="content-wrapper">
         <div class="container">
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
-                <div class="mdc-card table-responsive">
-                    <div class="table-heading px-2 px-1 border-bottom">
-                    <h1 class="mdc-card__title mdc-card__title--large">Projects</h1>
+            <div class="">
+                <div class="">
+                    <div class="">
+                   <h2 class="text-center">Projects</h2>
                     </div>
-                    <table class="table">
+                    <table class="table table-striped table-bordered  nowrap" id="projects">
                     <thead>
                         <tr>
                         <th class="text-left">Name</th>
                         <th class="text-center">Start Date</th>
                         <th class="text-center">End Date</th>
                         <th class="text-center">Location</th>
+                         <th class="text-center">Type</th>
                         <th class="text-center">Project Manager</th>
                         <th class="text-center">Actions</th>
                         </tr>
@@ -34,11 +35,13 @@
                         <td>{{$project->start_date}}</td>
                         <td>{{$project->end_date}}</td>
                         <td>{{$project->location}}</td>
+                        <td>{{$project->type}}</td>
                         <td>{{$project->project_manager}}</td>
                         <td style="color:white;">
-                             <button data-toggle="modal" data-p_id="{{$project->id}}" data-name="{{$project->name}}" data-start="{{$project->start_date}}" data-end="{{$project->end_date}}" data-location="{{$project->location}}" data-manager="{{$project->project_manager}}" class="update btn btn-primary btn-sm" >Update Project</button>
+                             <button data-toggle="modal" data-p_id="{{$project->id}}" data-name="{{$project->name}}" data-start="{{$project->start_date}}" data-end="{{$project->end_date}}" data-location="{{$project->location}}" data-manager="{{$project->project_manager}}" class="update btn btn-primary btn-sm" >Update</button>
                              <a class="btn btn-success btn-sm" href="{{ url('projects/'.$project->name.'/add-personnel') }}?id={{$project->id}}">Add Personnel</a>
                             <a class="btn btn-primary btn-sm" href="{{ url('/projects/'.$project->name.'/personnel') }}?id={{$project->id}}">View Personnel</a>
+                            <a class="btn btn-primary btn-sm" href="{{ url('/projects/'.$project->name.'/manifest') }}?id={{$project->id}}">Manifest</a>
 
                         </td>
                     </tr>
@@ -69,23 +72,35 @@
                             <div class="form-row">
                                 <div class="col">
                                     <label for="startDate">Start Date</label>
-                                    <input type="date" id="startDate" name="start_date" class="form-control" placeholder="start date" required>
+                                    <input placeholder="dd/mm/yyyy"  id="startDate" name="start_date" class="date form-control" placeholder="start date" required>
                                 </div>
                                 <div class="col">
                                     <label for="endDate">End Date</label>
-                                    <input type="date" id="endDate" name="end_date" class="form-control" placeholder="Last name" required>
+                                    <input placeholder="dd/mm/yyyy"  id="endDate" name="end_date" class="date form-control" placeholder="Last name" required>
                                 </div>
                             </div>
                             <div class="form-row mt-3">
-                                <div class="col">
-                                    <label for="location">Location</label>
-                                    <input type="text" id="location" name="location" class="form-control" placeholder="Location" required>
+                               
+                                 <div class="col">
+                                    <label for="type">Type</label>
+                                    <select name="type" id="type" class="form-control form-control-chosen" data-placeholder="Please select..." required> 
+                                    <option value="">Please select...</option>
+                                    <option value="Offshore">Offshore</option>
+                                    <option value="Onshore">Onshore</option>>
+                                </select>
                                 </div>
                                 <div class="col">
                                     <label for="projectManager">Project Manager</label>
                                     <input type="text" id="projectManager"  name="project_manager" class="form-control" placeholder="Project Manager" required>
                                 </div>
                             </div>
+                             <div class="form-row mt-3">
+                                <div class="col">
+                                    <label for="location">Location</label>
+                                    <input type="text" id="location_update" name="location" class="form-control" placeholder="Location" required>
+                                </div>
+
+                                </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -119,23 +134,36 @@
                             <div class="form-row">
                                 <div class="col">
                                     <label for="startDate">Start Date</label>
-                                    <input type="date" id="sdate_update" name="start_date" class="form-control" placeholder="start date" required>
+                                    <input placeholder="dd/mm/yyyy"  id="sdate_update" name="start_date" class="date form-control" placeholder="start date" required>
                                 </div>
                                 <div class="col">
                                     <label for="endDate">End Date</label>
-                                    <input type="date" id="edate_update" name="end_date" class="form-control" placeholder="Last name" required>
+                                    <input placeholder="dd/mm/yyyy"  id="edate_update" name="end_date" class="date form-control" placeholder="Last name" required>
                                 </div>
                             </div>
-                            <div class="form-row mt-3">
+
+                                <div class="form-row mt-3">
                                 <div class="col">
-                                    <label for="location">Location</label>
-                                    <input type="text" id="location_update" name="location" class="form-control" placeholder="Location" required>
+                                    <label for="type">Type</label>
+                                    <select name="type" id="type_update" class="form-control form-control-chosen" data-placeholder="Please select..." required> 
+                                    <option value="">Please select...</option>
+                                    <option value="Offshore">Offshore</option>
+                                    <option value="Onshore">Onshore</option>>
+                                </select>
                                 </div>
                                 <div class="col">
                                     <label for="projectManager">Project Manager</label>
                                     <input type="text" id="manager_update"  name="project_manager" class="form-control" placeholder="Project Manager" required>
                                 </div>
                             </div>
+
+                            <div class="form-row mt-3">
+                                <div class="col">
+                                    <label for="location">Location</label>
+                                    <input type="text" id="location_update" name="location" class="form-control" placeholder="Location" required>
+                                </div>
+
+                                </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -149,17 +177,43 @@
     </main>
    @endsection
                 @section('page_scripts')
+
+                @if(session('message') != NULL)
+<script type="text/javascript">
+    
+toastr.info('{{session('message')}}')
+
+</script>
+
+
+@endif
                 <script>
                     $('projectForm').validate();
+                    $('.date').datepicker({
+    autoclose: true,
+    format: 'dd/mm/yyyy'
+});
                 </script>
                 <script type="text/javascript">
         $(document).ready(function () {
+
+               $('#projects').DataTable(  {
+         "fixedHeader": true 
+         ,
+    columnDefs: [
+        { responsivePriority: 1, targets: 0 },
+        { responsivePriority: 2, targets: -1 }
+    ]
+       
+    } );
+
             $(".update").click(function () {
                 $('#project_id').val($(this).data('p_id'));
                 $('#name_update').val($(this).data('name'));
                 $('#sdate_update').val($(this).data('start'));
                 $('#edate_update').val($(this).data('end'));
                 $('#location_update').val($(this).data('location'));
+                 $('#type_update').val($(this).data('type'));
                 $('#manager_update').val($(this).data('manager'));
                 $('#update').modal('show');
             });

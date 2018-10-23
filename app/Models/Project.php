@@ -12,7 +12,7 @@ class Project extends Model
      *
      * @var array
      */
-    protected $fillable = [ 'name','start_date','end_date','location','project_manager'];
+    protected $fillable = [ 'name','start_date','end_date','location','project_manager','type'];
     
      public static function boot()
     {

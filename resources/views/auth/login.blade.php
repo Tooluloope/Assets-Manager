@@ -22,10 +22,75 @@
     <link href="{{ url('css/custom/sticky-footer.css') }}" rel="stylesheet">
     <link href="{{ url('css/custom/signin.css') }}" rel="stylesheet">
 
+<style type="text/css">
+    .fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
 
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fullscreen-bg {
+    background: url('../img/videoframe.jpg') center center / cover no-repeat;
+  }
+
+  .fullscreen-bg__video {
+    display: none;
+  }
+}
+
+
+
+.preloader {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 9999;
+   background-image: url('{{url('images/preloader3.gif')}}');
+   background-repeat: no-repeat; 
+   background-color: #FFF;
+   background-position: center;
+}
+</style>
   
 </head>
-<body class="text-center mb-0 pt-0 pb-0">
+<!--<div class="preloader"></div>-->
+<body class="text-center mb-0 pt-0 pb-0" style="display: none">
+    
+    <div class="fullscreen-bg">
+     {{-- <video loop muted autoplay  class="fullscreen-bg__video">
+       
+     <source src="{{url('video/vdd.mp4')}}" type="video/mp4"> 
+    </video>--}}
+</div>
     <div style="width: 100%; height: 100%;" class="black">
         <div style="width:100%;" class="row ml-0 mr-0 style" >
             <!-- <div class="col-lg-4 col-md-3"></div> -->
@@ -76,7 +141,7 @@
    
     
   </body>
+    <script src="{{url('js//jquery/dist/jquery.min.js')}}"></script>
+
 </html>
-
-
 

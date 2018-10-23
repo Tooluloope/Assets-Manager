@@ -24,7 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $personnel = Personnel::get();
+        $personnel = count($personnel);
+
+        $projects = Project::get();
+        $projects = count($projects);
+
+        $users = \App\User::get();
+        $users = count($users);
+        return view('home',compact('personnel','projects','users'));
     }
 
     public function walk(Request $request)

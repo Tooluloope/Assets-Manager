@@ -1,42 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="font-size: 18px !important">
 
 <head>
+  <title><?php echo $__env->yieldContent('pageTitle'); ?></title> 
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
   <!-- plugins:css -->
-  <link rel="stylesheet" href="<?php echo e(url('css/mdi/css/materialdesignicons.min.css')); ?>">
+  <link rel="stylesheet"  href="<?php echo e(url('css/mdi/css/materialdesignicons.min.css')); ?>">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="<?php echo e(url('css/style.css')); ?>">
-  <link rel="stylesheet" href="<?php echo e(url('css/custom/home.css')); ?>">
-
+  <link rel="stylesheet"  href="<?php echo e(url('css/style.css')); ?>">
+  <link rel="stylesheet"  href="<?php echo e(url('css/custom/home.css')); ?>">
+  <link rel="shortcut icon" href="http://www.ariosh.com/images/ariosh_fav.ico">
   <!-- Font-awesome -->
-  <link rel="stylesheet" href="<?php echo e(url('fonts/font-awesome/css/font-awesome.css')); ?>"/>
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css"/>
+  <link rel="stylesheet"  href="<?php echo e(url('fonts/font-awesome/css/font-awesome.css')); ?>"/>
+  <link rel="stylesheet"  href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css"/>
 
   <!-- Bootstrap 4 -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
   <!-- endinject -->
   <link rel="shortcut icon" href="<?php echo e(url('images/favicon.png')); ?>" />
-  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" rel="stylesheet">
-   <link href="<?php echo e(url('css/dataTables.bootstrap4.min.css')); ?>" rel="stylesheet">
-    <link href="<?php echo e(url('css/fixedHeader.bootstrap4.min.css')); ?>" rel="stylesheet">
-<link href="<?php echo e(url('css/responsive.bootstrap4.min.css')); ?>" rel="stylesheet">
-<!-- <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet"> -->
+  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" rel="stylesheet" >
+   <link href="<?php echo e(url('css/dataTables.bootstrap4.min.css')); ?>" rel="stylesheet" >
+    <link href="<?php echo e(url('css/fixedHeader.bootstrap4.min.css')); ?>" rel="stylesheet" >
+<link href="<?php echo e(url('css/responsive.bootstrap4.min.css')); ?>" rel="stylesheet" >
+<!-- <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" > -->
+<link href="<?php echo e(url('css/datepicker.min.css')); ?>" rel="stylesheet">
 
   <?php echo $__env->yieldContent('styles'); ?>
 
   <style type="text/css">
-    
-    .mdc-toolbar--fixed {
-  z-index: -10 !important;
-}
-
+  th{
+        font-size: 17px !important;
+  }
+   td {
+        font-size: 16px !important;
+   }
 .table thead tr th {
 color: white;
 background-color:#002545 ;
@@ -44,6 +48,7 @@ background-color:#002545 ;
 
 
   </style>
+
 </head>
 
 <body>
@@ -75,40 +80,7 @@ Users
                 Projects
               </a>
             </div>
-            <!-- <div class="mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="ui-sub-menu">
-              <a class="mdc-drawer-link" href="#">
-                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">dashboard</i>
-                UI Features
-                <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>
-              </a>
-              <div class="mdc-expansion-panel" id="ui-sub-menu">
-                <nav class="mdc-list mdc-drawer-submenu">
-                  <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="pages/ui-features/buttons.html">
-                      Buttons
-                    </a>
-                  </div>
-                  <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="pages/ui-features/typography.html">
-                      Typography
-                    </a>
-                  </div>
-                </nav>
-              </div>
-            </div> -->
-            <!-- <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="#">
-              <i class="fa fa-thumb-tack pr-4 pl-1 fa-lg" aria-hidden="true"></i>
-                Locations
-              </a>
-            </div>
-            <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="#">
-              <i class="fa fa-question-circle-o pr-4 pl-1 fa-lg" aria-hidden="true"></i>
-                Requests
-              </a>
-            </div> -->
-            
+           
            
           </nav>
         </div>
@@ -175,6 +147,7 @@ Users
 <script src="<?php echo e(url('js/dataTables.responsive.min.js')); ?>"></script>
 <script src="<?php echo e(url('js/responsive.bootstrap4.min.js')); ?>"></script>
 <script src="<?php echo e(url('js/dataTables.fixedHeader.min.js')); ?>"></script>
+ <script src="<?php echo e(url('js/bootstrap-datepicker.min.js')); ?>"></script>
   <?php echo $__env->yieldContent('page_scripts'); ?>
   <!-- endinject -->
   <!-- Custom js for this page-->
