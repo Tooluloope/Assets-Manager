@@ -34,9 +34,9 @@
                                                     <div class="steps-step">
                                                         <a href="#step-11" type="button" class="btn btn-default" disabled="disabled" >Picture</a>
                                                     </div>
-                                                    <div class="steps-step">
+                                                    <!-- <div class="steps-step">
                                                         <a href="#step-12" type="button" class="btn btn-default" disabled="disabled">Attachment</a>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="steps-step">
                                                         <a href="#step-13" type="button" class="btn btn-default" disabled="disabled">Maintenance</i></a>
                                                     </div>
@@ -127,7 +127,7 @@
                                                     <div class="form-row pb-3">    
                                                         <div class="col form-group">
                                                             <label data-error="wrong" data-success="right" for="purchase-cost">Purchase Cost</label>
-                                                            <input required="required" id="purchase-cost" name="purchase-cost" type="number" class="form-control valicost" placeholder="Purchase cost">
+                                                            <input required="required" id="purchase-cost" name="purchase-cost" type="number" class="form-control validate" placeholder="">
                                                         </div>
                                                         <div class="col form-group">
                                                             <label data-error="wrong" data-success="right" for="total-depreciation">Total Depreciation</label>
@@ -159,7 +159,7 @@
                                                 </div>
                                 
                                                 <!-- Attachment -->
-                                                <div class="setup-content"  id="step-12">
+                                                <!-- <div class="setup-content"  id="step-12">
                                                     <h3 class="font-weight-bold pl-0 my-4"><strong>Step 3</strong></h3>
                                                     <div class="form-group">
                                                         <label class="col-sm-2" for="resume">Upload Display Picture</label>
@@ -170,17 +170,79 @@
                                                     <button class="btn btn-indigo btn-rounded prevBtn float-left" type="button">Previous</button>
                                                     <button class="btn btn-indigo btn-rounded nextBtn float-right" type="button">Next</button>
                                                 
-                                                </div>
+                                                </div> -->
 
                                                 <!-- Maintenance -->
                                                 <div class="setup-content"  id="step-13">
-                                                    <h3 class="font-weight-bold pl-0 my-4"><strong>Step 3</strong></h3>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-2" for="resume">Upload Display Picture</label>
-                                                        <div class="col-sm-10">
-                                                            <input required="required" class="form-control" type="file" name="image" id="image" required>                  
+
+                                                    <h3> Choose Maintenance Type</h3>
+                                                    <fieldset>
+                                                        <!-- Hourly -->
+                                                        <div class="checkbox  pb-3">
+                                                            <input name="maintenance_type" type="checkbox" value="hourly_maintenance" id= 'hourly_check' onclick="return checkbox();"/>
+                                                            <label>Hourly Maintenance</label>
                                                         </div>
-                                                    </div>
+                                                        <div class="form-row pb-3" id="hourly_maintenance">    
+                                                            <div class="col-sm-5 form-group">
+                                                                <label data-error="wrong" data-success="right" for="hours">Number of Hours</label>
+                                                                <input required="required" id="hours" name="hours" type="number" class="form-control validate" placeholder="Hours">
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- daily -->
+                                                        <div class="checkbox  pb-3">
+                                                            <input name="maintenance_type" type="checkbox" value="daily_maintenance" id= 'daily_check' onclick="return checkbox();"/>
+                                                            <label>Daily Maintenance</label>
+                                                        </div>
+                                                        <div class="form-row pb-3" id="daily_maintenance">    
+                                                            <div class="col-sm-5 form-group">
+                                                                <label data-error="wrong" data-success="right" for="days">Number of Days</label>
+                                                                <input required="required" id="days" name="days" type="number" class="form-control validate" placeholder="Days">
+
+                                                                <input type="text" name="day_date" class="form-control"/>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- weekly -->
+                                                        <div class="checkbox  pb-3">
+                                                            <input name="maintenance_type" type="checkbox" value="weekly_maintenance" id= 'weekly_check' onclick="return checkbox();"/>
+                                                            <label>Weekly Maintenance</label>
+                                                        </div>
+                                                        <div class="form-row pb-3" id="weekly_maintenance">    
+                                                            <div class="col-sm-5 form-group">
+                                                                    <label data-error="wrong" data-success="right" for="weeks">Number of Weeks</label>
+                                                                    <input required="required" id="weeks" name="weeks" type="number" class="form-control validate" placeholder="Weeks">
+                                                                    <input type="text" name="week_date" class="form-control"/>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- monthly -->
+                                                        <div class="checkbox  pb-3">
+                                                                <input name="maintenance_type" type="checkbox" value="monthly_maintenance" id= 'monthly_check' onclick="return checkbox();"/>
+                                                                <label>Monthly Maintenance</label>
+                                                            </div>
+                                                            <div class="form-row pb-3" id="monthly_maintenance">    
+                                                                <div class="col-sm-5 form-group">
+                                                                    <label data-error="wrong" data-success="right" for="months">Number of Months</label>
+                                                                    <input required="required" id="months" name="months" type="number" class="form-control validate" placeholder="Months">
+                                                                    <input type="text" name="month_date" class="form-control"/>
+                                                                </div>     
+                                                            </div>
+                                                        
+                                                        <!-- yearly -->
+                                                        <div class="checkbox  pb-3">
+                                                                <input name="maintenance_type" type="checkbox" value="yearly_maintenance" id= 'yearly_check' onclick="return checkbox();"/>
+                                                                <label>Yearly Maintenance</label>
+                                                            </div>
+                                                            <div class="form-row pb-3" id="yearly_maintenance">    
+                                                                <div class="col-sm-5 form-group">
+                                                                    <label data-error="wrong" data-success="right" for="years">Number of Years</label>
+                                                                    <input required="required" id="years" name="years" type="number" class="form-control validate" placeholder="Years">
+                                                                    <input type="text" name="year_date" class="form-control"/>
+                                                                </div>
+                                                            </div>
+                                                     
+                                                    </fieldset>
                                                     <button class="btn btn-indigo btn-rounded prevBtn float-left" type="button">Previous</button>
                                                     <button class="btn btn-indigo btn-rounded nextBtn float-right" type="button">Next</button>
                                                 
@@ -203,10 +265,7 @@
                                                 </div>
 
                                                 <!-- Funding -->
-                                                <div class="setup-content"  id="step-15">
-                                                    <h3 class="font-weight-bold pl-0 my-4"><strong>Step 3</strong></h3>
-                                
-                                
+                                                <div class="setup-content"  id="step-15">                                
                                                     <div class="form-group">
                                                         <label class="col-sm-2" for="resume">Upload Display Picture</label>
                                                         <div class="col-sm-10">
@@ -237,8 +296,6 @@
                                                 </div>
                                 
                                             </form>
-                                
-                                
                                     </div>
                         </div>
                     </section>
@@ -253,4 +310,114 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+
+<script type="text/javascript">
+function checkbox() {
+    var check = document.getElementsByName("maintenance_type");
+    var numCheck = 0;
+    for (var i =0; i<check.length; i++) {
+        if (check[i].checked) {
+            numCheck++
+        };
+    }
+    if (numCheck > 1) {
+        alert('You can only select one maintenance type')
+        return false;
+    }
+    // if($('#hourly_check').val == 'hourly_maintenance') {
+    //     $('#hourly_maintenance').toggle();
+    // }
+  
+
+}
+$(document).ready(function(){
+    $("#hourly_check").click(function(){
+        $("#hourly_maintenance").toggle();
+    });
+    $("#daily_check").click(function(){
+        $("#daily_maintenance").toggle();
+    });
+    $("#weekly_check").click(function(){
+        $("#weekly_maintenance").toggle();
+    });
+    $("#monthly_check").click(function(){
+        $("#monthly_maintenance").toggle();
+    });
+    $("#yearly_check").click(function(){
+        $("#yearly_maintenance").toggle();
+    });
+});
+
+
+//   if ($('#hourly_check').is(":checked"))
+//     {
+//         $('#hourly_maintenance').toggle();
+//     }
+    // if ($('#daily_check').is(":checked"))
+    // {
+    //     $('#daily_maintenance').toggle();
+    // }
+    // if ($('#monthly_check').is(":checked"))
+    // {
+    //     $('#monthly_maintenance').toggle();
+    // }
+    // if ($('#yearly_check').is(":checked"))
+    // {
+    //     $('#yearly_maintenance').toggle();
+    // }
+    // if ($('#weekly_check').is(":checked"))
+    // {
+    //     $('#weekly_maintenance').toggle();
+    // }
+
+</script>
+<script>
+    $(function() {
+        $('input[name="datetimes"]').daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(32, 'hour'),
+        locale: {
+            format: 'M/DD hh:mm A'
+        }
+        });
+
+        $('input[name="day_date"]').daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(32, 'hour'),
+        locale: {
+            format: 'M/DD hh:mm A'
+        }
+        });
+
+        $('input[name="week_date"]').daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(32, 'hour'),
+        locale: {
+            format: 'M/DD hh:mm A'
+        }
+        });
+
+        $('input[name="month_date"]').daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(32, 'hour'),
+        locale: {
+            format: 'M/DD hh:mm A'
+        }
+        });
+
+        $('input[name="year_date"]').daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(32, 'hour'),
+        locale: {
+            format: 'M/DD hh:mm A'
+        }
+        });
+    });
+</script>
 @endsection
