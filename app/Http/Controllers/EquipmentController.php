@@ -3,19 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Equipment;
 
 class EquipmentController extends Controller
 {
     
     public function index()
     {
-    	$equipments = Equipment::get();
+    	$equipments = Equipment::paginate(20);
     	return var_dump($equipments);
-    	return view('equipments',compact('equipments'))
+    	return view('equipments',compact('equipments'));
     }
 
 
-    public function create(Request $request')
+    public function create(Request $request)
     {
     	$validator = Validator::make($request->all(), [
                 'name' => 'required',
@@ -63,7 +64,7 @@ class EquipmentController extends Controller
     	if (!isset($equipment->id)) {
     		return redirect()->back()->with('message',"Equipment already deleted or doesn't exist");
     	}
-    	$equipment->update($request->except('_token'))
+    	$equipment->update($request->except('_token'));
     	return redirect()->back()->with('message','Equipment Updated succesfully');
 
     }
