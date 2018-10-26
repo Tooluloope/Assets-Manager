@@ -32,6 +32,12 @@
 <link href="{{url('css/responsive.bootstrap4.min.css')}}" rel="stylesheet" >
 <!-- <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" > -->
 <link href="{{url('css/datepicker.min.css')}}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" media="screen" href="{{('css/css/bootstrap.css')}}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{('css/css/mdb.min.css')}}"  />
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{('css/Chosen-Plugin/dist/css/component-chosen.css')}}"/>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+
 
   @yield('styles')
 
@@ -185,6 +191,8 @@ background-color:#002545 ;
   <script src="{{url('js//misc.js')}}"></script>
   <script src="{{url('js//material.js')}}"></script>
   <script src="{{url('js/jquery.validate.min.js')}}"></script>
+  <script type="text/javascript" src="{{url('js/js/mdb.min.js')}}"></script>
+    <script type="text/javascript" src="{{url('js/custom/home.js')}}"></script>
 
 <script src="{{url('js/toastr.min.js')}}"></script>
 <script src="{{url('js/jquery.dataTables.min.js')}}"></script>
