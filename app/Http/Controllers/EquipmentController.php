@@ -12,7 +12,7 @@ class EquipmentController extends Controller
     {
     	$equipments = Equipment::get();
     	##return var_dump($equipments);
-    	return view('equipments.view-equipments',compact('equipments'));
+    	return view('equipment.view-equipments',compact('equipments'));
     }
 
 
