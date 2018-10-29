@@ -9,7 +9,7 @@
 
 @section('content')
     <main class="content-wrapper">
-        <div class="container">
+        <div class="container-fluid">
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>

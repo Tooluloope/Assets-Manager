@@ -17,14 +17,14 @@ table.dataTable>tbody>tr.child{
 @endsection
 @section('content')
 <main class="content-wrapper">
-    <div class="container">
+    <div class="container-fluid">
 
                 <h2 class="text-center">Consumables</h2>
            
                 <table id="personnels" class="table table-striped table-bordered  ">
                     <thead>
                         <tr>
-                            <th class="text-left">Name</th>
+                            <th class="text-center">Name</th>
                             <th class="text-center">Qauntity</th>
                             <th class="text-center">Size</th>
                             <th class="text-center">Location</th>
