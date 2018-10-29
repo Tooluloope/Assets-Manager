@@ -17,7 +17,7 @@ table.dataTable>tbody>tr.child{
 @endsection
 @section('content')
 <main class="content-wrapper">
-    <div class="container">
+    <div class="container-fluid">
 
                 <h2 class="text-center">Consumables</h2>
            
@@ -26,7 +26,7 @@ table.dataTable>tbody>tr.child{
                         <tr>
 
                             <th class="text-center">Tag No</th>
-                            <th class="text-left">Name</th>
+                            <th class="text-center">Name</th>
                             <th class="text-center">Qauntity</th>
                             <th class="text-center"> Content</th>
                             <th class="text-center">Size</th>
