@@ -5,6 +5,7 @@ use App\Models\Equipment;
 use App\Models\Calibration;
 use App\Models\Maintenance;
 use App\Models\Consumable;
+use App\Models\Basket;
 class EquipmentsTableSeeder extends Seeder
 {
     /**
@@ -194,15 +195,15 @@ class EquipmentsTableSeeder extends Seeder
 
 
 
-       $csv = array_map('str_getcsv', file('consumables.csv'));
+      $csv = array_map('str_getcsv', file('consumables.csv'));
          
 
-        array_walk($csv, function(&$a) use ($csv) {
+      array_walk($csv, function(&$a) use ($csv) {
            
           $a = array_combine($csv[0], $a);
         });
        
-       (array_shift($csv)); # remove column header
+      (array_shift($csv)); # remove column header
       //return var_dump($csv);
        if ($csv == NULL) {
           return "CSV file isn't well Formatted";
@@ -220,6 +221,36 @@ class EquipmentsTableSeeder extends Seeder
 
             
        }
+
+
+
+        $csv = array_map('str_getcsv', file('baskets.csv'));
+         
+
+      array_walk($csv, function(&$a) use ($csv) {
+           
+          $a = array_combine($csv[0], $a);
+        });
+       
+      (array_shift($csv)); # remove column header
+      //return var_dump($csv);
+       if ($csv == NULL) {
+          return "CSV file isn't well Formatted";
+       }
+
+       $fillable = new Basket();
+       $fillable = $fillable->getFillable();
+
+
+       foreach ($csv as $value) {
+            $basket = new Basket();
+            $basket->fill(array_intersect_key($value, array_flip($fillable)));
+            
+            $basket->save();
+
+            
+       }
+
 
 
        

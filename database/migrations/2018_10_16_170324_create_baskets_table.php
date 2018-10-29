@@ -16,11 +16,11 @@ class CreateBasketsTable extends Migration
         Schema::create('baskets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('category');
+            $table->string('category')->nullable();
             $table->string('size')->nullable();
-            $table->string('serial_no');
-            $table->string('current_locaton');
-            $table->string('content');
+            $table->string('tag_no')->nullable();
+            $table->string('current_locaton')->nullable();
+            $table->string('content')->nullable();
             $table->string('remarks')->nullable();
             $table->timestamps();
         });

@@ -21,7 +21,7 @@ table.dataTable>tbody>tr.child{
 
                 <h2 class="text-center">Equipment</h2>
            
-                <table id="personnels" class="table table-striped table-bordered  dt-responsive ">
+                <table id="personnels" class="table table-striped table-bordered  ">
                     <thead>
                         <tr>
 
