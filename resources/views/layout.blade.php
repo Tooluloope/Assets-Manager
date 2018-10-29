@@ -114,6 +114,9 @@ background-color:#002545 ;
               <div class="mdc-expansion-panel" id="consumables">
                 <nav class="mdc-list mdc-drawer-submenu">
                   <div class="mdc-list-item mdc-drawer-item pl-5">
+                    <a class="mdc-drawer-link" href="{{ url('consumables')}}">
+                      View Consumables
+                    </a>
                     <a class="mdc-drawer-link" href="{{ url('add-consumables') }}">
                       Add Consumables
                     </a>

@@ -20,6 +20,10 @@ Route::get('/equipments', 'EquipmentController@index')->name('equipments');
 
 Auth::routes();
 
+
+Route::get('/consumables', 'ConsumableController@index')->name('consumables');
+
+
 Route::get('/test', function ()
 {
 	return view ('test');
