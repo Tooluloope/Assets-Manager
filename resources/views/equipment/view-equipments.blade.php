@@ -38,7 +38,7 @@ table.dataTable>tbody>tr.child{
                     <tbody>
                          @foreach($equipments as $equipment)
                          <tr>
-                            <td>{{$equipment->tag_no}}</td>
+                            <td>{{$equipment->tag_no == '' ? 'A***' : $equipment->tag_no}}</td>
                             <td>{{$equipment->name}}</td>
                             <td>{{$equipment->category}}</td>
                             <td>{{$equipment->quantity}}</td>

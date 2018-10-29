@@ -24,11 +24,8 @@ table.dataTable>tbody>tr.child{
                 <table id="personnels" class="table table-striped table-bordered  ">
                     <thead>
                         <tr>
-
-                            <th class="text-center">Tag No</th>
                             <th class="text-left">Name</th>
                             <th class="text-center">Qauntity</th>
-                            <th class="text-center"> Content</th>
                             <th class="text-center">Size</th>
                             <th class="text-center">Location</th>
                             <th class="text-center" >Action</th>
@@ -37,14 +34,12 @@ table.dataTable>tbody>tr.child{
                     <tbody>
                          @foreach($consumables as $consumable)
                          <tr>
-                            <td>{{$consumable->tag_no}}</td>
+
                             <td>{{$consumable->name}}</td>
                             <td>{{$consumable->quantity}}</td>
-                            <td>{{$consumable->content}}</td>
-                            <td>{{$consumable->size}}</td>
+                            <td>{{$consumable->size == ' ' ? '1 Inch' : $consumable->size}}</td>
                             <td>{{$consumable->current_locaton}}</td>
                             <td></td>
-
 
                          </tr>
 
@@ -55,8 +50,6 @@ table.dataTable>tbody>tr.child{
 
         <button style="position: fixed; bottom: 50px; right: 30px;" data-toggle="modal" data-target=".bd-example-modal-lg" class=" btn btn-circle btn-primary-color" >+</button>
 
-        
-         
                 </div>
         
 

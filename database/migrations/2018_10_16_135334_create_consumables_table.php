@@ -17,10 +17,10 @@ class CreateConsumablesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('category');
-            $table->string('size')->nullable();
-            $table->string('quantity')->nullable();
+            $table->string('size')->default('1 Inch');
+            $table->string('quantity')->default('1');
             $table->string('stock_quantity')->nullable();
-            $table->string('current_locaton')->nullable();
+            $table->string('current_locaton')->default('Fab Yard');
             $table->string('remarks')->nullable();
             $table->timestamps();
         });
