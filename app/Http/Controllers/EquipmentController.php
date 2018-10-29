@@ -10,9 +10,9 @@ class EquipmentController extends Controller
     
     public function index()
     {
-    	$equipments = Equipment::paginate(20);
-    	return var_dump($equipments);
-    	return view('equipments',compact('equipments'));
+    	$equipments = Equipment::get();
+    	##return var_dump($equipments);
+    	return view('equipments.view-equipments',compact('equipments'));
     }
 
 

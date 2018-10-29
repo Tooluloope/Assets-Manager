@@ -16,7 +16,7 @@
 
 Route::get('/users', 'UserController@index')->name('users');
 Route::post('/users', 'UserController@create')->name('create-user');
-Route::get('/equipments', 'EquipmentController@index')->name('equipments');
+Route::get('/equipment', 'EquipmentController@index')->name('equipments');
 
 Auth::routes();
 
@@ -32,11 +32,11 @@ Route::get('/add-consumables', function ()
 {
 	return view ('consumables/add-consumables');
 });
-Route::get('/edit-equipments', function ()
+Route::get('/edit-equipment', function ()
 {   
 	return view ('equipments/edit-equipments');
 });
-Route::get('/add-equipments', function ()
+Route::get('/add-equipment', function ()
 {
 	return view ('equipments/add-equipments');
 });
