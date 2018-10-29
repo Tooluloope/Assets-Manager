@@ -40,15 +40,15 @@
                                                     <div class="steps-step">
                                                         <a href="#step-13" type="button" class="btn btn-default" disabled="disabled">Maintenance</i></a>
                                                     </div>
-                                                    <div class="steps-step">
+                                                    <!-- <div class="steps-step">
                                                         <a href="#step-14" type="button" class="btn btn-default" disabled="disabled" >Contracts</a>
-                                                    </div>
-                                                    <div class="steps-step">
+                                                    </div> -->
+                                                    <!-- <div class="steps-step">
                                                         <a href="#step-15" type="button" class="btn btn-default" disabled="disabled">Funding</i></a>
-                                                    </div>
-                                                    <div class="steps-step">
+                                                    </div> -->
+                                                    <!-- <div class="steps-step">
                                                         <a href="#step-16" type="button" class="btn btn-default" disabled="disabled" >Transaction History</a>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                 

@@ -85,7 +85,7 @@ background-color:#002545 ;
 
           
             <!-- Equipments -->
-            <div class=" mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="equipments">
+            <div class=" mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="equipment">
               <a class=" side-list mdc-drawer-link" href="#">
                 <img width="19.13" height="17" src="{{url('images/hammer.svg')}}" class="mr-4 ml-1"> 
                 Equipment
@@ -94,16 +94,12 @@ background-color:#002545 ;
               <div class="mdc-expansion-panel" id="equipment">
                 <nav class="mdc-list mdc-drawer-submenu">
                   <div class="mdc-list-item mdc-drawer-item pl-5">
-
-                     <a class="mdc-drawer-link" href="{{ url('equipment') }}">
+                     <a class="mdc-drawer-link" href="{{ url('equipments')}}">
                       View Equipment
                     </a>
-                    <br>
                     <a class="mdc-drawer-link" href="{{ url('add-equipment') }}">
                       Add Equipment
                     </a>
-
-                   
                   </div>
                 </nav>
               </div>

@@ -16,7 +16,7 @@
 
 Route::get('/users', 'UserController@index')->name('users');
 Route::post('/users', 'UserController@create')->name('create-user');
-Route::get('/equipment', 'EquipmentController@index')->name('equipments');
+Route::get('/equipments', 'EquipmentController@index')->name('equipments');
 
 Auth::routes();
 
