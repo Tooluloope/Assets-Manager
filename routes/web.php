@@ -34,11 +34,15 @@ Route::get('/add-consumables', function ()
 });
 Route::get('/edit-equipment', function ()
 {   
-	return view ('equipments/edit-equipments');
+	return view ('equipment/edit-equipment');
 });
 Route::get('/add-equipment', function ()
 {
-	return view ('equipments/add-equipments');
+	return view ('equipment/add-equipment');
+});
+Route::get('/equipment-list', function ()
+{
+	return view ('equipment/list-equipment');
 });
 
 

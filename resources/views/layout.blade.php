@@ -91,7 +91,7 @@ background-color:#002545 ;
                 Equipment
                 <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>
               </a>
-              <div class="mdc-expansion-panel" id="equipments">
+              <div class="mdc-expansion-panel" id="equipment">
                 <nav class="mdc-list mdc-drawer-submenu">
                   <div class="mdc-list-item mdc-drawer-item pl-5">
 
