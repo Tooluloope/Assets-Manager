@@ -50,13 +50,17 @@ Route::get('/add-consumables', function ()
 {
 	return view ('consumables/add-consumables');
 });
-Route::get('/edit-equipments', function ()
+Route::get('/edit-equipment', function ()
 {   
-	return view ('equipments/edit-equipments');
+	return view ('equipment/edit-equipment');
 });
-Route::get('/add-equipments', function ()
+Route::get('/add-equipment', function ()
 {
-	return view ('equipments/add-equipments');
+	return view ('equipment/add-equipment');
+});
+Route::get('/equipment-list', function ()
+{
+	return view ('equipment/list-equipment');
 });
 
 

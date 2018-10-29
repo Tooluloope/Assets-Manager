@@ -1,6 +1,6 @@
 @extends('layout')
 @section('pageTitle')
- Equipments| Add Consumables
+ Equipment| Add Consumables
 @endsection
 
 
