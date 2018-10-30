@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- plugins:css -->
-  <link rel="stylesheet"  href="{{url('css/mdi/css/materialdesignicons.min.css')}}">
+  <link  rel="stylesheet"  href="{{url('css/mdi/css/materialdesignicons.min.css')}}">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -68,12 +68,12 @@ background-color:#002545 ;
 						<img src="http://www.ariosh.com/images/ariosh_logo.png" alt="logo">
 					</a>
         </div>
-        <div style="height: 100%;" class="mdc-list-group">
+        <div style="height: 100%; background: #002545 !important;" class="mdc-list-group">
           <nav style="height: 100%;" class="mdc-list mdc-drawer-menu">
 
-                      <!-- users -->
+                      <!--  users -->
             <div class="side-list mdc-list-item mdc-drawer-item @yield('users_active')">
-              <a class="mdc-drawer-link" href="{{ route('users') }}">
+              <a class="mdc-drawer-link link" href="{{ route('users') }}">
               <i class="fa fa-users pr-4 pl-1 fa-lg" aria-hidden="true"></i>
                   Users
               </a>
@@ -86,18 +86,18 @@ background-color:#002545 ;
           
             <!-- Equipments -->
             <div class=" mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="equipment">
-              <a class=" side-list mdc-drawer-link" href="#">
-                <img width="19.13" height="17" src="{{url('images/hammer.svg')}}" class="mr-4 ml-1"> 
+              <a class=" side-list mdc-drawer-link link" href="#">
+                <img width="19.13" height="17" src="{{url('images/handyman-tools.svg')}}" class="mr-4 ml-1"> 
                 Equipment
                 <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>
               </a>
               <div class="mdc-expansion-panel" id="equipment">
                 <nav class="mdc-list mdc-drawer-submenu">
                   <div class="mdc-list-item mdc-drawer-item pl-5">
-                     <a class="mdc-drawer-link" href="{{ url('equipments')}}">
+                     <a class="side-list mdc-drawer-link link" href="{{ url('equipments')}}">
                       View Equipment
                     </a>
-                    <a class="mdc-drawer-link" href="{{ url('add-equipment') }}">
+                    <a class="side-list mdc-drawer-link link" href="{{ url('add-equipment') }}">
                       Add Equipment
                     </a>
                   </div>
@@ -106,18 +106,18 @@ background-color:#002545 ;
             </div>
             <!-- Consumables -->
             <div class=" mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="consumables">
-              <a class="side-list mdc-drawer-link" href="#">
-                <img width="19.13" height="17" src="{{url('images/repair.svg')}}" class="mr-4 ml-1"> 
+              <a class="side-list mdc-drawer-link link" href="#">
+                <img width="19.13" height="17" src="{{url('images/printer.svg')}}" class="mr-4 ml-1"> 
                 Consumables
                 <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>
               </a>
               <div class="mdc-expansion-panel" id="consumables">
                 <nav class="mdc-list mdc-drawer-submenu">
                   <div class="mdc-list-item mdc-drawer-item pl-5">
-                    <a class="mdc-drawer-link" href="{{ url('consumables')}}">
+                    <a class="mdc-drawer-link link" href="{{ url('consumables')}}">
                       View Consumables
                     </a>
-                    <a class="mdc-drawer-link" href="{{ url('add-consumables') }}">
+                    <a class="mdc-drawer-link link" href="{{ url('add-consumables') }}">
                       Add Consumables
                     </a>
                   </div>

@@ -36,9 +36,9 @@ Route::get('/add-consumables', function ()
 {
 	return view ('consumables/add-consumables');
 });
-Route::get('/edit-equipment', function ()
+Route::get('/equipment-name', function ()
 {   
-	return view ('equipment/edit-equipment');
+	return view ('equipment/equipment');
 });
 Route::get('/add-equipment', function ()
 {

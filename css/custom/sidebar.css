@@ -1,9 +1,19 @@
 .side-list:hover {
-    background: #002545 !important;
+    background: gray !important;
     color: white !important;
+    padding-left: 5px !important; 
+    transition: all 100ms ease;
+    
 }
-.side-list a:hover {
+ /* a.side-list:hover {
     color: white !important;
+    padding-left: 5px !important; 
+    transition: all 100ms ease;
 
-
+} */
+/* .side-list.active {
+    background: black !important
+} */
+.link {
+    color: white !important;
 }
