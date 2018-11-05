@@ -28,7 +28,6 @@ table.dataTable>tbody>tr.child{
                             <th class="text-center">Tag No</th>
                             <th class="text-center">Name</th>
                             <th class="text-center">Category</th>
-                            <th class="text-center"> Quantity</th>
                             <th class="text-center">SWL</th>
                             <th class="text-center">Size</th>
                             <th class="text-center">Location</th>
@@ -41,7 +40,6 @@ table.dataTable>tbody>tr.child{
                             <td>{{$equipment->tag_no == '' ? 'A***' : $equipment->tag_no}}</td>
                             <td><a style='color:#428bca;' href="{{ url('/equipment-name') }}">{{$equipment->name}}</a></td>
                             <td>{{$equipment->category}}</td>
-                            <td>{{$equipment->quantity}}</td>
                             <td>{{$equipment->swl}}</td>
                             <td>{{$equipment->size}}</td>
                             <td>{{$equipment->current_locaton}}</td>
@@ -55,7 +53,7 @@ table.dataTable>tbody>tr.child{
                     </tbody>
                 </table>
 
-        <button style="position: fixed; bottom: 50px; right: 30px;" data-toggle="modal" data-target=".bd-example-modal-lg" class=" btn btn-circle btn-primary-color" >+</button>
+       <!-- <button style="position: fixed; bottom: 50px; right: 30px;" data-toggle="modal" data-target=".bd-example-modal-lg" class=" btn btn-circle btn-primary-color" >+</button>-->
 
         
          
