@@ -15,6 +15,8 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet"  href="{{url('css/style.css')}}">
+  <link rel="stylesheet"  href="{{url('css/custom/chosen.css')}}">
+
   <link rel="stylesheet"  href="{{url('css/custom/home.css')}}">
   <link rel="stylesheet"  href="{{url('css/custom/sidebar.css')}}">
   <link rel="shortcut icon" href="http://www.ariosh.com/images/ariosh_fav.ico">
@@ -186,6 +188,10 @@ background-color:#002545 ;
   <script src="{{url('js/jquery.validate.min.js')}}"></script>
   <script type="text/javascript" src="{{url('js/js/mdb.min.js')}}"></script>
     <script type="text/javascript" src="{{url('js/custom/home.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.6/chosen.jquery.min.js"></script>
+
+
+  <script type="text/javascript"  src="{{url('js/custom/chosen.jquery.js')}}"></script>
 
 <script src="{{url('js/toastr.min.js')}}"></script>
 <script src="{{url('js/jquery.dataTables.min.js')}}"></script>

@@ -72,6 +72,7 @@
                                                             <label data-error="wrong" data-success="right" for="equipment-type">Equipment Type</label>
                                                             <input required="required" id="equipment-type" name="equipment-type" type="text" class="form-control validate" placeholder="Equipment Type">
                                                         </div>
+                                                        
                                                         <div class="col form-group">
                                                             <label data-error="wrong" data-success="right" for="manufacturer">Manufacturer</label>
                                                             <input required="required" id="manufacturer" name="manufacturer" type="text" class="form-control validate" placeholder="Manufacturer">
@@ -84,18 +85,26 @@
                                                         </div>
                                                         <div class="col form-group">
                                                             <label data-error="wrong" data-success="right" for="condition">Condition</label>
-                                                            <input required="required" id="condition" name="condition" type="text" class="form-control validate" placeholder="Condition">
-                                                        </div>
-                                                        <div class="col form-group">
-                                                            <label for="category" data-error="wrong" data-success="right">Category</label>
-                                                            <select required="required" class="form-control validate" name="category" id="category">
+                                                            <select required="required" id="condition" name="condition" class="form-control validate">
                                                                 <option value="123" selected>---Select---</option>
                                                                 <option value="Excellent">Excellent</option>
                                                                 <option value="Bad">Bad</option>
                                                                 <option value="Needs Maintenance">Needs Maintenance</option>                            
+                                                            </select>   
+                                                        
+                                                        </div>
+
+                                                        
+                                                        <div class="col form-group">
+                                                            <label for="category" data-error="wrong" data-success="right">Category</label>
+                                                            <select required="required" class="form-control validate" name="category" id="category">
+                                                                <option value="123" selected>---Select---</option>
+                                                                <option value="Rigging Equipment">Rigging Equipment</option>
+                                                                                     
                                                             </select>                            
                                                         </div>
                                                     </div>
+                                                    
                                                     <button class="btn btn-indigo btn-rounded nextBtn float-right" type="button">Next</button>
                                                 </div>
                                             
@@ -143,6 +152,13 @@
                                                             <label data-error="wrong" data-success="right" for="current-depreciation">Current Depreciation</label>
                                                             <input required="required" id="current-depreciation" name="current-depreciation" type="number" class="form-control validate" placeholder="">
                                                         </div>
+                                                    </div>
+                                                    <div class="form-row pb-3">    
+                                                        <div class="col form-group">
+                                                            <label data-error="wrong" data-success="right" for="useful-life">Useful life/Lifespan of Equipment</label>
+                                                            <input required="required" id="useful-life" name="useful-life" type="number" class="form-control valicost" placeholder="">
+                                                        </div>
+                                                        
                                                     </div>
                                                     <button class="btn btn-indigo btn-rounded prevBtn float-left" type="button">Previous</button>
                                                     <button class="btn btn-indigo btn-rounded nextBtn float-right" type="button">Next</button>
@@ -307,9 +323,29 @@
 @section('page_scripts')
 
 <script type="text/javascript" src="{{url('js/custom/form.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.6/chosen.jquery.min.js"></script>
+
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script>
+    $('.form-control-chosen').chosen({
+  // Chosen options here
+  multiple
+});
+function your_action(sel){
+    duration=$('.duration')
+    removeRequired = $('div.duration div input')
+    if(sel.value == "Contract Staff") {
+        duration.removeClass('contract')
+        removeRequired.closest(".form-group")
+    }
+    else {
+        duration.addClass('contract')
+        
+    }
+}
+</script>
 
 
 <script type="text/javascript">
