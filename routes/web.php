@@ -18,6 +18,13 @@ Route::get('/users', 'UserController@index')->name('users');
 Route::post('/users', 'UserController@create')->name('create-user');
 Route::get('/equipments', 'EquipmentController@index')->name('equipments');
 
+
+Route::get('/projects', 'ProjectController@index')->name('projects');
+Route::post('/project', 'ProjectController@create')->name('project');
+Route::post('/project/update', 'ProjectController@update')->name('update-project');
+Route::any('/projects/{name}/allocate-equipment', 'ProjectController@add_equipment')->name('allocate-equipment');
+Route::any('/projects/{name}/deallocate -equipment', 'ProjectController@remove_equipment')->name('deallocate -equipment');
+Route::get('/projects/{name}/equipment', 'ProjectController@view_equipment')->name('view-equipment');
 Auth::routes();
 
 

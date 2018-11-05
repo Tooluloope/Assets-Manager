@@ -125,7 +125,14 @@ background-color:#002545 ;
                 </nav>
               </div>
             </div>
-           
+
+            <div class="side-list mdc-list-item mdc-drawer-item @yield('users_active')">
+              <a class="mdc-drawer-link link" href="{{ route('projects') }}">
+             <img width="19.13" height="17" src="{{url('images/project.svg')}}" class="mr-4 ml-1"> 
+                  Projects
+              </a>
+            </div>
+          
           </nav>
         </div>
       </nav>

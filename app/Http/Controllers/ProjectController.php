@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Manifest;
 use App\Models\Personnel;
-use App\Models\ProjectPersonnel;
+use App\Models\ProjectEquipment;
 use Illuminate\Support\Facades\Validator;
 class ProjectController extends Controller
 {
@@ -17,13 +17,13 @@ class ProjectController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        ##$this->middleware('auth');
     }
 
     public function index()
     {
     	$projects = Project::get();
-    	return view('projects',compact('projects'));
+    	return view('projects.index',compact('projects'));
     }
 
 
@@ -41,14 +41,11 @@ class ProjectController extends Controller
                             ->withInput();
             }
 
-
            $project = Project::create($request->all());
 
            if ($project) {
            return redirect()->back()->with('message','Project Created succesfully');
            }
-
-
 
     }
 
@@ -83,11 +80,11 @@ class ProjectController extends Controller
     	  	if (isset($project_equipmet->id)) {
     	  		return 'This Equipment has already been added to this project';
     	  	}
-            $project_equipmet = ProjectPersonnel::where('equipment_id',$request->equipment_id)->first();
+            $project_equipmet = ProjectEquipment::where('equipment_id',$request->equipment_id)->first();
             if (isset($project_equipmet->id)) {
                 return 'This Equipment has already been added to another project';
             }
-    	  	$project_equipmet = ProjectPersonnel::create($request->all());
+    	  	$project_equipmet = ProjectEquipment::create($request->all());
 
     	  	if ($project_equipmet) {
     	  		return 'Equipment added to project succesfully';
@@ -117,7 +114,7 @@ class ProjectController extends Controller
     	  	}
     }
 
-    public function view_personnel(Request $request)
+    public function view_equipment(Request $request)
     {
     	 $project = Project::find($request->id);
 

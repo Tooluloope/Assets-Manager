@@ -15,6 +15,8 @@ class CreateProjectEquipmentTable extends Migration
     {
         Schema::create('project_equipment', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('project_id');
+            $table->integer('equipment_id');
             $table->timestamps();
         });
     }

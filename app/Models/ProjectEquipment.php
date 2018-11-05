@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProjectPersonnel extends Model
+class ProjectEquipment extends Model
 {
 
 	/**
@@ -12,18 +12,18 @@ class ProjectPersonnel extends Model
      *
      * @var array
      */
-    protected $fillable = [ 'project_id','personnel_id'];
-
+    protected $fillable = [ 'project_id','equipment_id'];
+    protected $table = 'project_equipment';
      public static function boot()
     {
         parent::boot();
 
-        ProjectPersonnel::observe(new \App\Observers\UserActionsObserver);
+        ProjectEquipment::observe(new \App\Observers\UserActionsObserver);
     }
 
-     public function personnel()
+     public function equipment()
     {
-        return $this->hasOne(Personnel::class, 'id','personnel_id');
+        return $this->hasOne(Equipment::class, 'id','equipment_id');
     }
 
      public function project()
