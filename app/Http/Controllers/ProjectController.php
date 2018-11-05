@@ -31,10 +31,7 @@ class ProjectController extends Controller
     {
     	$validator = Validator::make($request->all(), [
                 'name' => 'required',
-                'start_date' => 'required',
-                'end_date' => 'required',
                 'location' => 'required',
-                'project_manager' => 'required',
                
 
             ]);
@@ -60,10 +57,7 @@ class ProjectController extends Controller
        
         $validator = Validator::make($request->all(), [
                 'name' => 'required',
-                'start_date' => 'required',
-                'end_date' => 'required',
                 'location' => 'required',
-                'project_manager' => 'required',
                
 
             ]);
@@ -81,58 +75,30 @@ class ProjectController extends Controller
            }
     }
 
-    public function add_personnel(Request $request)
+    public function add_equipment(Request $request)
     {
     	  if ($request->isMethod('post')) {
-    	  	$project_personnel = ProjectPersonnel::where('personnel_id',$request->personnel_id)->where('project_id',$request->project_id)->first();
+    	  	$project_equipmet = ProjectEquipment::where('equipment_id',$request->equipment_id)->where('project_id',$request->project_id)->first();
 
-    	  	if (isset($project_personnel->id)) {
-    	  		return 'This Personnel has already been added to this project';
+    	  	if (isset($project_equipmet->id)) {
+    	  		return 'This Equipment has already been added to this project';
     	  	}
-            $project_personnel = ProjectPersonnel::where('personnel_id',$request->personnel_id)->first();
-            if (isset($project_personnel->id)) {
-                return 'This Personnel has already been added to another project';
+            $project_equipmet = ProjectPersonnel::where('equipment_id',$request->equipment_id)->first();
+            if (isset($project_equipmet->id)) {
+                return 'This Equipment has already been added to another project';
             }
-    	  	$project_personnel = ProjectPersonnel::create($request->all());
+    	  	$project_equipmet = ProjectPersonnel::create($request->all());
 
-    	  	if ($project_personnel) {
-    	  		return 'Personnel added to project succesfully';
+    	  	if ($project_equipmet) {
+    	  		return 'Equipment added to project succesfully';
     	  	}
 
     	  	
     	  }
 
     	  $project = Project::find($request->id);
-
-          if ($project->type == 'Offshore') {
-              $personnels = Personnel::where('nationality','Local')->where('t_bosiet','!=','')->where('t_bosiet_validity_date','>',date('Y-m-d'))->where('general_medicals','!=','')->where('general_medicals_validity_date','>',date('Y-m-d'))->where('alcohol_and_drug','!=','')->where('alcohol_and_drug_validity_date','>',date('Y-m-d'))->where('tuberculosis','!=','')->where('tuberculosis_validity_date','>',date('Y-m-d'))->where('osp','!=','')->where('osp_validity_date','>',date('Y-m-d'))->get();
-
-          //return var_dump($personnels);
-
-          $personnels_exparts = Personnel::where('nationality','Expatriate')->where('t_bosiet','!=','')->where('t_bosiet_validity_date','>',date('Y-m-d'))->where('general_medicals','!=','')->where('general_medicals_validity_date','>',date('Y-m-d'))->where('alcohol_and_drug','!=','')->where('alcohol_and_drug_validity_date','>',date('Y-m-d'))->where('tuberculosis','!=','')->where('tuberculosis_validity_date','>',date('Y-m-d'))->where('osp','!=','')->where('osp_validity_date','>',date('Y-m-d'))->where('malaria','!=','')->where('malaria_validity_date','>',date('Y-m-d'))->get();
-            //return var_dump($personnels_exparts);
-          
-
-          }
-
-          elseif ($project->type == 'Onshore') {
-            $personnels = Personnel::where('nationality','Local')->where('t_bosiet','!=','')->where('t_bosiet_validity_date','>',date('Y-m-d'))->where('general_medicals','!=','')->where('general_medicals_validity_date','>',date('Y-m-d'))->where('alcohol_and_drug','!=','')->where('alcohol_and_drug_validity_date','>',date('Y-m-d'))->get();
-
-          //return var_dump($personnels);
-
-          $personnels_exparts = Personnel::where('nationality','Expatriate')->where('t_bosiet','!=','')->where('t_bosiet_validity_date','>',date('Y-m-d'))->where('general_medicals','!=','')->where('general_medicals_validity_date','>',date('Y-m-d'))->where('alcohol_and_drug','!=','')->where('alcohol_and_drug_validity_date','>',date('Y-m-d'))->where('malaria','!=','')->where('malaria_validity_date','>',date('Y-m-d'))->get();
-            //return var_dump($personnels_exparts);
-          
-
-          }else{
-             return redirect()->back()->with('message','Project Type Not Specified (Offshore or Onshore)');
-        
-          
-          }
-    	  
-          $personnels = $personnels->merge($personnels_exparts);
-
-    	  return view('add-personnels',compact('personnels','project'));
+        $project_equipmet = ProjectEquipment::where('project_id',$request->project_id)->get();
+    	  return view('add-equipmet',compact('project_equipmet','project'));
 
     }
 
