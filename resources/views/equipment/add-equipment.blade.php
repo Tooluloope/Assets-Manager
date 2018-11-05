@@ -81,7 +81,11 @@
                                                     <div class="form-row pb-3">    
                                                         <div class="col form-group">
                                                             <label data-error="wrong" data-success="right" for="location">Location</label>
-                                                            <input required="required" id="location" name="location" type="text" class="form-control validate" placeholder="Location">
+                                                            <select required="required" id="location" name="location" class="form-control validate">
+                                                                <option value="123" selected>---Select---</option>
+                                                                <option value="Fabrication Yard">Fabrication Yard</option>
+                                                                                         
+                                                            </select> 
                                                         </div>
                                                         <div class="col form-group">
                                                             <label data-error="wrong" data-success="right" for="condition">Condition</label>

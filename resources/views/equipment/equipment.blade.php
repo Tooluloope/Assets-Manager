@@ -55,7 +55,47 @@
                                 </div>      
                             </div>
                         </div>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="text-body">Time Usage Information</h5>
+                    <div class="card">
+                        <div class="card-body row pt-3">
+                            <div class="col">
+                                <p class="mb-1 mt-0">Total Time Usage(Hrs): 30500 Hrs</p>
+                                <p class="mb-1 mt-0">Time Usage Sine last Maintenance(Hrs): 300 Hrs</p>
+                              
+                                <!-- <form class="form-inline">
+                                    <div class="form-group mx-sm-3 mb-2">
+                                        <input required="required" id="time-usage" name="time-usage" type="number" class="form-control validate" placeholder="Time Usage">
+                                    </div>
+                                    <button type="submit" class="btn-sm btn-primary mb-2">Add</button>
+                                </form> -->
+                            </div>      
+                        </div>
                     </div>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="text-body">Project Information</h5>
+                    <div class="card">
+                        <div class="card-body row pt-3">
+                            <div class="col">
+                                <p class="mb-1 mt-0">Current Project: Project 123</p>
+                                <p class="mb-1 mt-0">Current Location: Location 123</p>
+                                <p class="mb-1 mt-0">Allocated By: Personnel 123</p>
+                                <p class="mb-1 mt-0">Date Allocated: Date 123</p>
+
+
+                              
+                                <!-- <form class="form-inline">
+                                    <div class="form-group mx-sm-3 mb-2">
+                                        <input required="required" id="time-usage" name="time-usage" type="number" class="form-control validate" placeholder="Time Usage">
+                                    </div>
+                                    <button type="submit" class="btn-sm btn-primary mb-2">Add</button>
+                                </form> -->
+                            </div>      
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-12 mb-4">
                     <h5 class="text-body"> Maintenance Log</h5>
                     <div class="card">
