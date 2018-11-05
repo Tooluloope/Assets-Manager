@@ -15,7 +15,7 @@
                     <div class="card">
                         <div class="card-body row">
                             <div class="col">
-                                    <img class="img-thumbnail" width="450" src="http://justsimple.asia/srisrisri/wp-content/uploads/2016/04/2-1.png"  alt="Card image cap">
+                                    <img class="img-thumbnail" width="450" src="{{url('images/2-1.png')}}"  alt="Card image cap">
                             </div>
                             <div class="col">
                                     <h5 class="card-text">Riser Pipe</h5>

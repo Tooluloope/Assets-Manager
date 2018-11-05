@@ -4,8 +4,8 @@
 @endsection
 @section('styles')
 <link rel="stylesheet" href="{{url('css/custom/personnel.css')}}"/>
-<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-<link href="https://cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css">
+<link href="{{url('css/custom/datatable-jquery.css')}}">
+<link href="{{url('css/custom/custom.css')}}">
 
 <style type="text/css"> 
 table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
@@ -80,6 +80,6 @@ table.dataTable>tbody>tr.child{
 <script src="{{url('js/custom/row.js')}}"></script>
 <!-- <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script> -->
 
-<script src="https://cdn.datatables.net/fixedheader/3.1.2/js/dataTables.fixedHeader.min.js"></script>
+<script src="{{url('js/custom/fixedHeader.js')}}"></script>
 
 @endsection
