@@ -22,6 +22,7 @@
   <link rel="shortcut icon" href="http://www.ariosh.com/images/ariosh_fav.ico">
   <!-- Font-awesome -->
   <link rel="stylesheet"  href="{{url('fonts/font-awesome/css/font-awesome.css')}}"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet"  href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css"/>
 
   <!-- Bootstrap 4 -->
@@ -130,7 +131,8 @@ background-color:#002545 ;
 
             <div class="side-list mdc-list-item mdc-drawer-item @yield('users_active')">
               <a class="mdc-drawer-link link" href="{{ route('projects') }}">
-             <img width="19.13" height="17" src="{{url('images/project.svg')}}" class="mr-4 ml-1"> 
+              <i class="fas fa-clipboard-list pr-4 pl-1 fa-lg" aria-hidden="true"></i>
+             <!-- <img width="19.13" height="17" src="{{url('images/project.svg')}}" class="mr-4 ml-1">  -->
                   Projects
               </a>
             </div>
