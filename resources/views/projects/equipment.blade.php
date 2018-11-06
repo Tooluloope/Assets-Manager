@@ -1,6 +1,6 @@
 @extends('layout')
 @section('pageTitle')
- View Equipments 
+ Project Equipment
 @endsection
 @section('styles')
 <link rel="stylesheet" href="{{url('css/custom/personnel.css')}}"/>
@@ -19,7 +19,7 @@ table.dataTable>tbody>tr.child{
 <main class="content-wrapper">
     <div class="container-fluid">
 
-                <h2 class="text-center">Equipment</h2>
+                <h2 class="text-center">{{$project->name}} (Equipment)</h2>
            
                 <table id="personnels" class="table table-striped table-bordered  ">
                     <thead>
@@ -35,14 +35,16 @@ table.dataTable>tbody>tr.child{
                         </tr>
                     </thead>
                     <tbody>
-                         @foreach($equipments as $equipment)
+                         @foreach($project_equipments as $equipment)
                          <tr>
-                            <td>{{$equipment->tag_no == '' ? 'A***' : $equipment->tag_no}}</td>
-                            <td><a style='color:#428bca;' href="{{ url('/equipment-name') }}">{{$equipment->name}}</a></td>
-                            <td>{{$equipment->category}}</td>
-                            <td>{{$equipment->swl}}</td>
-                            <td>{{$equipment->size}}</td>
-                            <td>{{$equipment->current_locaton != 'Fab Yard' ? $equipment->project->location : 'Fab Yard'}}</td>
+                            <td>{{$equipment->equipment->tag_no == '' ? 'A***' : $equipment->equipment->tag_no}}</td>
+                            <td><a style='color:#428bca;' href="{{ url('/equipment-name') }}">{{$equipment->equipment->name}}1</a></td>
+                            <td>{{$equipment->equipment->category}}</td>
+                            <td>{{$equipment->equipment->swl}}</td>
+                            <td>{{$equipment->equipment->size}}</td>
+                            <td>
+
+                            {{$equipment->equipment->current_locaton != 'Fab Yard' ? $equipment->equipment->project->location : 'Fab Yard'}}</td>
                             <td></td>
 
 

@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Models\Manifest;
 use App\Models\Personnel;
 use App\Models\ProjectEquipment;
+use App\Models\Equipment;
 use Illuminate\Support\Facades\Validator;
 class ProjectController extends Controller
 {
@@ -78,24 +79,27 @@ class ProjectController extends Controller
     	  	$project_equipmet = ProjectEquipment::where('equipment_id',$request->equipment_id)->where('project_id',$request->project_id)->first();
 
     	  	if (isset($project_equipmet->id)) {
-    	  		return 'This Equipment has already been added to this project';
+    	  		return [0,'This Equipment has already been added to this project'];
     	  	}
             $project_equipmet = ProjectEquipment::where('equipment_id',$request->equipment_id)->first();
             if (isset($project_equipmet->id)) {
-                return 'This Equipment has already been added to another project';
+                return [0,'This Equipment has already been added to another project'];
             }
+          
+          $equipment = Equipment::find($request->equipment_id);
+          $equipment->update(['current_locaton'=> $request->project_id]);
     	  	$project_equipmet = ProjectEquipment::create($request->all());
 
     	  	if ($project_equipmet) {
-    	  		return 'Equipment added to project succesfully';
+    	  		return [1,'Equipment added to project succesfully'];
     	  	}
 
     	  	
     	  }
 
     	  $project = Project::find($request->id);
-        $project_equipmet = ProjectEquipment::where('project_id',$request->project_id)->get();
-    	  return view('add-equipmet',compact('project_equipmet','project'));
+        $equipments = Equipment::get();
+    	  return view('projects.allocate-equipment',compact('equipments','project'));
 
     }
 
@@ -118,9 +122,9 @@ class ProjectController extends Controller
     {
     	 $project = Project::find($request->id);
 
-    	 $project_personnels = ProjectPersonnel::where('project_id',$request->id)->get();
+    	 $project_equipments = ProjectEquipment::where('project_id',$request->id)->get();
     	  
-    	  return view('project-personnels',compact('project_personnels','project'));
+    	  return view('projects.equipment',compact('project_equipments','project'));
     }
 
 

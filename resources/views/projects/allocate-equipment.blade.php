@@ -1,6 +1,6 @@
 @extends('layout')
 @section('pageTitle')
- View Equipments 
+ Allocate Equipments 
 @endsection
 @section('styles')
 <link rel="stylesheet" href="{{url('css/custom/personnel.css')}}"/>
@@ -42,8 +42,8 @@ table.dataTable>tbody>tr.child{
                             <td>{{$equipment->category}}</td>
                             <td>{{$equipment->swl}}</td>
                             <td>{{$equipment->size}}</td>
-                            <td>{{$equipment->current_locaton != 'Fab Yard' ? $equipment->project->location : 'Fab Yard'}}</td>
-                            <td></td>
+                            <td id="e-{{$equipment->id}}">{{$equipment->current_locaton != 'Fab Yard' ? $equipment->project->location : 'Fab Yard'}}</td>
+                            <td> <a onclick="myFunction('{{$equipment->id}}')" class="btn btn-success btn-sm" href="#">Allocate</a></td>
 
 
                          </tr>
@@ -73,6 +73,16 @@ table.dataTable>tbody>tr.child{
    });
 
 } );
+
+  function myFunction(id) {
+        var equipment_id = id;
+        $.post( "{{ url('projects/'.$project->name.'/allocate-equipment') }}",{project_id : '{{$project->id}}',equipment_id : equipment_id, _token : '{{csrf_token()}}' },function( data ) {
+            if (data[0] == 1){
+                $('#e-'+equipment_id).html('{{$project->location}}')
+            }
+          toastr.info(data[1])
+        });
+    }
 
 </script>
 <script src="{{url('js/custom/row.js')}}"></script>
