@@ -17,7 +17,7 @@
 Route::get('/users', 'UserController@index')->name('users');
 Route::post('/users', 'UserController@create')->name('create-user');
 Route::get('/equipments', 'EquipmentController@index')->name('equipments');
-
+Route::get('/add-equipment', 'EquipmentController@add_equipment')->name('add-equipment');
 
 Route::get('/projects', 'ProjectController@index')->name('projects');
 Route::post('/project', 'ProjectController@create')->name('project');
@@ -47,10 +47,7 @@ Route::get('/equipment-name', function ()
 {   
 	return view ('equipment/equipment');
 });
-Route::get('/add-equipment', function ()
-{
-	return view ('equipment/add-equipment');
-});
+
 Route::get('/equipment-list', function ()
 {
 	return view ('equipment/list-equipment');

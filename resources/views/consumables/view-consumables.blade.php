@@ -38,7 +38,7 @@ table.dataTable>tbody>tr.child{
                             <td>{{$consumable->name}}</td>
                             <td>{{$consumable->quantity}}</td>
                             <td>{{$consumable->size == ' ' ? '1 Inch' : $consumable->size}}</td>
-                            <td>{{$consumable->current_locaton}}</td>
+                            <td>{{$consumable->current_location}}</td>
                             <td></td>
 
                          </tr>

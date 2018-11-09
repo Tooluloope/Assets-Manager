@@ -20,7 +20,7 @@ class CreateConsumablesTable extends Migration
             $table->string('size')->default('1 Inch');
             $table->string('quantity')->default('1');
             $table->string('stock_quantity')->nullable();
-            $table->string('current_locaton')->default('Fab Yard');
+            $table->string('current_location')->default('Fabrication Yard');
             $table->string('remarks')->nullable();
             $table->timestamps();
         });

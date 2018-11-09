@@ -87,7 +87,7 @@ class ProjectController extends Controller
             }
           
           $equipment = Equipment::find($request->equipment_id);
-          $equipment->update(['current_locaton'=> $request->project_id]);
+          $equipment->update(['current_location'=> $request->project_id]);
     	  	$project_equipmet = ProjectEquipment::create($request->all());
 
     	  	if ($project_equipmet) {

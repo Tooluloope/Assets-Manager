@@ -42,6 +42,7 @@ class EquipmentsTableSeeder extends Seeder
 
        foreach ($csv as $value) {
 	       	  $equipment = new Equipment();
+            if ($value['current_location'] = ' ') {unset($value['current_location']);}
 	          $equipment->fill(array_intersect_key($value, array_flip($fillable)));
             
 	          $equipment->save();
@@ -87,6 +88,7 @@ class EquipmentsTableSeeder extends Seeder
 
        foreach ($csv as $value) {
             $equipment = new Equipment();
+            if ($value['current_location'] = ' ') {unset($value['current_location']);}
             $equipment->fill(array_intersect_key($value, array_flip($fillable)));
             
             $equipment->save();
@@ -132,6 +134,7 @@ class EquipmentsTableSeeder extends Seeder
 
        foreach ($csv as $value) {
             $equipment = new Equipment();
+            if ($value['current_location'] = ' ') {unset($value['current_location']);}
             $equipment->fill(array_intersect_key($value, array_flip($fillable)));
             
             $equipment->save();
@@ -175,6 +178,7 @@ class EquipmentsTableSeeder extends Seeder
 
        foreach ($csv as $value) {
             $equipment = new Equipment();
+            if ($value['current_location'] = ' ') {unset($value['current_location']);}
             $equipment->fill(array_intersect_key($value, array_flip($fillable)));
             
             $equipment->save();
@@ -215,6 +219,7 @@ class EquipmentsTableSeeder extends Seeder
 
        foreach ($csv as $value) {
             $Consumable = new Consumable();
+            
             $Consumable->fill(array_intersect_key($value, array_flip($fillable)));
             
             $Consumable->save();

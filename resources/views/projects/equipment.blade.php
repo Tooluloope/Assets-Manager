@@ -44,7 +44,7 @@ table.dataTable>tbody>tr.child{
                             <td>{{$equipment->equipment->size}}</td>
                             <td>
 
-                            {{$equipment->equipment->current_locaton != 'Fab Yard' ? $equipment->equipment->project->location : 'Fab Yard'}}</td>
+                            {{$equipment->equipment->current_location != 'Fabrication Yard' ? $equipment->equipment->project->location : 'Fabrication Yard'}}</td>
                             <td></td>
 
 

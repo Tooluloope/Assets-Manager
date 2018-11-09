@@ -19,7 +19,7 @@ class CreateBasketsTable extends Migration
             $table->string('category')->nullable();
             $table->string('size')->nullable();
             $table->string('tag_no')->nullable();
-            $table->string('current_locaton')->nullable();
+            $table->string('current_location')->nullable();
             $table->string('content')->nullable();
             $table->string('remarks')->nullable();
             $table->timestamps();

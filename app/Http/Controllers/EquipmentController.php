@@ -15,6 +15,14 @@ class EquipmentController extends Controller
     	return view('equipment.view-equipments',compact('equipments'));
     }
 
+    public function add_equipment(Request $request)
+    {
+
+        $locations = Equipment::where('current_location','!=','')->select('current_location')->groupBy('current_location')->get();
+        $categories = Equipment::where('category','!=','')->select('category')->groupBy('category')->get();
+        return view ('equipment/add-equipment',compact('locations','categories'));
+    }
+
 
     public function create(Request $request)
     {
