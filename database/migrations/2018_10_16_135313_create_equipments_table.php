@@ -23,7 +23,7 @@ class CreateEquipmentsTable extends Migration
             $table->string('inspected')->nullable();
             $table->string('validity')->nullable();
             $table->string('tag_no')->default('A***');
-            $table->string('current_locaton')->default('Fab Yard');
+            $table->string('current_location')->default('Fabrication Yard');
             $table->string('status')->nullable();
             $table->string('responsible_person')->nullable();
             $table->string('daily_rate')->nullable();

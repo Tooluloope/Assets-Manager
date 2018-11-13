@@ -42,7 +42,7 @@ table.dataTable>tbody>tr.child{
                             <td>{{$equipment->category}}</td>
                             <td>{{$equipment->swl}}</td>
                             <td>{{$equipment->size}}</td>
-                            <td id="e-{{$equipment->id}}">{{$equipment->current_locaton != 'Fab Yard' ? $equipment->project->location : 'Fab Yard'}}</td>
+                            <td id="e-{{$equipment->id}}">{{$equipment->current_location != 'Fabrication Yard' ? $equipment->project->location : 'Fabrication Yard'}}</td>
                             <td> <a onclick="myFunction('{{$equipment->id}}')" class="btn btn-success btn-sm" href="#">Allocate</a></td>
 
 

@@ -82,15 +82,23 @@
                                                         <div class="col form-group">
                                                             <label data-error="wrong" data-success="right" for="location">Location</label>
                                                             <select required="required" id="location" name="location" class="form-control validate">
-                                                                <option value="123" selected>---Select---</option>
-                                                                <option value="Fabrication Yard">Fabrication Yard</option>
+                                                                <option value="" selected>---Select---</option>
+                                                                
+                                                                @foreach($locations as $location)
+
+
+                                                                <option value="{{$location->current_location != 'Fabrication Yard' ? $location->project->location : 'Fabrication Yard'}}">{{$location->current_location != 'Fabrication Yard' ? $location->project->location : 'Fabrication Yard'}}</option>
+                                                                @endforeach
+
+
+                                                            
                                                                                          
                                                             </select> 
                                                         </div>
                                                         <div class="col form-group">
                                                             <label data-error="wrong" data-success="right" for="condition">Condition</label>
                                                             <select required="required" id="condition" name="condition" class="form-control validate">
-                                                                <option value="123" selected>---Select---</option>
+                                                                <option value="" selected>---Select---</option>
                                                                 <option value="Excellent">Excellent</option>
                                                                 <option value="Bad">Bad</option>
                                                                 <option value="Needs Maintenance">Needs Maintenance</option>                            
@@ -102,9 +110,13 @@
                                                         <div class="col form-group">
                                                             <label for="category" data-error="wrong" data-success="right">Category</label>
                                                             <select required="required" class="form-control validate" name="category" id="category">
-                                                                <option value="123" selected>---Select---</option>
-                                                                <option value="Rigging Equipment">Rigging Equipment</option>
-                                                                                     
+                                                                <option value="" selected>---Select---</option>
+                                                                
+                                                                @foreach($categories as $category)
+
+
+                                                                <option value="{{$category->category}}">{{$category->category}}</option>
+                                                                @endforeach               
                                                             </select>                            
                                                         </div>
                                                     </div>
