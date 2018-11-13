@@ -219,7 +219,10 @@ class EquipmentsTableSeeder extends Seeder
 
        foreach ($csv as $value) {
             $Consumable = new Consumable();
-            
+            $split = explode(' ', $value['quantity']);
+
+            $value['quantity'] =  str_replace(' ', '', $split[0]);
+            $value['uom'] =  str_replace(' ', '', $split[1]);
             $Consumable->fill(array_intersect_key($value, array_flip($fillable)));
             
             $Consumable->save();

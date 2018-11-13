@@ -26,6 +26,7 @@ table.dataTable>tbody>tr.child{
                         <tr>
                             <th class="text-center">Name</th>
                             <th class="text-center">Qauntity</th>
+                            <th class="text-center">UOM</th>
                             <th class="text-center">Size</th>
                             <th class="text-center">Location</th>
                             <th class="text-center" >Action</th>
@@ -37,6 +38,7 @@ table.dataTable>tbody>tr.child{
 
                             <td>{{$consumable->name}}</td>
                             <td>{{$consumable->quantity}}</td>
+                             <td>{{$consumable->uom}}</td>
                             <td>{{$consumable->size == ' ' ? '1 Inch' : $consumable->size}}</td>
                             <td>{{$consumable->current_location}}</td>
                             <td></td>

@@ -29,7 +29,7 @@ Auth::routes();
 
 
 Route::get('/consumables', 'ConsumableController@index')->name('consumables');
-
+Route::post('/consumables/add', 'ConsumableController@create')->name('add-consumables');
 
 Route::get('/test', function ()
 {

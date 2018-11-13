@@ -21,7 +21,10 @@ class ConsumableController extends Controller
     	$validator = Validator::make($request->all(), [
                 'name' => 'required',
                 'category' => 'required',
-              
+                'quantity' => 'required',
+                'uom' => 'required',
+                'current_location' => 'required',
+    
             ]);
 
             if ($validator->fails()) {
