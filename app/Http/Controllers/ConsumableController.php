@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Consumable;
 
+use Illuminate\Support\Facades\Validator;
 class ConsumableController extends Controller
 {
     
@@ -18,7 +19,9 @@ class ConsumableController extends Controller
 
     public function create(Request $request)
     {
-    	$validator = Validator::make($request->all(), [
+
+       if ($request->isMethod('post')) {
+           $validator = Validator::make($request->all(), [
                 'name' => 'required',
                 'category' => 'required',
                 'quantity' => 'required',
@@ -37,6 +40,13 @@ class ConsumableController extends Controller
             $consumable->fill($request->except('_token'));
             $consumable->save();
             return redirect()->back()->with('message','Consumable Created succesfully');
+
+        }
+
+        $uoms = Consumable::where('uom','!=','')->select('uom')->groupBy('uom')->get();
+        $categories = Consumable::where('category','!=','')->select('category')->groupBy('category')->get();
+        return view ('consumables.add-consumables',compact('uoms','categories'));
+    	
     }
 
     public function delete($id)

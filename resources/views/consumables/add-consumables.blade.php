@@ -40,10 +40,12 @@
                                         <div class="col-1 form-group">
 
                                         <label data-error="wrong" data-success="right" for="measurement">Measurement</label>
-                                            <select required="required" id="measurement" name="measurement" class="form-control validate">
+                                            <select required="required" id="measurement" name="uom" class="form-control validate">
                                                 <option value="123" selected>---Select---</option>
-                                                <option value="Fabrication Yard">Dozen</option>
-                                                <option value="Fabrication Yard">Pieces</option>
+                                               @foreach($uoms as $uom)
+
+                                               <option value="{{$uom->uom}}" selected>{{$uom->uom}}</option>
+                                               @endforeach
 
                                             </select> </div>
                                         
@@ -57,7 +59,10 @@
                                                 <label data-error="wrong" data-success="right" for="category">category</label>
                                                 <select required="required" id="category" name="category" class="form-control validate">
                                                     <option value="123" selected>---Select---</option>
-                                                    <option value="Fabrication Yard">Welding</option>
+                                                     @foreach($categories as $category)
+
+                                               <option value="{{$category->category}}" selected>{{$category->category}}</option>
+                                               @endforeach
                                                 </select> </div>
                                     </div>
                                    

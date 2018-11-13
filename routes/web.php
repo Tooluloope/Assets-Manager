@@ -39,11 +39,9 @@ Route::get('/edit-consumables', function ()
 {   
 	return view ('consumables/edit-consumables');
 });
-Route::get('/add-consumables', function ()
-{
-	return view ('consumables/add-consumables');
-});
-<<<<<<< HEAD
+
+Route::get('add-consumables', 'ConsumableController@create')->name('add-consumables-page');
+
 Route::get('/equipment-name', function ()
 {   
 	return view ('equipment/equipment');
@@ -52,11 +50,6 @@ Route::get('/consumable-name', function ()
 {   
 	return view ('consumables/consumable');
 });
-=======
-
-Route::get('/equipment/{name}', 'EquipmentController@view_equipment')->name('view-equipment');
-
->>>>>>> b3e14344e2b3385f2c40431b787ca7c42eebfce2
 
 Route::get('/equipment-list', function ()
 {
