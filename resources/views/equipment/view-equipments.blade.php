@@ -38,7 +38,7 @@ table.dataTable>tbody>tr.child{
                          @foreach($equipments as $equipment)
                          <tr>
                             <td>{{$equipment->tag_no == '' ? 'A***' : $equipment->tag_no}}</td>
-                            <td><a style='color:#428bca;' href="{{ url('/equipment-name') }}">{{$equipment->name}}</a></td>
+                            <td><a style='color:#428bca;' href="{{ url('/equipment/'.$equipment->name.'?eid=') }}{{$equipment->id}}">{{$equipment->name}}</a></td>
                             <td>{{$equipment->category}}</td>
                             <td>{{$equipment->swl}}</td>
                             <td>{{$equipment->size}}</td>

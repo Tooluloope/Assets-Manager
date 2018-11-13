@@ -35,6 +35,9 @@ class HomeController extends Controller
         return view('home',compact('personnel','projects','users'));
     }
 
+
+   
+
     public function walk(Request $request)
     {
 

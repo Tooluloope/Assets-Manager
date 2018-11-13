@@ -24,6 +24,13 @@ class EquipmentController extends Controller
     }
 
 
+     public function view_equipment(Request $request)
+    {
+
+      $equipment = Equipment::find($request->eid);
+      return view('equipment.equipment',compact('equipment'));
+    }
+
     public function create(Request $request)
     {
     	$validator = Validator::make($request->all(), [
