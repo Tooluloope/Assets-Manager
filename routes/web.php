@@ -43,10 +43,9 @@ Route::get('/add-consumables', function ()
 {
 	return view ('consumables/add-consumables');
 });
-Route::get('/equipment-name', function ()
-{   
-	return view ('equipment/equipment');
-});
+
+Route::get('/equipment/{name}', 'EquipmentController@view_equipment')->name('view-equipment');
+
 
 Route::get('/equipment-list', function ()
 {

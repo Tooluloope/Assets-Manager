@@ -7,19 +7,19 @@
 @section('content')
     <main class="content-wrapper">
         <div class="container">
-           <div class="row hideme" > <div class="col-md-6"><h3>Personnel Profile</h3></div><div class="col-md-3"><button  class="pull-right personnels btn btn-success btn-md" onclick="printInfo()">Print</button></div>  <div class="col-md-3"><span class=""> <button data-toggle="modal"   class="personnels btn btn-primary btn-md" >Update Equipment</button> </span></div>  </div> 
+           <div class="row hideme" > <div class="col-md-6"><h3>Equipment Profile</h3></div><div class="col-md-3"><button  class="pull-right personnels btn btn-success btn-md" onclick="printInfo()">Print</button></div>  <div class="col-md-3"><span class=""> <button data-toggle="modal"   class="personnels btn btn-primary btn-md" >Update Equipment</button> </span></div>  </div> 
             <hr>
             <div class="row" id="printinfo">
                 <div class="col-md-12">
-                    <h5 class="text-body">Personal Information</h5>
+                    
                     <div class="card">
                         <div class="card-body row">
                             <div class="col">
                                     <img class="img-thumbnail" width="450" src="{{url('images/2-1.png')}}"  alt="Card image cap">
                             </div>
                             <div class="col">
-                                    <h5 class="card-text">Riser Pipe</h5>
-                                    <p class="mb-1">Equipment Description</p>
+                                    <h5 class="card-text">{{$equipment->name}}</h5>
+                                  <!--  <p class="mb-1">Equipment Description</p>-->
                                    
                             </div>      
                         </div>
@@ -47,7 +47,7 @@
                         <div class="card">
                             <div class="card-body row pt-3">
                                 <div class="col">
-                                    <p class="mb-1 mt-0">Equipment Location: Naval Dockyard</p>
+                                    <p class="mb-1 mt-0">Equipment Location: {{$equipment->current_location != 'Fabrication Yard' ? $equipment->project->location : 'Fabrication Yard'}}</p>
                                     <p class="mb-1 mt-0">Equipment Type: </p>
                                     <p class="mb-1 mt-0">Equipment Category: </p>
                                     <p class="mb-1 mt-0">Equipment Manufacturer: </p>
@@ -80,7 +80,7 @@
                         <div class="card-body row pt-3">
                             <div class="col">
                                 <p class="mb-1 mt-0">Current Project: Project 123</p>
-                                <p class="mb-1 mt-0">Current Location: Location 123</p>
+                                <p class="mb-1 mt-0">Current Location: {{$equipment->current_location != 'Fabrication Yard' ? $equipment->project->location : 'Fabrication Yard'}}</p>
                                 <p class="mb-1 mt-0">Allocated By: Personnel 123</p>
                                 <p class="mb-1 mt-0">Date Allocated: Date 123</p>
 
