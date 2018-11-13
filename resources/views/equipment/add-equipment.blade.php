@@ -60,7 +60,7 @@
                                                     <div class="form-row pb-3">
                                                         <div class="col form-group">
                                                             <label for="equipment-tag" data-error="wrong" data-success="right">Equipment Tag</label>
-                                                            <input required="required" id="equipment-desc" name="equipment-desc" type="text" class="form-control validate" placeholder="Equipment Tag">
+                                                            <input required="required" id="equipment-tag" name="equipment-tag" type="text" class="form-control validate" placeholder="Equipment Tag">
                                                         </div>
                                                         <div class="col form-group">
                                                             <label for="equipment-desc">Equipment Description</label>
