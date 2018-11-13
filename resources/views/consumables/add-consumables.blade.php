@@ -33,10 +33,20 @@
                                         </div>
                                     </div>
                                     <div class="form-row pb-3">    
-                                        <div class="col form-group">
+                                        <div class="col-2 form-group">
                                             <label for="consumable-quantity" data-error="wrong" data-success="right">Consumable Quantity</label>
-                                            <input required="required" id="consumable-quantity" name="consumable-quantity" type="text" class="form-control validate" placeholder="Consumable Quantity">
+                                            <input required="required" id="consumable-quantity" name="consumable-quantity" type="number" class="form-control validate" placeholder="Consumable Quantity">
                                         </div>
+                                        <div class="col-1 form-group">
+
+                                        <label data-error="wrong" data-success="right" for="measurement">Measurement</label>
+                                            <select required="required" id="measurement" name="measurement" class="form-control validate">
+                                                <option value="123" selected>---Select---</option>
+                                                <option value="Fabrication Yard">Dozen</option>
+                                                <option value="Fabrication Yard">Pieces</option>
+
+                                            </select> </div>
+                                        
                                         <div class="col form-group">
                                             <label data-error="wrong" data-success="right" for="location">Location</label>
                                             <select required="required" id="location" name="location" class="form-control validate">
@@ -53,10 +63,7 @@
                                    
 
 
-                                    <div class="col form-group">
-                                        <label data-error="wrong" data-success="right" for="equipment-picture">Equipment Picture</label>
-                                        <input required="required" id="equipment-picture" name="equipment-picture" type="file" class="form-control validate" placeholder="">
-                                    </div>
+                                   
                                     <button class="btn btn-indigo btn-rounded nextBtn float-right" type="button">Submit</button>
 
                     

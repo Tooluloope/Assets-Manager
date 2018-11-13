@@ -35,7 +35,7 @@ table.dataTable>tbody>tr.child{
                          @foreach($consumables as $consumable)
                          <tr>
 
-                            <td>{{$consumable->name}}</td>
+                            <td><a style='color:#428bca;' href="{{ url('/consumable-name') }}">{{$consumable->name}}</td>
                             <td>{{$consumable->quantity}}</td>
                             <td>{{$consumable->size == ' ' ? '1 Inch' : $consumable->size}}</td>
                             <td>{{$consumable->current_location}}</td>

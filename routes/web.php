@@ -47,6 +47,10 @@ Route::get('/equipment-name', function ()
 {   
 	return view ('equipment/equipment');
 });
+Route::get('/consumable-name', function ()
+{   
+	return view ('consumables/consumable');
+});
 
 Route::get('/equipment-list', function ()
 {
